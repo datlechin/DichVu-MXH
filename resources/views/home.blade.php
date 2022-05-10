@@ -21,6 +21,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    {{ __('Search') }}
                 </div>
             </div>
         </div>
