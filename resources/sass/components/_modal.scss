@@ -1,0 +1,159 @@
+//
+// _modal.scss
+//
+
+.modal-title {
+    font-weight: $font-weight-semibold;
+}
+
+.modal-dialog:not(.modal-dialog-scrollable) {
+    .modal-header {
+        padding-bottom: 0;
+    
+        .btn-close {
+            margin-top: -$modal-header-padding;
+        }
+    }
+    
+    .modal-footer {
+        padding-top: 0;
+    }
+}
+
+.modal {
+	&.fadeInRight {
+		.modal-dialog {
+			opacity: 0;
+			transform: translateX(20%);
+			transition: all .3s ease-in-out;
+		}
+
+		&.show {
+			.modal-dialog {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+	}
+
+	&.fadeInLeft {
+		.modal-dialog {
+			animation: fadeInLeft 0.3s ease-in-out;
+			transform: translate(-50%, 0);
+		}
+
+		&.show {
+			.modal-dialog {
+				transform: none;
+			}
+		}
+	}
+
+	&.fadeInUp {
+		.modal-dialog {
+			animation: fadeInUp 0.3s ease-in-out;
+			transform: translate(0, 30%);
+		}
+
+		&.show {
+			.modal-dialog {
+				transform: none;
+			}
+		}
+	}
+
+	&.flip {
+		perspective: 1300px;
+
+		.modal-dialog {
+			opacity: 0;
+			transform: rotateY(-70deg);
+			transition: all .3s;
+		}
+
+		&.show {
+			.modal-dialog {
+				opacity: 1;
+				transform: rotateY(0deg);
+			}
+		}
+	}
+
+	&.zoomIn {
+		.modal-dialog {
+			opacity: 0;
+			transform: scale(.7);
+			transition: all .3s ease;
+		}
+
+		&.show {
+			.modal-dialog {
+				opacity: 1;
+				transform: scale(1)
+			}
+		}
+	}
+}
+
+
+.modal-dialog-right {
+	margin-right: $modal-dialog-margin-y-sm-up;
+}
+
+// modal-dialog-bottom
+.modal-dialog-bottom {
+	display: flex;
+	align-items: flex-end;
+	min-height: calc(100% - #{$modal-dialog-margin-y-sm-up});
+
+	@media (min-width: 576px) {
+		min-height: calc(100% - #{$modal-dialog-margin-y-sm-up*2 });
+	}
+}
+
+.modal-dialog-bottom-right {
+	display: flex;
+	align-items: flex-end;
+	min-height: calc(100% - #{$modal-dialog-margin-y-sm-up});
+	margin-right: $modal-dialog-margin-y-sm-up;
+
+	@media (min-width: 576px) {
+		min-height: calc(100% - #{$modal-dialog-margin-y-sm-up*2 });
+	}
+}
+
+@keyframes fadeInLeft {
+	0% {
+		opacity: 0;
+		transform: translate3d(-30%, 0, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateZ(0);
+	}
+}
+
+
+@keyframes fadeInUp {
+	0% {
+		opacity: 0;
+		transform: translate3d(0, 30%, 0);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateZ(0);
+	}
+}
+
+@keyframes zoomIn {
+	0% {
+		opacity: 0;
+		transform: scale3d(.3, .3, .3);
+	}
+
+	50% {
+		opacity: 1
+	}
+}

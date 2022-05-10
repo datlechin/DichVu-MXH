@@ -1,0 +1,359 @@
+// 
+// _buttons.scss
+// 
+
+button,
+a {
+    outline: none !important;
+    position: relative;
+}
+
+.btn{
+    box-shadow: $element-shadow;
+}
+
+// Rounded Buttons
+.btn-rounded {
+    border-radius: 30px;
+}
+
+
+.btn-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(#{$btn-padding-y * 2} + #{$btn-line-height}em + #{$btn-border-width * 2});
+    width: calc(#{$btn-padding-y * 2} + #{$btn-line-height}em + #{$btn-border-width * 2});
+    padding: 0;
+
+    i,
+    svg,
+    img {
+        vertical-align: middle;
+    }
+
+    &.btn-sm {
+        height: calc(#{$btn-padding-y-sm * 2} + #{$btn-line-height}em + #{$btn-border-width * 2});
+        width: calc(#{$btn-padding-y-sm * 2} + #{$btn-line-height}em + #{$btn-border-width * 2});
+    }
+
+    &.btn-lg {
+        height: calc(#{$btn-padding-y-lg * 2} + #{$btn-line-height}em + #{$btn-border-width * 2});
+        width: calc(#{$btn-padding-y-lg * 2} + #{$btn-line-height}em + #{$btn-border-width * 2});
+    }
+}
+
+//
+// Soft Buttons
+// 
+
+@mixin button-variant-soft($bg) {
+    color: $bg;
+    background-color: rgba($bg, 0.1);
+    border-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $white;
+        background-color: $bg;
+    }
+}
+
+@each $color,
+$value in $theme-colors {
+    .btn-soft-#{$color} {
+        @include button-variant-soft($value);
+    }
+}
+
+//
+// Ghost Buttons
+// 
+
+@mixin button-variant-ghost($bg) {
+    color: $bg;
+    border-color: transparent;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $bg;
+        background-color: rgba($bg, 0.1);
+    }
+}
+
+@each $color,
+$value in $theme-colors {
+    .btn-ghost-#{$color} {
+        @include button-variant-ghost($value);
+    }
+}
+
+.btn-ghost-secondary {
+    color: var(--#{$variable-prefix}gray-700);
+}
+
+//button with icon
+.btn-label {
+    position: relative;
+    padding-left: 44px;
+    .label-icon {
+        position: absolute;
+        width: 35.5px;
+        left: -$btn-border-width;
+        top: -$btn-border-width;
+        bottom: -$btn-border-width;
+        background-color: rgba($white, 0.1);
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &.btn-light {
+        .label-icon {
+            background-color: rgba($dark, 0.05);
+        }
+    }
+    &.right {
+        padding-left: $btn-padding-x;
+        padding-right: 44px;
+        .label-icon {
+            right: -$btn-border-width;
+            left: auto;
+        }
+    }
+}
+
+// Animation Button
+
+.btn-animation {
+	overflow: hidden;
+	transition: border-color 0.3s, background-color 0.3s;
+	transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	&::after {
+		content: attr(data-text);
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		transform: translate3d(0, 25%, 0);
+		padding: $btn-padding-y $btn-padding-x;
+		transition: transform 0.3s, opacity 0.3s;
+		transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	}
+	>span {
+		display: block;
+		transition: transform 0.3s, opacity 0.3s;
+		transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	}
+	&:hover {
+		&::after {
+			opacity: 1;
+			transform: translate3d(0, 0, 0);
+		}
+		>span {
+			opacity: 0;
+			transform: translate3d(0, -25%, 0);
+		}
+	}
+}
+
+
+@mixin button-variant($bg) {
+    &.btn-animation {
+        background-color: $bg;
+        border-color: $bg;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $bg;
+            background-color: rgba($bg, 0.1);
+        }
+    }
+}
+
+@each $color,
+$value in $theme-colors {
+    .btn-#{$color} {
+        @include button-variant($value);
+    }
+}
+
+//btn group
+.btn-group-vertical {
+    label {
+        margin-bottom: 0;
+    }
+}
+
+// btn group radio
+.btn-group.radio{
+    .btn{
+        border: none;
+    }
+    .btn-check:active+.btn-light,
+    .btn-check:checked+.btn-light,
+    .btn-light.active,
+    .btn-light.dropdown-toggle.show,
+    .btn-light:active{
+        background-color: rgba($info, 0.2);
+        color: $info;
+    }
+}
+
+// theme dark
+[data-layout-mode="dark"]{
+    .btn-light{
+        color: var(--#{$variable-prefix}dark);
+        background-color: var(--#{$variable-prefix}light);
+        border-color: var(--#{$variable-prefix}light);
+        &:hover{
+            color: var(--#{$variable-prefix}dark);
+            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        }
+    }
+
+    .btn-check:focus+.btn-light,
+    .btn-check:focus+.btn-outline-light,
+    .btn-check:focus+.btn-soft-light,
+    .btn-light:focus,
+    .btn-outline-light:focus,
+    .btn-soft-light:focus{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+    }
+
+    .btn-check:active+.btn-light,
+    .btn-check:active+.btn-outline-light,
+    .btn-check:active+.btn-soft-light,
+    .btn-check:checked+.btn-light,
+    .btn-check:checked+.btn-outline-light,
+    .btn-check:checked+.btn-soft-light,
+    .btn-light.active, .btn-light:active,
+    .btn-outline-light.active, .btn-outline-light:active,
+    .btn-soft-light.active, .btn-soft-light:active,
+    .show>.btn-light.dropdown-toggle,
+    .show>.btn-outline-light.dropdown-toggle,
+    .show>.btn-soft-light.dropdown-toggle{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+    }
+
+    // dark
+
+    .btn-dark{
+        color: var(--#{$variable-prefix}light);
+        background-color: var(--#{$variable-prefix}dark);
+        border-color: var(--#{$variable-prefix}dark);
+        &:hover{
+            color: var(--#{$variable-prefix}light);
+            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        }
+    }
+
+    .btn-check:focus+.btn-dark, 
+    .btn-check:focus+.btn-outline-dark,
+    .btn-check:focus+.btn-soft-dark,
+    .btn-dark:focus,
+    .btn-outline-dark:focus,
+    .btn-soft-dark:focus{
+        color: var(--#{$variable-prefix}light);
+        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+    }
+
+    .btn-check:active+.btn-dark,
+    .btn-check:active+.btn-outline-dark,
+    .btn-check:active+.btn-soft-dark,
+    .btn-check:checked+.btn-dark,
+    .btn-check:checked+.btn-outline-dark,
+    .btn-check:checked+.btn-soft-dark,
+    .btn-dark.active, .btn-dark:active,
+    .btn-outline-dark.active, .btn-outline-dark:active,
+    .btn-soft-dark.active, .btn-soft-dark:active,
+    .show>.btn-dark.dropdown-toggle,
+    .show>.btn-outline-dark.dropdown-toggle,
+    .show>.btn-soft-dark.dropdown-toggle{
+        color: var(--#{$variable-prefix}light);
+        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+    }
+
+    // outline
+
+    .btn-outline-light{
+        color: var(--#{$variable-prefix}dark);
+        border-color: var(--#{$variable-prefix}light);
+        &:hover{
+            color: var(--#{$variable-prefix}dark);
+            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}light-rgb), 0.75);
+        }
+    }
+
+    .btn-outline-dark{
+        color: var(--#{$variable-prefix}dark);
+        border-color: var(--#{$variable-prefix}dark);
+        &:hover{
+            color: var(--#{$variable-prefix}light);
+            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+            border-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.75);
+        }
+    }
+
+    // soft
+
+    .btn-soft-light{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.1);
+        &:hover{
+            color: var(--#{$variable-prefix}dark);
+            background-color: var(--#{$variable-prefix}light);
+        }
+    }
+
+    .btn-soft-dark{
+        color: var(--#{$variable-prefix}dark);
+        background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.1);
+        &:hover{
+            color: var(--#{$variable-prefix}light);
+            background-color: var(--#{$variable-prefix}dark);
+        }
+    }
+
+    // ghost
+    .btn-ghost-light{
+        color: var(--#{$variable-prefix}dark);
+        &:hover,
+        &:focus,
+        &:active{
+            color: var(--#{$variable-prefix}dark);
+            background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.5);
+        }
+    }
+
+    .btn-ghost-dark{
+        color: var(--#{$variable-prefix}dark);
+        &:hover,
+        &:focus,
+        &:active{
+            color: var(--#{$variable-prefix}dark);
+            background-color: rgba(var(--#{$variable-prefix}dark-rgb), 0.1);
+        }
+    }
+}
+
+.btn-load {
+    .spinner-border, .spinner-grow {
+        height: 19px;
+        width: 19px;
+    }
+}

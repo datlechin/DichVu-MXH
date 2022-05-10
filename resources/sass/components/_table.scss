@@ -1,0 +1,94 @@
+// 
+// _table.scss
+// 
+
+.table {
+    th {
+        font-weight: $font-weight-semibold;
+    }
+
+    .table-light {
+        color: $body-color;
+        border-color: $table-border-color;
+        background-color: var(--#{$variable-prefix}light);
+    }
+
+    >thead {
+        border-color: $table-border-color;
+    }
+    >:not(:first-child) {
+        border-top-width: $table-border-width;
+    }
+}
+
+
+.table-nowrap {
+
+    th,
+    td {
+        white-space: nowrap;
+    }
+}
+
+// card table
+
+.table-card{
+    margin: (-$card-spacer-y) (-$card-spacer-x);
+
+    th,
+    td {
+
+        &:first-child{
+            padding-left: 16px;
+        }
+
+        &:last-child{
+            padding-right: 16px;
+        }
+    }
+
+    .table > :not(:first-child) {
+        border-top-width: $table-border-width;
+    }
+}
+
+@each $color,
+$value in $theme-colors {
+    .border-#{$color} {
+        &.table {
+            > thead {
+                border-color: $value !important;
+            }
+        }
+    }
+    .table-#{$color} {
+        &.table {
+            > thead {
+                border-bottom-color:lighten($value, 10%) !important;
+            }
+        }
+    }
+}
+
+.table {
+    .form-check {
+        padding-left: 0px;
+        margin-bottom: 0px;
+        .form-check-input {
+            margin-left: 0px;
+            margin-top: 0px;
+            float: none;
+            vertical-align: middle;
+        }
+    }
+}
+
+[data-layout-mode="dark"]{
+    .table-light{
+        background-color: var(--#{$variable-prefix}light);
+        color: var(--#{$variable-prefix}body-color);
+        th, td{
+            background-color: var(--#{$variable-prefix}light);
+        }
+    }
+}

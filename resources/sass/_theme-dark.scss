@@ -1,0 +1,166 @@
+// :root CSS dark variables
+
+
+[data-layout-mode="dark"]{
+
+  // Color system - Dark Mode only
+  $gray-100: #1a1d21;
+  $gray-200: #212529;
+  $gray-300: #2a2f34;
+  $gray-400: #878a99;
+  $gray-500: #adb5bd;
+  $gray-600: #bfc8e2;
+  $gray-700: #ced4da;
+  $gray-800: #eff2f7;
+  $gray-900: #f3f6f9;
+
+  $grays: (
+      "100": $gray-100,
+      "200": $gray-200,
+      "300": $gray-300,
+      "400": $gray-400,
+      "500": $gray-500,
+      "600": $gray-600,
+      "700": $gray-700,
+      "800": $gray-800,
+      "900": $gray-900
+  );
+
+  // Prefix for :root CSS variables
+  @each $color, $value in $grays {
+      --#{$variable-prefix}gray-#{$color}: #{$value};
+  }
+
+  // body
+  --#{$variable-prefix}body-bg :  #{$gray-100};
+  --#{$variable-prefix}body-color: #{$gray-700};
+  --#{$variable-prefix}body-color-rgb: #{to-rgb($gray-700)};
+  
+
+  //vertical light
+  --#{$variable-prefix}vertical-menu-bg:                      #{$white};
+  --#{$variable-prefix}vertical-menu-item-color:              #{darken($gray-400, 16%)};
+  --#{$variable-prefix}vertical-menu-item-hover-color:        #{$primary};
+  --#{$variable-prefix}vertical-menu-item-active-color:       #{$primary};
+  --#{$variable-prefix}vertical-menu-sub-item-color:          #{darken($gray-400, 12%)};
+  --#{$variable-prefix}vertical-menu-sub-item-hover-color:    #{$primary};
+  --#{$variable-prefix}vertical-menu-sub-item-active-color:   #{$primary};
+  --#{$variable-prefix}vertical-menu-title-color:             #{$gray-400};
+
+  //vertical dark
+  --#{$variable-prefix}vertical-menu-bg-dark:                 #{$gray-200};
+  --#{$variable-prefix}vertical-menu-item-color-dark:        #{$gray-400};
+  --#{$variable-prefix}vertical-menu-item-hover-color-dark:   #{$white};
+  --#{$variable-prefix}vertical-menu-item-active-color-dark:  #{$white};
+  --#{$variable-prefix}vertical-menu-sub-item-color-dark:    #{darken($gray-400, 4%)};
+  --#{$variable-prefix}vertical-menu-sub-item-hover-color-dark: #{$white};
+  --#{$variable-prefix}vertical-menu-sub-item-active-color-dark: #{$white};
+  --#{$variable-prefix}vertical-menu-title-color-dark:         #{darken($gray-400, 16%)};
+
+  // Topbar - (Default Light)
+  --#{$variable-prefix}header-bg:  #{lighten($gray-200, 2%)};
+  --#{$variable-prefix}header-item-color:  #e9ecef;
+  // Topbar - Dark
+  --#{$variable-prefix}header-bg-dark:  var(--#{$variable-prefix}header-bg);
+  --#{$variable-prefix}header-item-color-dark:  var(--#{$variable-prefix}header-item-color);
+
+  // Topbar Search
+  --#{$variable-prefix}topbar-search-bg: #{darken($gray-200, 3%)};
+  // Topbar User
+  --#{$variable-prefix}topbar-user-bg: #{lighten($gray-300, 2%)};
+  --#{$variable-prefix}topbar-user-bg-dark: #{lighten($gray-300, 2%)};
+
+  //footer
+  --#{$variable-prefix}footer-bg: #{lighten($gray-200, 1%)};
+  --#{$variable-prefix}footer-color: #{$gray-400};
+
+  // Horizontal nav
+  --#{$variable-prefix}topnav-bg: #{lighten($gray-200, 2.5%)};
+  --#{$variable-prefix}topnav-item-color: #{$gray-400};
+  --#{$variable-prefix}topnav-item-color-active: #{$white};
+
+  // twocolumn menu
+  --#{$variable-prefix}twocolumn-menu-iconview-bg: #{$white};
+  --#{$variable-prefix}twocolumn-menu-bg:  #{$white};
+    
+  // two column dark
+  --#{$variable-prefix}twocolumn-menu-iconview-bg-dark: #{darken($gray-200, 2.5%)};
+  --#{$variable-prefix}twocolumn-menu-bg-dark:  var(--#{$variable-prefix}vertical-menu-bg-dark);
+  --#{$variable-prefix}twocolumn-menu-item-color-dark: var(--#{$variable-prefix}vertical-menu-item-color-dark);
+  --#{$variable-prefix}twocolumn-menu-item-active-color-dark:  #{$white};
+  --#{$variable-prefix}twocolumn-menu-item-active-bg-dark:  #{rgba($white, .15)};
+
+  // boxed 
+  --#{$variable-prefix}boxed-body-bg: #{darken($gray-100, 4%)};
+
+  // heading-color
+  --#{$variable-prefix}heading-color: #{$gray-700};
+
+  // material shadow
+  --#{$variable-prefix}box-shadow: 0 3px 5px rgba(29, 35, 40,0.15);
+
+  // component variable
+  --#{$variable-prefix}light: #{$gray-300};
+  --#{$variable-prefix}light-rgb: #{to-rgb($gray-300)};
+  --#{$variable-prefix}dark: #{$gray-800};
+  --#{$variable-prefix}dark-rgb: #{to-rgb($gray-800)};
+
+  // link
+  --#{$variable-prefix}link-color: #{$gray-700};
+  --#{$variable-prefix}link-hover-color: #{$gray-700};
+
+  // Border variable
+  --#{$variable-prefix}border-color:  #{lighten($gray-300, 3.5%)};
+
+  // dropdown
+  --#{$variable-prefix}dropdown-bg: #{lighten($gray-200, 2.5%)};
+  --#{$variable-prefix}dropdown-link-color: #{$gray-800};
+  --#{$variable-prefix}dropdown-link-hover-color: #{shade-color($gray-800, 10%)};
+  --#{$variable-prefix}dropdown-link-hover-bg: #{lighten($gray-300, 2%)};
+  --#{$variable-prefix}dropdown-border-width: 1px;
+
+  // card
+  --#{$variable-prefix}card-bg: #{$gray-200};
+  --#{$variable-prefix}card-cap-bg: #{$gray-200};
+  --#{$variable-prefix}card-logo-dark: none;
+  --#{$variable-prefix}card-logo-light: block;
+
+  // modal
+  --#{$variable-prefix}modal-bg: #{$gray-200};
+
+  // nav tabs
+  --#{$variable-prefix}nav-tabs-link-active-color: #{$gray-900};
+  --#{$variable-prefix}nav-tabs-link-active-bg: #{$gray-300};
+
+    // accordion
+  --#{$variable-prefix}accordion-button-active-color: #{$white};
+
+  // progress
+  --#{$variable-prefix}progress-bg: #{$gray-300};
+
+  // toast
+  --#{$variable-prefix}toast-background-color: #{rgba($gray-300, .85)};
+  --#{$variable-prefix}toast-border-color: #{rgba($white, .1)};
+  --#{$variable-prefix}toast-header-border-color: #{rgba($white, .05)};
+
+  //list
+  --#{$variable-prefix}list-group-hover-bg: #{lighten($gray-200, 2.5%)};
+
+  // popover
+  --#{$variable-prefix}popover-bg: #{lighten($gray-200, 1%)};
+
+  // pagination
+  --#{$variable-prefix}pagination-hover-bg: #{lighten($gray-200, 4%)};
+
+  //form
+  --#{$variable-prefix}input-bg: #{lighten($gray-200, 2%)};
+  --#{$variable-prefix}input-border: #{$gray-300};
+  --#{$variable-prefix}input-focus-border: #{lighten($gray-300, 4%)};
+  --#{$variable-prefix}input-disabled-bg: #{$gray-200};
+
+  // input-group-addon
+  --#{$variable-prefix}input-group-addon-bg: #{$gray-300};
+
+  //check
+  --#{$variable-prefix}input-check-border:  #{lighten($gray-300, 4%)};
+}

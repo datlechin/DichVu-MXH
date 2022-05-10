@@ -1,0 +1,184 @@
+//
+// _landing.scss
+//
+
+.layout-wrapper {
+    &.landing {
+        background-color: $card-bg;
+        font-size: 14px;
+    }
+}
+
+// helper
+
+.section {
+    padding: 90px 0;
+    position: relative;
+
+    @media (max-width:767.98px) {
+        padding: 50px 0;
+    }
+}
+
+.icon-effect {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background-color: rgba($success, 0.2);
+        border-radius: 50%;
+        bottom: 8px;
+        left: 8px;
+    }
+}
+
+// navbar
+
+.navbar-landing {
+    padding: 10px 0px;
+    background-color: $card-bg;
+
+    @media (max-width: 991.98px) {
+        box-shadow: 0 1px 16px -2px rgba(56, 65, 74, 0.15);
+        padding: 10px 8px;
+    }
+
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                font-size: 14px;
+                transition: all 0.4s;
+                color: var(--#{$variable-prefix}dark);
+                padding: 14px 14px;
+
+                @media (max-width: 991.98px) {
+                    padding: 8px 0px;
+                }
+
+                &:hover,
+                &.active,
+                &:focus {
+                    color: $success !important;
+                }
+            }
+        }
+    }
+
+    &.is-sticky {
+        box-shadow: 0 1px 16px -2px rgba(56, 65, 74, 0.15);
+    }
+}
+
+// hero section
+
+.hero-section {
+    background-color: rgba(var(--#{$variable-prefix}light-rgb), 0.5);
+
+    .hero-shape-svg {
+        svg {
+            path {
+                fill: $card-bg;
+            }
+        }
+    }
+}
+
+.bg-overlay-pattern {
+    background-image: url("../images/landing/bg-pattern.png");
+    background-color: transparent;
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
+}
+
+.demo-carousel {
+    position: relative;
+    z-index: 1;
+
+    .carousel-item {
+        .demo-item {
+            background-color: $card-bg;
+            padding: 8px;
+            border-radius: 7px;
+        }
+    }
+
+    .demo-img-patten-top {
+        position: absolute;
+        right: -50px;
+        top: -16px;
+        max-width: 230px;
+    }
+
+    .demo-img-patten-bottom {
+        position: absolute;
+        left: -70px;
+        bottom: -50px;
+        max-width: 230px;
+    }
+}
+
+// client images
+.client-images img {
+    max-height: 45px;
+    width: auto;
+    margin: 12px auto;
+    transition: all .4s;
+}
+
+// plan
+
+.plan-box {
+    max-width: 356px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// work process
+.process-card {
+    position: relative;
+
+    .process-arrow-img {
+        position: absolute;
+        left: 75%;
+        top: 7%;
+        width: 50%;
+        opacity: .1;
+    }
+}
+
+// footer
+.footer-list {
+    li {
+        a {
+            color: rgba($white, 0.5);
+            padding: 7px 0;
+            display: block;
+            font-size: 13px;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                color: rgba($white, 0.9);
+            }
+        }
+    }
+}
+
+// dark
+
+[data-layout-mode="dark"] {
+    .layout-wrapper.landing {
+
+        .demo-img-patten-top,
+        .demo-img-patten-bottom {
+            opacity: .2;
+        }
+
+        footer.bg-dark {
+            background-color: $card-bg !important;
+        }
+    }
+}
