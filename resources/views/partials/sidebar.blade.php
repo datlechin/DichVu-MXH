@@ -27,8 +27,13 @@
             <ul class="navbar-nav" id="navbar-nav">
                 <li class="menu-title"><span>{{ __('Menu') }}</span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="{{ route('home') }}">
+                    <a class="nav-link menu-link {{ Request::routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
                         <i class="mdi mdi-speedometer"></i> <span>{{ __('Dashboard') }}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link {{ Request::routeIs('deposit') ? 'active' : '' }}" href="{{ route('deposit') }}">
+                        <i class="mdi mdi-cash"></i> <span>{{ __('Deposit') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">

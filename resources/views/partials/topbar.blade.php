@@ -88,10 +88,7 @@
                         <div class="p-3 border-top-0 border-start-0 border-end-0 border-dashed border">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h6 class="m-0 fw-semibold fs-15">Web Apps</h6>
-                                </div>
-                                <div class="col-auto">
-                                    <a href="#!" class="btn btn-sm btn-soft-info shadow-none"> View All Apps <i class="ri-arrow-right-s-line align-middle"></i></a>
+                                    <h6 class="m-0 fw-semibold fs-15">{{ __('Links') }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -99,42 +96,21 @@
                         <div class="p-2">
                             <div class="row g-0">
                                 <div class="col">
-                                    <a class="dropdown-icon-item" href="#!">
-                                        <img src="{{ URL::asset('assets/images/brands/github.png') }}" alt="Github" />
+                                    <a class="dropdown-icon-item" href="https://ngoquocdat.com" target="_blank">
+                                        <img src="{{ asset('assets/images/brands/website.png') }}" alt="Website" />
+                                        <span>Trang web</span>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <a class="dropdown-icon-item" href="https://github.com/datlechin/DichVu-MXH" target="_blank">
+                                        <img src="{{ asset('assets/images/brands/github.png') }}" alt="Github" />
                                         <span>GitHub</span>
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a class="dropdown-icon-item" href="#!">
-                                        <img src="{{ URL::asset('assets/images/brands/bitbucket.png') }}" alt="bitbucket" />
-                                        <span>Bitbucket</span>
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a class="dropdown-icon-item" href="#!">
-                                        <img src="{{ URL::asset('assets/images/brands/dribbble.png') }}" alt="dribbble" />
-                                        <span>Dribbble</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="row g-0">
-                                <div class="col">
-                                    <a class="dropdown-icon-item" href="#!">
-                                        <img src="{{ URL::asset('assets/images/brands/dropbox.png') }}" alt="dropbox" />
-                                        <span>Dropbox</span>
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a class="dropdown-icon-item" href="#!">
-                                        <img src="{{ URL::asset('assets/images/brands/mail_chimp.png') }}" alt="mail_chimp" />
-                                        <span>Mail Chimp</span>
-                                    </a>
-                                </div>
-                                <div class="col">
-                                    <a class="dropdown-icon-item" href="#!">
-                                        <img src="{{ URL::asset('assets/images/brands/slack.png') }}" alt="slack" />
-                                        <span>Slack</span>
+                                    <a class="dropdown-icon-item" href="https://www.facebook.com/datlechinvn" target="_blank">
+                                        <img src="{{ asset('assets/images/brands/facebook.png') }}" alt="Facebook" />
+                                        <span>Facebook</span>
                                     </a>
                                 </div>
                             </div>
