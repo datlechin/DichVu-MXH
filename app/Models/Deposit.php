@@ -29,4 +29,9 @@ class Deposit extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function charge()
+    {
+        return $this->hasOne(Charge::class);
+    }
 }

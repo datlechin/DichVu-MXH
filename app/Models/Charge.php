@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Charge extends Model
 {
     use HasFactory;
+
+    public function deposit()
+    {
+        return $this->belongsTo(Deposit::class);
+    }
 }

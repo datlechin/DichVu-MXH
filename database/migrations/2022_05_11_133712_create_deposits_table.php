@@ -18,7 +18,6 @@ return new class extends Migration
         Schema::create('deposits', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained();
-            $table->foreignIdFor(Charge::class)->nullable()->constrained();
             $table->string('type');
             $table->decimal('amount', 10, 2)->default(0);
             $table->string('status');
