@@ -16,12 +16,12 @@
                     </div>
 
                     <div class="col-xxl-3 col-sm-4">
-                        <input type="date" class="form-control bg-light border-light" name="date" value="{{ request('date') }}" placeholder="Chọn ngày">
+                        <input type="text" class="form-control bg-light border-light" data-provider="flatpickr" data-date-format="d-m-Y" name="date" value="{{ request('date') }}" placeholder="Chọn ngày">
                     </div>
 
                     <div class="col-xxl-3 col-sm-4">
                         <div class="input-light">
-                            <select class="form-control" name="status">
+                            <select class="form-control" data-choices name="status">
                                 <option value="">{{ __('All') }}</option>
                                 <option value="1">{{ __('Success') }}</option>
                                 <option value="0">{{ __('Pending') }}</option>

@@ -151,5 +151,4 @@
 
 @push('scripts')
 <script src="{{ URL::asset('assets/libs/swiper/swiper.min.js')}}"></script>
-<script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
 @endpush

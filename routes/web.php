@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\LanguageController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,4 @@ Auth::routes();
 Route::get('language/{lang}', [LanguageController::class, 'changeLanguage'])->name('language');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/deposit', [DepositController::class, 'index'])->name('deposit');
+Route::post('/deposit', [DepositController::class, 'store']);

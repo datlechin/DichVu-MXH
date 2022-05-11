@@ -14,4 +14,9 @@ class DepositController extends Controller
 
         return view('deposit.index', compact('deposits'));
     }
+
+    public function store(Request $request)
+    {
+        
+    }
 }

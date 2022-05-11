@@ -10,6 +10,21 @@ class Deposit extends Model
 {
     use HasFactory;
 
+    /**
+     * Deposit statuses.
+     */
+    const PENDING = 0;
+    const SUCCESS = 1;
+    const FAILED = 2;
+    const WRONG_AMOUNT = 3;
+
+    /**
+     * Deposit types
+     */
+    const BANK = 'bank';
+    const WALLET = 'wallet';
+    const CHARGE = 'charge';
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
