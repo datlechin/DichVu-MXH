@@ -28,10 +28,6 @@ const third_party_assets = {
             name: "sweetalert2",
             assets: ["./node_modules/sweetalert2/dist/sweetalert2.min.js", "./node_modules/sweetalert2/dist/sweetalert2.min.css"],
         },
-        {
-            name: "swiper",
-            assets: ["./node_modules/swiper/swiper-bundle.min.js", "./node_modules/swiper/swiper-bundle.min.css"],
-        },
         { name: "feather-icons", assets: ["./node_modules/feather-icons/dist/feather.min.js"] },
         { name: "node-waves", assets: ["./node_modules/node-waves/dist/waves.min.js"] },
         { name: "toastify-js", assets: ["./node_modules/toastify-js/src/toastify.js", "./node_modules/toastify-js/src/toastify.css"] },
@@ -41,12 +37,12 @@ const third_party_assets = {
 lodash(third_party_assets).forEach(function (assets, type) {
     if (type === "css_js") {
         lodash(assets).forEach(function (plugin) {
-            var name = plugin["name"],
+            let name = plugin["name"],
                 assetlist = plugin["assets"],
                 css = [],
                 js = [];
             lodash(assetlist).forEach(function (asset) {
-                var ass = asset.split(",");
+                let ass = asset.split(",");
                 for (let i = 0; i < ass.length; ++i) {
                     if (ass[i].substr(ass[i].length - 3) === ".js") {
                         js.push(ass[i]);
@@ -72,7 +68,7 @@ const app_pages_assets = {
 lodash(app_pages_assets).forEach(function(assets, type) {
     for (let i = 0; i < assets.length; ++i) {
         mix.js(assets[i], "public/assets/js/pages");
-    };
+    }
 });
 
 mix.copyDirectory("resources/fonts", "public/assets/fonts");

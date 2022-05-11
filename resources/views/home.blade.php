@@ -2,10 +2,6 @@
 
 @section('title', __('Dashboard'))
 
-@push('css')
-<link href="{{ asset('assets/libs/swiper/swiper.min.css') }}" rel="stylesheet" type="text/css" />
-@endpush
-
 @section('content')
     <div class="row">
         <div class="col">
@@ -148,7 +144,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-<script src="{{ URL::asset('assets/libs/swiper/swiper.min.js')}}"></script>
-@endpush

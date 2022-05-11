@@ -26,7 +26,6 @@
         "node-waves": "^0.7.6",
         "simplebar": "^5.3.6",
         "sweetalert2": "^11.4.13",
-        "swiper": "^8.1.4",
         "toastify-js": "^1.11.2"
     }
 }
