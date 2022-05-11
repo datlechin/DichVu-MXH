@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -48,5 +48,22 @@ class Deposit extends Model
         };
     }
 
+    public function scopeSearch(Builder $query, ?string $request): Builder
+    {
+        return $query->where('description', 'like', "%{$request}%");
+    }
 
+    public function scopeDate(Builder $query, ?string $date): Builder
+    {
+        if ($date) return $query->whereDate('created_at', $date);
+
+        return $query;
+    }
+
+    public function scopeStatus(Builder $query, ?int $status): Builder
+    {
+        if ($status) return $query->where('status', $status);
+
+        return $query;
+    }
 }

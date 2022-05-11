@@ -12,21 +12,12 @@ class DepositController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Deposit::query();
-
-        if ($request->filled('find')) {
-            $query->where('description', 'like', '%' . $request->find . '%');
-        }
-
-        if ($request->filled('date')) {
-            $query->whereDate('created_at', $request->date);
-        }
-
-        if ($request->filled('status')) {
-            $query->where('status', $request->status);
-        }
-
-        $deposits = $query->latest()->paginate();
+        $deposits = Deposit::query()
+            ->search($request->search)
+            ->date($request->date)
+            ->status($request->status)
+            ->latest()
+            ->paginate();
 
         return view('deposit.index', compact('deposits'));
     }

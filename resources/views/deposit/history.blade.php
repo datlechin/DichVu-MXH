@@ -10,7 +10,7 @@
                 <div class="row g-3">
                     <div class="col-xxl-4 col-sm-12">
                         <div class="search-box">
-                            <input type="text" class="form-control search bg-light border-light" name="find" placeholder="{{ __('Enter transaction ID or card info') }}" value="{{ request('find') }}">
+                            <input type="text" class="form-control search bg-light border-light" name="search" placeholder="{{ __('Enter transaction ID or card info') }}" value="{{ request('search') }}">
                             <i class="ri-search-line search-icon"></i>
                         </div>
                     </div>
