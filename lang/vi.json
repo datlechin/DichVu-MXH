@@ -43,5 +43,6 @@
     "Pending": "Chờ xử lý",
     "Success": "Thành công",
     "Failed": "Thất bại",
-    "Enter transaction ID or card info": "Nhập mã giao dịch hoặc thông tin thẻ"
+    "Enter transaction ID or card info": "Nhập mã giao dịch hoặc thông tin thẻ",
+    "Status": "Trạng thái"
 }

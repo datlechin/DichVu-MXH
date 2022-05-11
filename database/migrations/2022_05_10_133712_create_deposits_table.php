@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained();
             $table->string('type');
             $table->decimal('amount', 10, 2)->default(0);
+            $table->string('description')->nullable();
             $table->string('status');
             $table->timestamps();
         });

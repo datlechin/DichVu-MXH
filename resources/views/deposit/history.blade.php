@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="card-body border border-dashed border-end-0 border-start-0">
-            <form>
+            <form action="{{ route('deposit') }}" method="get">
                 <div class="row g-3">
                     <div class="col-xxl-4 col-sm-12">
                         <div class="search-box">
@@ -44,52 +44,36 @@
         </div>
         <div class="card-body">
             <div class="table-responsive table-card mb-4">
-                <table class="table align-middle table-nowrap mb-0" id="tasksTable">
+                <table class="table align-middle table-nowrap mb-0">
                     <thead class="table-light text-muted">
                     <tr>
                         <td>ID</td>
                         <th>{{ __('Time') }}</th>
                         <th>{{ __('Deposit Type') }}</th>
                         <th>{{ __('Amount') }}</th>
-                        <th>{{ __('Amount Received') }}</th>
                         <th>{{ __('Content') }}</th>
+                        <th>{{ __('Status') }}</th>
                     </tr>
                     </thead>
                     <tbody class="list form-check-all">
                     @foreach($deposits as $deposit)
                         <tr>
-                            <td class="id"><a href="apps-tasks-details" class="fw-medium link-primary">#VLZ632</a></td>
-                            <td class="project_name"><a href="apps-projects-overview" class="fw-medium link-primary">Velzon - v1.0.0</a></td>
+                            <td>#{{ $deposit->id }}</td>
+                            <td>{{ $deposit->created_at }}</td>
+                            <td>{{ $deposit->depositType() }}</td>
+                            <td>{{ number_format($deposit->amount) }}đ</td>
+                            <td>{{ $deposit->description }}</td>
                             <td>
-                                <div class="d-flex">
-                                    <div class="flex-grow-1 tasks_name">Error message when placing an orders?</div>
-                                    <div class="flex-shrink-0 ms-4">
-                                        <ul class="list-inline tasks-list-menu mb-0">
-                                            <li class="list-inline-item"><a href="apps-tasks-details"><i class="ri-eye-fill align-bottom me-2 text-muted"></i></a></li>
-                                            <li class="list-inline-item"><a href="#"><i class="ri-pencil-fill align-bottom me-2 text-muted"></i></a></li>
-                                            <li class="list-inline-item">
-                                                <a class="remove-item-btn" data-bs-toggle="modal" href="#deleteOrder">
-                                                    <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @if($deposit->status == \App\Models\Deposit::PENDING)
+                                    <span class="badge badge-soft-warning text-uppercase">Chờ xử lý</span>
+                                @elseif($deposit->status == \App\Models\Deposit::SUCCESS)
+                                    <span class="badge badge-soft-success text-uppercase">Thành công</span>
+                                @elseif($deposit->status == \App\Models\Deposit::FAILED)
+                                    <span class="badge badge-soft-danger text-uppercase">Thất bại</span>
+                                @elseif($deposit->status == \App\Models\Deposit::WRONG_AMOUNT)
+                                    <span class="badge badge-soft-danger text-uppercase">Sai mệnh giá</span>
+                                @endif
                             </td>
-                            <td class="client_name">Robert McMahon</td>
-                            <td class="assignedto">
-                                <div class="avatar-group">
-                                    <a href="javascript: void(0);" class="avatar-group-item shadow" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Frank">
-                                        <img src="{{ URL::asset('assets/images/users/avatar-3.jpg') }}" alt="" class="rounded-circle avatar-xxs" />
-                                    </a>
-                                    <a href="javascript: void(0);" class="avatar-group-item shadow" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Anna">
-                                        <img src="{{ URL::asset('assets/images/users/avatar-1.jpg') }}" alt="" class="rounded-circle avatar-xxs" />
-                                    </a>
-                                </div>
-                            </td>
-                            <td class="due_date">25 Jan, 2022</td>
-                            <td class="status"><span class="badge badge-soft-secondary text-uppercase">Inprogress</span></td>
-                            <td class="priority"><span class="badge bg-danger text-uppercase">High</span></td>
                         </tr>
                     @endforeach
                     </tbody>
