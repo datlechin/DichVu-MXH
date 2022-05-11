@@ -16,16 +16,16 @@
                     </div>
 
                     <div class="col-xxl-3 col-sm-4">
-                        <input type="text" class="form-control bg-light border-light" data-provider="flatpickr" data-date-format="d-m-Y" name="date" value="{{ request('date') }}" placeholder="Chọn ngày">
+                        <input type="text" class="form-control bg-light border-light" data-provider="flatpickr" data-date-format="Y-m-d" name="date" value="{{ request('date') }}" placeholder="Chọn ngày">
                     </div>
 
                     <div class="col-xxl-3 col-sm-4">
                         <div class="input-light">
-                            <select class="form-control" data-choices name="status">
-                                <option value="">{{ __('All') }}</option>
-                                <option value="1">{{ __('Success') }}</option>
-                                <option value="0">{{ __('Pending') }}</option>
-                                <option value="2">{{ __('Failed') }}</option>
+                            <select class="form-control" data-choices data-choices-search-false name="status">
+                                <option value="" @selected(request('status') == '')>{{ __('All') }}</option>
+                                <option value="1" @selected(request('status') == '1')>{{ __('Success') }}</option>
+                                <option value="0" @selected(request('status') == '0')>{{ __('Pending') }}</option>
+                                <option value="2" @selected(request('status') == '2')>{{ __('Failed') }}</option>
                             </select>
                         </div>
                     </div>
@@ -55,7 +55,7 @@
                         <th>{{ __('Status') }}</th>
                     </tr>
                     </thead>
-                    <tbody class="list form-check-all">
+                    <tbody>
                     @foreach($deposits as $deposit)
                         <tr>
                             <td>#{{ $deposit->id }}</td>
