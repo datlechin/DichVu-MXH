@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
 
 class UserController extends Controller
 {
@@ -28,6 +29,29 @@ class UserController extends Controller
         ]);
 
         return to_route('user.profile')->with('success', 'Cập nhật thông tin cá nhân thành công.');
+    }
+
+    public function updateAvatar(Request $request)
+    {
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $user = $request->user();
+
+        $avatar = $request->file('avatar');
+        $filename = 'user_' . $user->id . '.' . $avatar->getClientOriginalExtension();
+        $image = Image::make($avatar)->resize(200, 200);
+
+        if (!file_exists(public_path('/storage/avatars'))) {
+            mkdir(public_path('/storage/avatars'), 0777, true);
+        }
+
+        $image->save(public_path('storage/avatars/' . $filename));
+
+        $user->update(['avatar' => $filename]);
+
+        return to_route('user.profile')->with('success', 'Cập nhật ảnh đại diện thành công.');
     }
 
     public function changePassword()

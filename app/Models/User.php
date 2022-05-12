@@ -24,7 +24,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone'
+        'phone',
+        'avatar',
     ];
 
     /**
@@ -55,5 +56,12 @@ class User extends Authenticatable
                 default => 'Không xác định'
             };
         });
+    }
+
+    protected function avatar(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($avatar) => asset($avatar ? 'storage/avatars/' . $avatar : 'assets/images/users/user-dummy-img.jpg')
+        );
     }
 }

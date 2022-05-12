@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
         Route::get('/profile', [UserController::class, 'profile'])->name('profile');
         Route::post('/profile', [UserController::class, 'updateProfile']);
+        Route::post('/avatar', [UserController::class, 'updateAvatar'])->name('avatar');
         Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
         Route::post('/change-password', [UserController::class, 'updatePassword']);
     });

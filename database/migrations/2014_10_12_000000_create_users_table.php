@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->decimal('balance', 8, 2)->default(0);
             $table->string('role')->default('member');
+            $table->string('avatar')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
