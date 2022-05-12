@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -16,7 +15,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'datlechin',
+            'name' => 'Ngô Quốc Đạt',
             'email' => 'datlechin@gmail.com',
             'phone' => '0372124043',
             'password' => bcrypt('123456'),

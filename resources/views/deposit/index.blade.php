@@ -78,5 +78,3 @@
         @include('deposit.history')
     </div>
 @endsection
-
-@include('partials.toastr')

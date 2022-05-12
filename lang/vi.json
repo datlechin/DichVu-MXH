@@ -44,5 +44,17 @@
     "Success": "Thành công",
     "Failed": "Thất bại",
     "Enter transaction ID or card info": "Nhập mã giao dịch hoặc thông tin thẻ",
-    "Status": "Trạng thái"
+    "Status": "Trạng thái",
+    "Change Cover": "Thay đổi ảnh bìa",
+    "Change Password": "Thay đổi mật khẩu",
+    "Personal Information": "Thông tin cá nhân",
+    "Update": "Cập nhật",
+    "Cancel": "Hủy",
+    "Old Password": "Mật khẩu cũ",
+    "New Password": "Mật khẩu mới",
+    "Confirm Password": "Xác nhận mật khẩu",
+    "Enter current password": "Nhập mật khẩu hiện tại",
+    "Enter new password": "Nhập mật khẩu mới",
+    "Confirm new password": "Xác nhận mật khẩu mới",
+    "User Profile": "Thông tin cá nhân"
 }

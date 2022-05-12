@@ -146,11 +146,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <h6 class="dropdown-header">{{ __('Welcome', ['name' => Auth::user()->name]) }}</h6>
-                        <a class="dropdown-item" href="pages-profile">
-                            <i class="mdi mdi-wallet text-muted fs-16 align-middle me-1"></i>
-                            <span class="align-middle">{{ __('Balance') }} : <b>$5971.67</b></span>
-                        </a>
-                        <a class="dropdown-item" href="pages-profile">
+                        <a class="dropdown-item" href="{{ route('user.profile') }}">
                             <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
                             <span class="align-middle">{{ __('Profile') }}</span>
                         </a>
