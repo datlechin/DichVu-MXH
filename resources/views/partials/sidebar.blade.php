@@ -57,6 +57,14 @@
                         </ul>
                     </div>
                 </li>
+                @if(Auth::user()->isAdmin())
+                    <li class="menu-title"><span>{{ __('Manage') }}</span></li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
+                            <i class="mdi mdi-account-multiple-outline"></i> <span>{{ __('Users') }}</span>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

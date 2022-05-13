@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +20,7 @@ class UserSeeder extends Seeder
             'email' => 'datlechin@gmail.com',
             'phone' => '0372124043',
             'password' => bcrypt('123456'),
+            'role' => User::ADMIN,
         ]);
     }
 }

@@ -50,8 +50,8 @@
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="username" class="form-label">Username <span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" id="username" placeholder="{{ __('Enter username') }}" required />
+                                        <label for="username" class="form-label">{{ __('Name') }} <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" id="username" placeholder="{{ __('Enter name') }}" required />
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -61,7 +62,23 @@ class User extends Authenticatable
     protected function avatar(): Attribute
     {
         return Attribute::make(
-            get: fn ($avatar) => asset($avatar ? 'storage/avatars/' . $avatar : 'assets/images/users/user-dummy-img.jpg')
+            get: fn($avatar) => asset($avatar ? 'storage/avatars/' . $avatar : 'assets/images/users/user-dummy-img.jpg')
         );
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === User::ADMIN;
+    }
+
+    public function scopeSearch(Builder $query, ?string $search): Builder
+    {
+        if ($search) {
+            $query->where('name', 'like', "%{$search}%")
+                ->orWhere('email', 'like', "%{$search}%")
+                ->orWhere('phone', 'like', "%{$search}%");
+        }
+
+        return  $query;
     }
 }
