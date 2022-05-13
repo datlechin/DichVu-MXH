@@ -22,7 +22,6 @@
         </div>
     </div>
     @include('partials.toastr')
-    @include('partials.customizer')
     @include('layouts.scripts')
 </body>
 </html>
