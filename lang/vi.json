@@ -48,7 +48,7 @@
     "Enter transaction ID or card info": "Nhập mã giao dịch hoặc thông tin thẻ",
     "Status": "Trạng thái",
     "Change Cover": "Thay đổi ảnh bìa",
-    "Change Password": "Thay đổi mật khẩu",
+    "Change Password": "Đổi mật khẩu",
     "Personal Information": "Thông tin cá nhân",
     "Update": "Cập nhật",
     "Cancel": "Hủy",
@@ -86,5 +86,9 @@
     "Service Name": "Tên dịch vụ",
     "Create Service": "Tạo dịch vụ",
     "Category": "Danh mục",
-    "Add Service": "Thêm dịch vụ"
+    "Add Service": "Thêm dịch vụ",
+    "Amount Spend": "Số tiền đã tiêu",
+    "Amount Deposited": "Số tiền đã nạp",
+    "Create Order": "Tạo đơn hàng",
+    "Create New": "Tạo mới"
 }

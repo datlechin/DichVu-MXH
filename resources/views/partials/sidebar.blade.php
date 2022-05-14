@@ -40,14 +40,14 @@
                     <li class="menu-title"><span>{{ __('Services') }}</span></li>
                     @foreach($categories as $category)
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
+                            <a class="nav-link menu-link" href="#{{ $category->slug }}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="{{ $category->slug }}">
                                 <i class="{{ $category->icon }}"></i> <span>{{ $category->name }}</span>
                             </a>
-                            <div class="collapse menu-dropdown" id="sidebarLayouts">
+                            <div class="collapse menu-dropdown" id="{{ $category->slug }}">
                                 <ul class="nav nav-sm flex-column">
                                     @foreach($category->services as $service)
                                         <li class="nav-item">
-                                            <a href="layouts-horizontal" class="nav-link">{{ $service->name }}</a>
+                                            <a href="{{ route('service', $service->slug) }}" class="nav-link">{{ $service->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>

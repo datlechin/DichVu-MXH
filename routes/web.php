@@ -3,6 +3,7 @@
 use App\Http\Controllers\DepositController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/deposit', [DepositController::class, 'index'])->name('deposit');
     Route::post('/deposit', [DepositController::class, 'store']);
+    Route::get('/service/{service:slug}', [ServiceController::class, 'index'])->name('service');
+    Route::post('/service/{service:slug}', [ServiceController::class, 'store']);
 
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
         Route::get('/profile', [UserController::class, 'profile'])->name('profile');

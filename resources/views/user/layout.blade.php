@@ -37,7 +37,7 @@
                             </form>
                         </div>
                         <h5 class="fs-16 mb-1">{{ Auth::user()->name }}</h5>
-                        <p class="text-muted mb-0">{{ Auth::user()->email }}</p>
+                        <p class="text-muted mb-3">{{ Auth::user()->email }}</p>
                     </div>
                 </div>
             </div>

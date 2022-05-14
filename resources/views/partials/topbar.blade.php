@@ -139,8 +139,8 @@
                                 alt="Header Avatar"
                             />
                             <span class="text-start ms-xl-2">
-                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{Auth::user()->name}}</span>
-                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Founder</span>
+                                <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::user()->name }}</span>
+                                <span class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">{{ Auth::user()->roleName }}</span>
                             </span>
                         </span>
                     </button>
@@ -150,9 +150,9 @@
                             <i class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i>
                             <span class="align-middle">{{ __('Profile') }}</span>
                         </a>
-                        <a class="dropdown-item" href="pages-profile-settings">
-                            <i class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i>
-                            <span class="align-middle">{{ __('Settings') }}</span>
+                        <a class="dropdown-item" href="{{ route('user.change-password') }}">
+                            <i class="mdi mdi-lock text-muted fs-16 align-middle me-1"></i>
+                            <span class="align-middle">{{ __('Change Password') }}</span>
                         </a>
                         <a class="dropdown-item" href="pages-faqs">
                             <i class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i>
