@@ -33,7 +33,7 @@
                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4">
                                             <span class="counter-value" data-target="{{ number_format($users_count) }}">0</span>
                                         </h4>
-                                        <a href="" class="text-decoration-underline">{{ __('View all') }}</a>
+                                        <a href="{{ route('admin.users.index') }}" class="text-decoration-underline">{{ __('View all') }}</a>
                                     </div>
                                     <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-warning rounded fs-3">

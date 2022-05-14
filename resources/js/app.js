@@ -245,37 +245,37 @@ File: Main Js File
                 var isTimepickerVal = item.attributes;
                 if (isTimepickerVal["data-time-basic"]) {
                     (timeData.enableTime = true),
-                    (timeData.noCalendar = true),
-                    (timeData.dateFormat = "H:i");
+                        (timeData.noCalendar = true),
+                        (timeData.dateFormat = "H:i");
                 }
                 if (isTimepickerVal["data-time-hrs"]) {
                     (timeData.enableTime = true),
-                    (timeData.noCalendar = true),
-                    (timeData.dateFormat = "H:i"),
-                    (timeData.time_24hr = true);
+                        (timeData.noCalendar = true),
+                        (timeData.dateFormat = "H:i"),
+                        (timeData.time_24hr = true);
                 }
                 if (isTimepickerVal["data-min-time"]) {
                     (timeData.enableTime = true),
-                    (timeData.noCalendar = true),
-                    (timeData.dateFormat = "H:i"),
-                    timeData.minTime = isTimepickerVal["data-min-time"].value.toString()
+                        (timeData.noCalendar = true),
+                        (timeData.dateFormat = "H:i"),
+                        timeData.minTime = isTimepickerVal["data-min-time"].value.toString()
                 }
                 if (isTimepickerVal["data-max-time"]) {
                     (timeData.enableTime = true),
-                    (timeData.noCalendar = true),
-                    (timeData.dateFormat = "H:i"),
-                    timeData.minTime = isTimepickerVal["data-max-time"].value.toString()
+                        (timeData.noCalendar = true),
+                        (timeData.dateFormat = "H:i"),
+                        timeData.minTime = isTimepickerVal["data-max-time"].value.toString()
                 }
                 if (isTimepickerVal["data-default-time"]) {
                     (timeData.enableTime = true),
-                    (timeData.noCalendar = true),
-                    (timeData.dateFormat = "H:i"),
-                    (timeData.defaultDate = isTimepickerVal["data-default-time"].value.toString());
+                        (timeData.noCalendar = true),
+                        (timeData.dateFormat = "H:i"),
+                        (timeData.defaultDate = isTimepickerVal["data-default-time"].value.toString());
                 }
                 if (isTimepickerVal["data-time-inline"]) {
                     (timeData.enableTime = true),
-                    (timeData.noCalendar = true),
-                    (timeData.defaultDate = isTimepickerVal["data-time-inline"].value.toString());
+                        (timeData.noCalendar = true),
+                        (timeData.defaultDate = isTimepickerVal["data-time-inline"].value.toString());
                     (timeData.inline = true);
                 }
                 flatpickr(item, timeData);
@@ -420,7 +420,7 @@ File: Main Js File
             // show submenu on sidebar menu click
             document.querySelector("#two-column-menu ul").querySelectorAll("li a").forEach(function (element) {
                 var currentPath = location.pathname == "/" ? "index" : location.pathname.substring(1);
-                    currentPath = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+                currentPath = currentPath.substring(currentPath.lastIndexOf('/') + 1);
                 element.addEventListener("click", function (e) {
                     if (!(currentPath == '/' + element.getAttribute("href") && !element.getAttribute("data-bs-toggle")))
                         (document.body.classList.contains("twocolumn-panel")) ? document.body.classList.remove("twocolumn-panel") : "";
@@ -583,8 +583,8 @@ File: Main Js File
             if(sessionStorage.getItem("data-layout") == "twocolumn"){
                 document.documentElement.setAttribute("data-layout", "twocolumn");
                 if(document.getElementById("customizer-layout03")){
-                document.getElementById("customizer-layout03").click();
-            }
+                    document.getElementById("customizer-layout03").click();
+                }
                 twoColumnMenuGenerate();
                 initTwoColumnActiveMenu();
                 isCollapseMenu();
@@ -598,7 +598,7 @@ File: Main Js File
             if(sessionStorage.getItem("data-layout") == "twocolumn"){
                 document.documentElement.setAttribute("data-layout", "twocolumn");
                 if(document.getElementById("customizer-layout03")){
-                document.getElementById("customizer-layout03").click();
+                    document.getElementById("customizer-layout03").click();
                 }
                 twoColumnMenuGenerate();
                 initTwoColumnActiveMenu();
@@ -935,34 +935,34 @@ File: Main Js File
             document.getElementById('two-column-menu').innerHTML = '';
             document.querySelector('.navbar-menu').innerHTML = navbarMenuHTML;
             if(document.getElementById("theme-settings-offcanvas")){
-            document.getElementById('sidebar-size').style.display = 'block';
-            document.getElementById('sidebar-view').style.display = 'block';
-            document.getElementById('sidebar-color').style.display = 'block';
-            document.getElementById('layout-position').style.display = 'block';
-            document.getElementById('layout-width').style.display = 'block';
-        }
+                document.getElementById('sidebar-size').style.display = 'block';
+                document.getElementById('sidebar-view').style.display = 'block';
+                document.getElementById('sidebar-color').style.display = 'block';
+                document.getElementById('layout-position').style.display = 'block';
+                document.getElementById('layout-width').style.display = 'block';
+            }
             initLeftMenuCollapse();
             initActiveMenu();
             addEventListenerOnSmHoverMenu();
         } else if (dataLayout == "horizontal") {
             updateHorizontalMenus();
             if(document.getElementById("theme-settings-offcanvas")){
-            document.getElementById('sidebar-size').style.display = 'none';
-            document.getElementById('sidebar-view').style.display = 'none';
-            document.getElementById('sidebar-color').style.display = 'none';
-            document.getElementById('layout-position').style.display = 'block';
-            document.getElementById('layout-width').style.display = 'block';
+                document.getElementById('sidebar-size').style.display = 'none';
+                document.getElementById('sidebar-view').style.display = 'none';
+                document.getElementById('sidebar-color').style.display = 'none';
+                document.getElementById('layout-position').style.display = 'block';
+                document.getElementById('layout-width').style.display = 'block';
             }
             initActiveMenu();
         } else if (dataLayout == "twocolumn") {
             document.getElementById('scrollbar').removeAttribute("data-simplebar");
             document.getElementById('scrollbar').classList.remove("h-100");
             if(document.getElementById("theme-settings-offcanvas")){
-            document.getElementById('sidebar-size').style.display = 'none';
-            document.getElementById('sidebar-view').style.display = 'none';
-            document.getElementById('sidebar-color').style.display = 'block';
-            document.getElementById('layout-position').style.display = 'none';
-            document.getElementById('layout-width').style.display = 'none';
+                document.getElementById('sidebar-size').style.display = 'none';
+                document.getElementById('sidebar-view').style.display = 'none';
+                document.getElementById('sidebar-color').style.display = 'block';
+                document.getElementById('layout-position').style.display = 'none';
+                document.getElementById('layout-width').style.display = 'none';
             }
         }
     }
@@ -1212,9 +1212,9 @@ File: Main Js File
                         }
                         break;
                 }
-                default:
+            default:
 
-                    break;
+                break;
         }
     }
 
@@ -1437,22 +1437,22 @@ var mybutton = document.getElementById("back-to-top");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
-  scrollFunction();
+    scrollFunction();
 };
 
 function scrollFunction() {
-  if (
-    document.body.scrollTop > 100 ||
-    document.documentElement.scrollTop > 100
-  ) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
+    if (
+        document.body.scrollTop > 100 ||
+        document.documentElement.scrollTop > 100
+    ) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
 }
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }

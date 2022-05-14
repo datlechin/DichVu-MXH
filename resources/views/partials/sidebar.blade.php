@@ -36,32 +36,40 @@
                         <i class="mdi mdi-cash"></i> <span>{{ __('Deposit') }}</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="mdi mdi-view-carousel-outline"></i> <span>@lang('translation.layouts') </span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="sidebarLayouts">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="layouts-horizontal" class="nav-link" target="_blank">@lang('translation.horizontal') </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="layouts-detached" class="nav-link" target="_blank">@lang('translation.detached') </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="layouts-two-column" class="nav-link" target="_blank">@lang('translation.two-column') </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="layouts-vertical-hovered" class="nav-link" target="_blank">@lang('translation.hovered') </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                @if($categories->count() > 0)
+                    <li class="menu-title"><span>{{ __('Services') }}</span></li>
+                    @foreach($categories as $category)
+                        <li class="nav-item">
+                            <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
+                                <i class="{{ $category->icon }}"></i> <span>{{ $category->name }}</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="sidebarLayouts">
+                                <ul class="nav nav-sm flex-column">
+                                    @foreach($category->services as $service)
+                                        <li class="nav-item">
+                                            <a href="layouts-horizontal" class="nav-link">{{ $service->name }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
+                    @endforeach
+                @endif
                 @if(Auth::user()->isAdmin())
                     <li class="menu-title"><span>{{ __('Manage') }}</span></li>
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.users.*') ? 'active' : '' }}" href="{{ route('admin.users.index') }}">
                             <i class="mdi mdi-account-multiple-outline"></i> <span>{{ __('Users') }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.categories.*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
+                            <i class="mdi mdi-folder-multiple-outline"></i> <span>{{ __('Categories') }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.services.*') ? 'active' : '' }}" href="{{ route('admin.services.index') }}">
+                            <i class="mdi mdi-cube-outline"></i> <span>{{ __('Services') }}</span>
                         </a>
                     </li>
                 @endif

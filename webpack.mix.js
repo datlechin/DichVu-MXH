@@ -14,6 +14,7 @@ const lodash = require("lodash");
 
 const third_party_assets = {
     css_js: [
+        { name: "@ckeditor", assets: ["./node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"] },
         { name: "bootstrap", assets: ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"] },
         {
             name: "flatpickr",
