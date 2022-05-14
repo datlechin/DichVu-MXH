@@ -71,7 +71,7 @@
         </div>
     </div>
     <div class="modal fade zoomIn" id="createModal" tabindex="-1" aria-labelledby="createModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content border-0">
                 <div class="modal-header p-3 bg-soft-info">
                     <h5 class="modal-title" id="createModal">{{ __('Create Category') }}</h5>
@@ -89,10 +89,6 @@
                             <label for="name" class="form-label">{{ __('Category Name') }}</label>
                             <input type="text" id="name" name="name" class="form-control" placeholder="{{ __('Category Name') }}" required />
                         </div>
-                        <div class="mb-3">
-                            <label for="description">{{ __('Description') }}</label>
-                            <textarea id="description" name="description" class="ckeditor-classic"></textarea>
-                        </div>
                         <div class="hstack gap-2 justify-content-end">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">{{ __('Close') }}</button>
                             <button type="submit" class="btn btn-success">{{ __('Add Category') }}</button>
@@ -103,20 +99,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('assets/libs/@ckeditor/@ckeditor.min.js') }}"></script>
-    <script>
-        let ckClassicEditor = document.querySelectorAll(".ckeditor-classic")
-        ckClassicEditor.forEach(function () {
-            ClassicEditor
-                .create(document.querySelector('.ckeditor-classic'))
-                .then(function (editor) {
-                    editor.ui.view.editable.element.style.height = '200px';
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
-        });
-    </script>
-@endpush

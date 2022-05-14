@@ -90,5 +90,20 @@
     "Amount Spend": "Số tiền đã tiêu",
     "Amount Deposited": "Số tiền đã nạp",
     "Create Order": "Tạo đơn hàng",
-    "Create New": "Tạo mới"
+    "Create New": "Tạo mới",
+    "Service Packages": "Gói dịch vụ",
+    "Service Package List": "Danh sách Gói dịch vụ",
+    "Create Service Package": "Tạo Gói dịch vụ",
+    "Note": "Ghi chú",
+    "Service Package Name": "Tên gói dịch vụ",
+    "Service": "Dịch vụ",
+    "Price": "Giá tiền",
+    "Enter service package price": "Nhập giá gói dịch vụ",
+    "Min Quantity": "Số lượng tối thiểu",
+    "Max Quantity": "Số lượng tối đa",
+    "Minimum purchase quantity": "Số lượng mua tối thiểu",
+    "Maximum purchase quantity": "Số lượng mua tối đa",
+    "Add Package": "Thêm gói",
+    "Package name": "Tên gói",
+    "Min/Max quantity": "Số lượng tối thiểu/tối đa"
 }

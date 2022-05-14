@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('icon')->nullable();
             $table->string('name')->unique();
             $table->string('slug');
-            $table->text('description')->nullable();
             $table->string('status')->default('active');
             $table->timestamps();
         });

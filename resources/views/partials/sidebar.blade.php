@@ -72,6 +72,11 @@
                             <i class="mdi mdi-cube-outline"></i> <span>{{ __('Services') }}</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.packages.*') ? 'active' : '' }}" href="{{ route('admin.packages.index') }}">
+                            <i class="mdi mdi-package-variant-closed"></i> <span>{{ __('Service Packages') }}</span>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </div>

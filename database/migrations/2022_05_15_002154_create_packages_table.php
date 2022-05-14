@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->decimal('price', 10, 2);
             $table->integer('min_quantity')->default(0);
             $table->integer('max_quantity')->default(0);
-            $table->text('notes')->nullable();
+            $table->text('note')->nullable();
             $table->string('status')->default('active');
             $table->timestamps();
         });

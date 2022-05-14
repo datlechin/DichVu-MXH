@@ -11,7 +11,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['icon', 'name', 'slug', 'description'];
+    protected $fillable = ['icon', 'name', 'slug', 'status'];
 
     protected $casts = [
         'status' => CategoryStatus::class,
