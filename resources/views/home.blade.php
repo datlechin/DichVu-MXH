@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', __('Dashboard'))
+@section('title', __('Home'))
 
 @section('content')
     <div class="row">

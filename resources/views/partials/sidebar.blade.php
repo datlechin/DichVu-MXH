@@ -28,7 +28,7 @@
                 <li class="menu-title"><span>{{ __('Menu') }}</span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ Request::routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
-                        <i class="mdi mdi-speedometer"></i> <span>{{ __('Dashboard') }}</span>
+                        <i class="mdi mdi-home"></i> <span>{{ __('Home') }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
