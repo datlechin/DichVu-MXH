@@ -26,7 +26,9 @@ class HomeController extends Controller
 
         $users_count = User::query()->count();
         $balance = Auth::user()->balance;
+        $amount_deposited = Auth::user()->deposits()->sum('amount');
+        $amount_spent = Auth::user()->orders()->sum('total');
 
-        return view('home', compact('greeting', 'users_count', 'balance'));
+        return view('home', compact('greeting', 'users_count', 'balance', 'amount_deposited', 'amount_spent'));
     }
 }

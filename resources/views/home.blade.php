@@ -30,11 +30,9 @@
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-end justify-content-between mt-4">
-                                        <div>
-                                            <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                                <span class="counter-value" data-target="{{ number_format($users_count) }}">0</span>
-                                            </h4>
-                                        </div>
+                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                            <span class="counter-value" data-target="{{ number_format($users_count) }}">0</span>
+                                        </h4>
                                         <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-warning rounded fs-3">
                                         <i class="bx bx-user-circle"></i>
@@ -57,11 +55,9 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
-                                    <div>
-                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                            <span class="counter-value" data-target="{{ $balance }}">0</span>đ
-                                        </h4>
-                                    </div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="{{ $balance }}">0</span>đ
+                                    </h4>
                                     <div class="avatar-sm flex-shrink-0">
                                     <span class="avatar-title bg-danger rounded fs-3">
                                         <i class="bx bx-wallet"></i>
@@ -81,11 +77,9 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
-                                    <div>
-                                        <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                            <span class="counter-value" data-target="36894">0</span>
-                                        </h4>
-                                    </div>
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="{{ $amount_deposited }}">0</span>đ
+                                    </h4>
                                     <div class="avatar-sm flex-shrink-0">
                                 <span class="avatar-title bg-info rounded fs-3">
                                     <i class="bx bx-shopping-bag"></i>
@@ -107,8 +101,8 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-end justify-content-between mt-4">
-                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">$<span
-                                            class="counter-value" data-target="559.25">0</span>k
+                                    <h4 class="fs-22 fw-semibold ff-secondary mb-4">
+                                        <span class="counter-value" data-target="{{ $amount_spent }}">0</span>đ
                                     </h4>
                                     <div class="avatar-sm flex-shrink-0">
                                         <span class="avatar-title bg-success rounded fs-3">
