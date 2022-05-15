@@ -21,6 +21,9 @@
             @include('partials.footer')
         </div>
     </div>
+    <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
+        <i class="ri-arrow-up-line"></i>
+    </button>
     @include('partials.toastr')
     @include('layouts.scripts')
 </body>

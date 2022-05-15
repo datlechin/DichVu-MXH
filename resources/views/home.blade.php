@@ -59,7 +59,7 @@
                                 <div class="d-flex align-items-end justify-content-between mt-4">
                                     <div>
                                         <h4 class="fs-22 fw-semibold ff-secondary mb-4">
-                                            <span class="counter-value" data-target="{{ number_format($balance) }}">0</span>đ
+                                            <span class="counter-value" data-target="{{ $balance }}">0</span>đ
                                         </h4>
                                     </div>
                                     <div class="avatar-sm flex-shrink-0">

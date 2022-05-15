@@ -105,5 +105,11 @@
     "Maximum purchase quantity": "Số lượng mua tối đa",
     "Add Package": "Thêm gói",
     "Package name": "Tên gói",
-    "Min/Max quantity": "Số lượng tối thiểu/tối đa"
+    "Min/Max quantity": "Số lượng tối thiểu/tối đa",
+    "Quantity": "Số lượng",
+    "Order History": "Lịch sử đơn hàng",
+    "Completed": "Hoàn tất",
+    "Cancelled": "Đã huỷ",
+    "Total Amount": "Thành tiền"
+
 }
