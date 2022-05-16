@@ -76,4 +76,11 @@ class UserController extends Controller
 
         return to_route('user.change-password')->with('success', 'Đổi mật khẩu thành công');
     }
+
+    public function authLog()
+    {
+        $logs = Auth::user()->authentications()->get();
+
+        return view('user.auth-log', compact('logs'));
+    }
 }

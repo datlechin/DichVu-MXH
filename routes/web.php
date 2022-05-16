@@ -36,5 +36,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/avatar', [UserController::class, 'updateAvatar'])->name('avatar');
         Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
         Route::post('/change-password', [UserController::class, 'updatePassword']);
+        Route::get('/auth-log', [UserController::class, 'authLog'])->name('auth-log');
     });
 });

@@ -26,6 +26,10 @@
                 <label class="form-label">Vai trò</label>
                 <input type="text" class="form-control" value="{{ $user->roleName }}" readonly>
             </div>
+            <div class="mb-3">
+                <label class="form-label">Đăng nhập gần đây</label>
+                <input type="text" class="form-control" value="{{ $user->lastSuccessfulLoginAt() }}" disabled>
+            </div>
             <div class="text-end">
                 <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
             </div>
