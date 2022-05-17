@@ -47,7 +47,7 @@
                                 <ul class="nav nav-sm flex-column">
                                     @foreach($category->services as $service)
                                         <li class="nav-item">
-                                            <a href="{{ route('service', $service->slug) }}" class="nav-link" data-key="t-{{ $service->slug }}">{{ $service->name }}</a>
+                                            <a href="{{ route('service', [$service->category->slug, $service->slug]) }}" class="nav-link" data-key="t-{{ $service->slug }}">{{ $service->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>

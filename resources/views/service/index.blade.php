@@ -7,10 +7,10 @@
         <div class="col-lg-8">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title mb-0">Tạo đơn <span class="fw-bold">{{ $service->name }}</span></h5>
+                    <h5 class="card-title mb-0">Tạo đơn <span class="fw-bold">{{ $service->name }}</span> - <span class="fw-bold">{{ $service->category->name }}</span></h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('service', $service->slug) }}" method="post">
+                    <form action="{{ route('service', [$service->category->slug, $service->slug]) }}" method="post">
                         @csrf
                         <div class="row mb-3">
                             <div class="col-lg-3">

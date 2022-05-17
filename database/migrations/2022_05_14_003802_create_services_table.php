@@ -16,7 +16,7 @@ return new class extends Migration {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Category::class)->constrained();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('slug');
             $table->text('description')->nullable();
             $table->string('label');

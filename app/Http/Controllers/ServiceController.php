@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreOrderRequest;
+use App\Models\Category;
 use App\Models\Order;
 use App\Models\Service;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
-    public function index(Service $service)
+    public function index(Category $category, Service $service)
     {
         $user = Auth::user();
         $orders = $user->orders()->with('package')->latest()->paginate();
@@ -18,7 +19,7 @@ class ServiceController extends Controller
         return view('service.index', compact('service', 'orders'));
     }
 
-    public function store(StoreOrderRequest $request, Service $service)
+    public function store(StoreOrderRequest $request, Category $category, Service $service)
     {
         $user = $request->user();
         $package = $service->packages()->find($request->package_id);
