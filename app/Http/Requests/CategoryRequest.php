@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     {
         return [
             'icon' => 'nullable|string|min:4|max:50',
-            'name' => 'required|string|min:3|max:50|unique:categories,name',
+            'name' => 'required|string|min:3|max:50|unique:categories,name,' . optional($this->category)->id,
         ];
     }
 }
