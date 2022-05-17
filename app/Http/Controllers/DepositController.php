@@ -28,7 +28,7 @@ class DepositController extends Controller
             'user_id' => Auth::id(),
             'type' => Deposit::CHARGE,
             'status' => Deposit::PENDING,
-            'description' => 'Thẻ ' . Str::camel($request->telco) . ' ' . number_format($request->amount) . 'đ'
+            'description' => 'Thẻ ' . Str::ucfirst($request->telco) . ' ' . number_format($request->amount) . 'đ'
         ]);
 
         $request_id = Str::random(10);
