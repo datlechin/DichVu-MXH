@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\OrderStatus;
 use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -95,5 +96,15 @@ class User extends Authenticatable
     public function deposits(): HasMany
     {
         return $this->hasMany(Deposit::class);
+    }
+
+    public function getAmountDepositedAttribute(): int
+    {
+        return $this->deposits()->where('status', Deposit::SUCCESS)->sum('amount');
+    }
+
+    public function getAmountSpentAttribute(): int
+    {
+        return $this->orders()->where('status', OrderStatus::Completed)->sum('total');
     }
 }
