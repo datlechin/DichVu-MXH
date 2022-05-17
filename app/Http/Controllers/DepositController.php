@@ -13,6 +13,7 @@ class DepositController extends Controller
     public function index(Request $request)
     {
         $deposits = Deposit::query()
+            ->where('user_id', Auth::id())
             ->search($request->search)
             ->date($request->date)
             ->status($request->status)
