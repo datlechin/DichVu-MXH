@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\Admin\{
-    ChargeController,
+use App\Http\Controllers\Admin\
+{
+    CategoryController,
+    DepositController,
     PackageController,
     ServiceController,
     UserController
@@ -13,5 +15,5 @@ Route::group(['middleware' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/categories', CategoryController::class)->except('create', 'show', 'destroy');
     Route::resource('/services', ServiceController::class)->except('create', 'show', 'destroy');
     Route::resource('/packages', PackageController::class)->only('index', 'store');
-    Route::resource('/charges', ChargeController::class)->only('index', 'edit', 'update', 'destroy');
+    Route::resource('/deposits', DepositController::class)->only('index', 'edit', 'update', 'destroy');
 });

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -65,5 +66,23 @@ class Deposit extends Model
         if ($status) return $query->where('status', $status);
 
         return $query;
+    }
+
+    protected function type(): Attribute
+    {
+        return Attribute::make(
+            get: function ($value) {
+                return match ($value) {
+                    Deposit::BANK => 'Ngân hàng',
+                    Deposit::WALLET => 'Ví điện tử',
+                    Deposit::CHARGE => 'Thẻ cào',
+                };
+            },
+        );
+    }
+
+    public function scopePending($query)
+    {
+        return $query->where('status', Deposit::PENDING);
     }
 }

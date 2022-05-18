@@ -63,6 +63,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.deposits.*') ? 'active' : '' }}" href="{{ route('admin.deposits.index') }}">
+                            <i class="mdi mdi-cash-plus"></i> <span>Tiền đã nạp</span>
+                            <span class="badge badge-pill bg-danger">+{{ \App\Models\Deposit::query()->pending()->count() }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.categories.*') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
                             <i class="mdi mdi-folder-multiple-outline"></i> <span>{{ __('Categories') }}</span>
                         </a>

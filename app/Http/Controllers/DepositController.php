@@ -28,6 +28,7 @@ class DepositController extends Controller
         $deposit = Deposit::create([
             'user_id' => Auth::id(),
             'type' => Deposit::CHARGE,
+            'amount' => $request->amount,
             'status' => Deposit::PENDING,
             'description' => 'Thẻ ' . Str::ucfirst($request->telco) . ' ' . number_format($request->amount) . 'đ'
         ]);
