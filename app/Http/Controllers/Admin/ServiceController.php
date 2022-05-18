@@ -21,7 +21,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::query()->active()->get();
         $services = Service::query()->paginate();
 
         return view('admin.services.index', compact('categories', 'services'));
