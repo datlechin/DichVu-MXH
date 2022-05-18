@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\PackageController;
-use App\Http\Controllers\Admin\ServiceController;
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\{
+    ChargeController,
+    PackageController,
+    ServiceController,
+    UserController
+};
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'admin', 'as' => 'admin.'], function () {
@@ -11,4 +13,5 @@ Route::group(['middleware' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/categories', CategoryController::class)->except('create', 'show', 'destroy');
     Route::resource('/services', ServiceController::class)->except('create', 'show', 'destroy');
     Route::resource('/packages', PackageController::class)->only('index', 'store');
+    Route::resource('/charges', ChargeController::class)->only('index', 'edit', 'update', 'destroy');
 });
