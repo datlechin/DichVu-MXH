@@ -24,6 +24,13 @@
                             <label for="name" class="form-label">Tên danh mục</label>
                             <input type="text" id="name" name="name" class="form-control" placeholder="Nhập tên danh mục" value="{{ old('name', $category) }}">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Trạng thái</label>
+                            <select name="status" class="form-select" data-choices data-choices-search-false>
+                                <option value="{{ \App\Models\Category::ACTIVE }}" @selected(old('status', $category) == \App\Models\Category::ACTIVE)>Kích hoạt</option>
+                                <option value="{{ \App\Models\Category::INACTIVE }}" @selected(old('status', $category) == \App\Models\Category::INACTIVE)>Vô hiệu hoá</option>
+                            </select>
+                        </div>
                         <div class="text-end">
                             <button type="submit" class="btn btn-primary">Cập nhật</button>
                         </div>

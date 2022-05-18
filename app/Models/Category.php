@@ -11,15 +11,14 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['icon', 'name', 'slug', 'status'];
+    const ACTIVE = 'active';
+    const INACTIVE = 'inactive';
 
-    protected $casts = [
-        'status' => CategoryStatus::class,
-    ];
+    protected $fillable = ['icon', 'name', 'slug', 'status'];
 
     public function scopeActive($query)
     {
-        return $query->where('status', CategoryStatus::Active);
+        return $query->where('status', Category::ACTIVE);
     }
 
     public function services(): HasMany

@@ -33,10 +33,10 @@
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>
-                                        @if($category->status === \App\Enums\CategoryStatus::Active)
-                                            <span class="badge badge-soft-success text-uppercase">{{ __('Active') }}</span>
-                                        @elseif($category->status === \App\Enums\CategoryStatus::Inactive)
-                                            <span class="badge badge-soft-danger text-uppercase">{{ __('Inactive') }}</span>
+                                        @if($category->status == \App\Models\Category::ACTIVE)
+                                            <span class="badge badge-soft-success text-uppercase">Hoạt đông</span>
+                                        @elseif($category->status == \App\Models\Category::INACTIVE)
+                                            <span class="badge badge-soft-danger text-uppercase">Đã tắt</span>
                                         @endif
                                     </td>
                                     <td>
