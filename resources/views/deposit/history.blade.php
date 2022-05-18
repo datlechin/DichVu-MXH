@@ -60,7 +60,7 @@
                         <tr>
                             <td>#{{ $deposit->id }}</td>
                             <td>{{ $deposit->created_at }}</td>
-                            <td>{{ $deposit->depositType() }}</td>
+                            <td>{{ $deposit->type }}</td>
                             <td>{{ number_format($deposit->amount) }}đ</td>
                             <td>{{ $deposit->description }}</td>
                             <td>

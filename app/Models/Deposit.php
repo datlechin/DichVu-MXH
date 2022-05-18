@@ -40,15 +40,6 @@ class Deposit extends Model
         return $this->hasOne(Charge::class);
     }
 
-    public function depositType(): string
-    {
-        return match ($this->type) {
-            Deposit::BANK => 'Ngân hàng',
-            Deposit::WALLET => 'Ví điện tử',
-            Deposit::CHARGE => 'Nạp thẻ',
-        };
-    }
-
     public function scopeSearch(Builder $query, ?string $request): Builder
     {
         return $query->where('description', 'like', "%{$request}%");
