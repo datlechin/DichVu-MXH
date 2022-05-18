@@ -36,9 +36,9 @@
                         <i class="mdi mdi-cash"></i> <span>{{ __('Deposit') }}</span>
                     </a>
                 </li>
-                @if($categories->count() > 0)
+                @if($categories_sidebar->count() > 0)
                     <li class="menu-title"><span>{{ __('Services') }}</span></li>
-                    @foreach($categories as $category)
+                    @foreach($categories_sidebar as $category)
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="#{{ $category->slug }}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="{{ $category->slug }}">
                                 <i class="{{ $category->icon }}"></i> <span>{{ $category->name }}</span>
