@@ -79,7 +79,7 @@ class UserController extends Controller
 
     public function authLog()
     {
-        $logs = Auth::user()->authentications()->get();
+        $logs = Auth::user()->authentications()->paginate();
 
         return view('user.auth-log', compact('logs'));
     }

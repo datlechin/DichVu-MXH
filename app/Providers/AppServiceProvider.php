@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Enums\CategoryStatus;
 use App\Models\Category;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -28,5 +29,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $categories = Category::query()->active()->get() ?? [];
         View::share('categories_sidebar', $categories);
+        Paginator::useBootstrapFive();
     }
 }
