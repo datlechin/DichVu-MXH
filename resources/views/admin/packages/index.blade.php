@@ -131,20 +131,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('assets/libs/@ckeditor/@ckeditor.min.js') }}"></script>
-    <script>
-        let ckClassicEditor = document.querySelectorAll(".ckeditor-classic")
-        ckClassicEditor.forEach(function () {
-            ClassicEditor
-                .create(document.querySelector('.ckeditor-classic'))
-                .then(function (editor) {
-                    editor.ui.view.editable.element.style.height = '200px';
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
-        });
-    </script>
-@endpush

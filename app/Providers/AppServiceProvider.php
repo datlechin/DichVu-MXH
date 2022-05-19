@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Category::query()->active()->get() ?? [];
+        $categories = Category::query()->active()->get();
         View::share('categories_sidebar', $categories);
         Paginator::useBootstrapFive();
     }
