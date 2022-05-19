@@ -5,15 +5,10 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="card" id="tasksList">
+            <div class="card">
                 <div class="card-header border-0">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title mb-0 flex-grow-1">Danh sách nạp tiền</h5>
-                        <div class="flex-shrink-0">
-                            <button class="btn btn-danger add-btn" data-bs-toggle="modal" data-bs-target="#createModal">
-                                <i class="ri-add-line align-bottom me-1"></i> {{ __('Create Category') }}
-                            </button>
-                        </div>
                     </div>
                 </div>
                 <div class="card-body">
