@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="card" id="tasksList">
+            <div class="card">
                 <div class="card-header border-0">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title mb-0 flex-grow-1">{{ __('Services List') }}</h5>
@@ -35,9 +35,9 @@
                                     <td>{{ $service->category->name }}</td>
                                     <td>{{ $service->name }}</td>
                                     <td>
-                                        @if($service->status === \App\Enums\ServiceStatus::Active)
+                                        @if($service->status === \App\Models\Service::ACTIVE)
                                             <span class="badge badge-soft-success text-uppercase">{{ __('Active') }}</span>
-                                        @elseif($service->status === \App\Enums\ServiceStatus::Inactive)
+                                        @elseif($service->status === \App\Models\Service::INACTIVE)
                                             <span class="badge badge-soft-danger text-uppercase">{{ __('Inactive') }}</span>
                                         @endif
                                     </td>
@@ -112,20 +112,3 @@
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('assets/libs/@ckeditor/@ckeditor.min.js') }}"></script>
-    <script>
-        let ckClassicEditor = document.querySelectorAll(".ckeditor-classic")
-        ckClassicEditor.forEach(function () {
-            ClassicEditor
-                .create(document.querySelector('.ckeditor-classic'))
-                .then(function (editor) {
-                    editor.ui.view.editable.element.style.height = '200px';
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
-        });
-    </script>
-@endpush

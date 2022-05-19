@@ -12,11 +12,19 @@ class Service extends Model
 {
     use HasFactory;
 
-    protected $casts = [
-        'status' => ServiceStatus::class
-    ];
+    const ACTIVE = '1';
+    const INACTIVE = '0';
 
     protected $fillable = ['category_id', 'name', 'slug', 'label', 'placeholder', 'description', 'status'];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('active', function ($builder) {
+            $builder->where('status', Service::ACTIVE);
+        });
+    }
 
     public function category(): BelongsTo
     {

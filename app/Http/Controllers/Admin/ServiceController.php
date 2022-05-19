@@ -8,8 +8,7 @@ use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 
 class ServiceController extends Controller
@@ -21,26 +20,20 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $categories = Category::query()->active()->get();
-        $services = Service::query()->paginate();
+        $categories = Category::query()
+            ->active()
+            ->get();
+        $services = Service::query()
+            ->withoutGlobalScope('active')
+            ->paginate();
 
         return view('admin.services.index', compact('categories', 'services'));
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ServiceRequest $request
      * @return RedirectResponse
      */
     public function store(ServiceRequest $request)
@@ -51,44 +44,43 @@ class ServiceController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return Renderable
      */
     public function edit($id)
     {
-        //
+        $service = Service::query()
+            ->withoutGlobalScope('active')
+            ->findOrFail($id);
+        $categories = Category::query()->active()->get();
+
+        return view('admin.services.edit', compact('service', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param ServiceRequest $request
+     * @param $id
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(ServiceRequest $request, $id)
     {
-        //
+        $service = Service::query()
+            ->withoutGlobalScope('active')
+            ->findOrFail($id);
+        $service->update($request->validated() + ['slug' => Str::slug($request->name)]);
+
+        return to_route('admin.services.index')->with('success', 'Cập nhật thông tin dịch vụ thành công');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
     public function destroy($id)
     {

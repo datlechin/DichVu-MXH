@@ -11,8 +11,8 @@ class Category extends Model
 {
     use HasFactory;
 
-    const ACTIVE = 'active';
-    const INACTIVE = 'inactive';
+    const ACTIVE = '1';
+    const INACTIVE = '0';
 
     protected $fillable = ['icon', 'name', 'slug', 'status'];
 

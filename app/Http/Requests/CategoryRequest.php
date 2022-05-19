@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Category;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoryRequest extends FormRequest
 {
@@ -26,7 +28,10 @@ class CategoryRequest extends FormRequest
         return [
             'icon' => 'nullable|string|min:4|max:50',
             'name' => 'required|string|min:3|max:50|unique:categories,name,' . optional($this->category)->id,
-            'status' => 'nullable|in:active,inactive'
+            'status' => [
+                'nullable',
+                Rule::in([Category::ACTIVE, Category::INACTIVE]),
+            ]
         ];
     }
 }
