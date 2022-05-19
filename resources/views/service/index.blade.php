@@ -57,6 +57,16 @@
                                 <textarea class="form-control" id="note" name="note" placeholder="Nhập ghi chú">{{ old('note') }}</textarea>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <div class="form-check card-radio">
+                                <input type="radio" class="form-check-input" checked>
+                                <label class="form-check-label">
+                                    <span class="fs-20 float-end mt-2 text-wrap d-block fw-semibold" id="total">0đ</span>
+                                    <span class="fs-14 mb-1 text-wrap d-block">Tổng thanh toán</span>
+                                    <span class="text-muted fw-normal text-wrap d-block">Số dư của bạn: <span class="fw-bold text-danger">{{ number_format(Auth::user()->balance) }}đ</span></span>
+                                </label>
+                            </div>
+                        </div>
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-lg waves-effect waves-light">
                                 <i class="fas fa-plus mr-1"></i> Tạo đơn hàng
@@ -77,3 +87,38 @@
         @include('service.history')
     </div>
 @endsection
+
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            let quantityInput = $('#quantity');
+            let total = 0;
+            let price = 0;
+            let quantity = quantityInput.val();
+
+            $('input[name="package_id"]').change(function () {
+                let package_id = $(this).val();
+                $.ajax({
+                    url: '{{ route('service.get-package-price') }}?package_id=' + package_id,
+                    type: 'GET',
+                    success: function (data) {
+                        price = data.price;
+                        total = price * quantity;
+                        $('#total').text(formatPrice(total));
+                    }
+                });
+            });
+
+            quantityInput.on('input', function () {
+                quantity = $(this).val();
+                total = price * quantity;
+                $('#total').text(formatPrice(total));
+            });
+        });
+
+        const formatPrice = (price) => {
+            return price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + 'đ';
+        }
+    </script>
+@endpush

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreOrderRequest;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\Package;
 use App\Models\Service;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -41,5 +43,12 @@ class ServiceController extends Controller
         });
 
         return back()->with('success', 'Tạo đơn ' . $service->name . ' với số lượng ' . number_format($request->quantity) . ' thành công');
+    }
+
+    public function getPackagePrice(Request $request)
+    {
+        $package = Package::findOrFail($request->package_id);
+
+        return response()->json(['price' => $package->price]);
     }
 }

@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/deposit', [DepositController::class, 'store']);
     Route::get('/service/{category:slug}/{service:slug}', [ServiceController::class, 'index'])->name('service');
     Route::post('/service/{category:slug}/{service:slug}', [ServiceController::class, 'store']);
+    Route::get('/service/get-package-price', [ServiceController::class, 'getPackagePrice'])->name('service.get-package-price');
 
     Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
         Route::get('/profile', [UserController::class, 'profile'])->name('profile');
