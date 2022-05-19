@@ -45,7 +45,7 @@
                             </a>
                             <div class="collapse menu-dropdown" id="{{ $category->slug }}">
                                 <ul class="nav nav-sm flex-column">
-                                    @foreach($category->services as $service)
+                                    @foreach($category->services()->active()->get() as $service)
                                         <li class="nav-item">
                                             <a href="{{ route('service', [$service->category->slug, $service->slug]) }}" class="nav-link" data-key="t-{{ $service->slug }}">{{ $service->name }}</a>
                                         </li>

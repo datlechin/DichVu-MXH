@@ -26,4 +26,9 @@ class Service extends Model
     {
         return $this->hasMany(Package::class);
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', Service::ACTIVE);
+    }
 }

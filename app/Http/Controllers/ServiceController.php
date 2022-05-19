@@ -11,16 +11,18 @@ use Illuminate\Support\Facades\DB;
 
 class ServiceController extends Controller
 {
-    public function index(Category $category, Service $service)
+    public function index(Category $category, $service)
     {
         $user = Auth::user();
+        $service = Service::query()->active()->where('slug', $service)->firstOrFail();
         $orders = $user->orders()->with('package')->latest()->paginate();
 
         return view('service.index', compact('service', 'orders'));
     }
 
-    public function store(StoreOrderRequest $request, Category $category, Service $service)
+    public function store(StoreOrderRequest $request, Category $category, $service)
     {
+        $service = Service::query()->active()->where('slug', $service)->firstOrFail();
         $user = $request->user();
         $package = $service->packages()->find($request->package_id);
         $total = $package->price * $request->quantity;
