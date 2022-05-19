@@ -17,15 +17,6 @@ class Service extends Model
 
     protected $fillable = ['category_id', 'name', 'slug', 'label', 'placeholder', 'description', 'status'];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::addGlobalScope('active', function ($builder) {
-            $builder->where('status', Service::ACTIVE);
-        });
-    }
-
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);

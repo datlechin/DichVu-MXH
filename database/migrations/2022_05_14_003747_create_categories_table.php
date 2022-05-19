@@ -1,11 +1,11 @@
 <?php
 
+use App\Models\Category;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('icon')->nullable();
             $table->string('name')->unique();
             $table->string('slug');
-            $table->string('status')->default('active');
+            $table->string('status')->default(Category::ACTIVE);
             $table->timestamps();
         });
     }

@@ -20,12 +20,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $categories = Category::query()
-            ->active()
-            ->get();
-        $services = Service::query()
-            ->withoutGlobalScope('active')
-            ->paginate();
+        $categories = Category::query()->active()->get();
+        $services = Service::query()->paginate();
 
         return view('admin.services.index', compact('categories', 'services'));
     }
@@ -46,14 +42,11 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param $id
+     * @param Service $service
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Service $service)
     {
-        $service = Service::query()
-            ->withoutGlobalScope('active')
-            ->findOrFail($id);
         $categories = Category::query()->active()->get();
 
         return view('admin.services.edit', compact('service', 'categories'));
@@ -63,14 +56,11 @@ class ServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param ServiceRequest $request
-     * @param $id
+     * @param Service $service
      * @return RedirectResponse
      */
-    public function update(ServiceRequest $request, $id)
+    public function update(ServiceRequest $request, Service $service)
     {
-        $service = Service::query()
-            ->withoutGlobalScope('active')
-            ->findOrFail($id);
         $service->update($request->validated() + ['slug' => Str::slug($request->name)]);
 
         return to_route('admin.services.index')->with('success', 'Cập nhật thông tin dịch vụ thành công');

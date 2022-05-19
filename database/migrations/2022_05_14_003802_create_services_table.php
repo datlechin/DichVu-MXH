@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->string('label');
             $table->string('placeholder')->nullable();
-            $table->string('status')->default('active');
+            $table->string('status')->default(\App\Models\Service::ACTIVE);
             $table->timestamps();
         });
     }
