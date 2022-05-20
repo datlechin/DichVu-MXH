@@ -31,8 +31,8 @@
                     <div class="mb-3">
                         <label for="role" class="form-label">Vai trò</label>
                         <select name="role" id="role" class="form-select" data-choices data-choices-search-false>
-                            <option value="{{ \App\Enums\UserRole::Member->value }}" @checked(old('role', $user) == \App\Enums\UserRole::Member->value)>Thành viên</option>
-                            <option value="{{ \App\Enums\UserRole::Admin->value }}" @checked(old('role', $user) == \App\Enums\UserRole::Admin->value)>Quản trị viên</option>
+                            <option value="{{ \App\Models\User::ADMIN }}" @checked(old('role', $user) == \App\Models\User::ADMIN)>Quản trị viên</option>
+                            <option value="{{ \App\Models\User::MEMBER }}" @checked(old('role', $user) == \App\Models\User::MEMBER)>Thành viên</option>
                         </select>
                     </div>
                     <div class="row mb-3">
