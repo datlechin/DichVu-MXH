@@ -5,42 +5,21 @@
 
 # Dịch vụ Mạng xã hội
 
-## Cài đặt
+### Huớng dẫn cài đặt
 
-Cài đặt môi trường phát triển trên máy cục bộ
+Xem bài viết hướng dẫn cài đặt [tại đây](https://github.com/datlechin/DichVu-MXH/wiki/Hướng-dẫn-cài-đặt).
 
+### Ủng hộ
 
-```bash
-git clone https://github.com/datlechin/DichVu-MXH
-cd DichVu-MXH
-cp .env.example .env
-composer install
-npm install
-php artisan key:generate
-```
+Đây là cách để ủng hộ nhà phát triển, thông tin chuyển khoản:
 
-Để chạy ứng dụng, sử dụng lệnh `php artisan serve`. Sau đó truy cập vào trang web bằng đường dẫn **http://127.0.0.1:8000**.
+- Vietcombank **1017595600** (NGÔ QUỐC ĐẠT)
+- Momo **0372124043** (NGÔ QUỐC ĐẠT)
 
-### Trước khi chạy
-
-Khi đã chạy xong các câu lệnh trên, quá trình cài đặt trang web vẫn chưa hoàn tất:
-
-Chạy lệnh sau để migrations và seeds:
-
-```bash
-php artisan migrate --seed
-```
-
-Sau đó chạy lệnh bên dưới để biên dịch các tệp js/css:
-
-```bash
-npm run dev
-```
-
-## Đóng góp
+### Đóng góp
 
 Đừng ngần ngại mà đóng góp cho dự án này bằng cách gửi các PR sửa lỗi hoặc thêm chức năng mới vào dự án.
 
-## Giấy phép
+### Giấy phép
 
 Dự án này là mã nguồn mở dựa trên [giấy phép MIT](https://opensource.org/licenses/MIT).
