@@ -66,11 +66,13 @@
                             <td>{{ number_format($order->quantity) }}</td>
                             <td>{{ number_format($order->total) }}đ</td>
                             <td>
-                                @if($order->status == \App\Enums\OrderStatus::Pending)
+                                @if($order->status == \App\Models\Order::PENDING)
                                     <span class="badge badge-soft-warning text-uppercase">Đang xử lý</span>
-                                @elseif($order->status == \App\Enums\OrderStatus::Completed)
+                                @elseif($order->status == \App\Models\Order::PROCESSING)
+                                    <span class="badge badge-soft-success text-uppercase">Đang thực hiện</span>
+                                @elseif($order->status == \App\Models\Order::COMPLETED)
                                     <span class="badge badge-soft-success text-uppercase">Hoàn thành</span>
-                                @elseif($order->status == \App\Enums\OrderStatus::Cancelled)
+                                @elseif($order->status == \App\Models\Order::CANCELLED)
                                     <span class="badge badge-soft-danger text-uppercase">Đã hủy</span>
                                 @endif
                             </td>

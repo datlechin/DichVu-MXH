@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="card" id="tasksList">
+            <div class="card">
                 <div class="card-header border-0">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title mb-0 flex-grow-1">{{ __('Service Package List') }}</h5>

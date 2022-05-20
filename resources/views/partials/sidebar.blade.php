@@ -65,7 +65,6 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.deposits.*') ? 'active' : '' }}" href="{{ route('admin.deposits.index') }}">
                             <i class="mdi mdi-cash-plus"></i> <span>Tiền đã nạp</span>
-                            <span class="badge badge-pill bg-danger">+{{ \App\Models\Deposit::query()->pending()->count() }}</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -81,6 +80,11 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.packages.*') ? 'active' : '' }}" href="{{ route('admin.packages.index') }}">
                             <i class="mdi mdi-package-variant-closed"></i> <span>{{ __('Service Packages') }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.orders.*') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">
+                            <i class="mdi mdi-cart-outline"></i> <span>Đơn dịch vụ</span>
                         </a>
                     </li>
                 @endif

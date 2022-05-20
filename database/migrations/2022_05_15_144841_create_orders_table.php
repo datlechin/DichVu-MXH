@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\OrderStatus;
+use App\Models\Order;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -23,7 +23,7 @@ return new class extends Migration {
             $table->integer('quantity');
             $table->decimal('total', 10, 2);
             $table->text('note')->nullable();
-            $table->string('status')->default(OrderStatus::Pending->value);
+            $table->string('status')->default(Order::PENDING);
             $table->timestamps();
         });
     }

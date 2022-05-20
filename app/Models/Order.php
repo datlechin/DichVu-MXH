@@ -12,14 +12,20 @@ class Order extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $fillable = ['user_id', 'package_id', 'input', 'quantity', 'total', 'note', 'status'];
+    const PENDING = '0';
+    const PROCESSING = '1';
+    const COMPLETED = '2';
+    const CANCELLED = '3';
 
-    protected $casts = [
-        'status' => OrderStatus::class
-    ];
+    protected $fillable = ['user_id', 'package_id', 'input', 'quantity', 'total', 'note', 'status'];
 
     public function package(): BelongsTo
     {
         return $this->belongsTo(Package::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

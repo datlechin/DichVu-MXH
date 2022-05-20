@@ -105,6 +105,6 @@ class User extends Authenticatable
 
     public function getAmountSpentAttribute(): int
     {
-        return $this->orders()->where('status', OrderStatus::Completed)->sum('total');
+        return $this->orders()->where('status', Order::COMPLETED)->sum('total');
     }
 }
