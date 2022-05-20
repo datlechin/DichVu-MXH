@@ -23,7 +23,7 @@ class ToolController extends Controller
         ])
             ->asForm()
             ->post('https://findidfb.com', [
-                'url_facebook' => 'https://www.facebook.com/datlechinvn',
+                'url_facebook' => $request->url_facebook,
             ]);
 
         $body = $response->body();
