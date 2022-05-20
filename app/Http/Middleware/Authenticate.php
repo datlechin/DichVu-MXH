@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Category;
+use Closure;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Support\Facades\View;
 
 class Authenticate extends Middleware
 {
@@ -17,5 +20,11 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) {
             return route('login');
         }
+    }
+
+    public function handle($request, Closure $next, ...$guards)
+    {
+        $categories = Category::query()->active()->get();
+        View::share('categories_sidebar', $categories);
     }
 }
