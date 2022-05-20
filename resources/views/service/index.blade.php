@@ -32,9 +32,13 @@
                                             <label class="form-check-label" for="package_id_{{ $package->id }}">
                                                 {{ $package->name }}
                                                 <span class="badge badge-label bg-secondary">
-                                                <i class="bx bx-dollar"></i>
-                                                {{ number_format($package->price) }}đ
-                                            </span>
+                                                    @if($package->price > 0)
+                                                        <i class="bx bx-dollar"></i>
+                                                        {{ number_format($package->price) }}đ
+                                                    @else
+                                                        Miễn phí
+                                                    @endif
+                                                </span>
                                             </label>
                                         </div>
                                     @endforeach

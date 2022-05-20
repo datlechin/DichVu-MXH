@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'phone' => '0123456789',
             'password' => bcrypt('123456'),
             'role' => User::ADMIN,
+            'created_at' => now(),
         ]);
     }
 }
