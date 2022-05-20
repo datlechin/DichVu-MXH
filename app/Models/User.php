@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Enums\OrderStatus;
-use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
