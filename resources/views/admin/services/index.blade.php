@@ -43,6 +43,11 @@
                                     </td>
                                     <td>
                                         <ul class="list-inline hstack gap-2 mb-0">
+                                            <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="" data-bs-original-title="Xem">
+                                                <a href="{{ route('service', [$service->category->slug, $service->slug]) }}" class="text-primary d-inline-block">
+                                                    <i class="ri-eye-fill fs-16"></i>
+                                                </a>
+                                            </li>
                                             <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="" data-bs-original-title="Chỉnh sửa">
                                                 <a href="{{ route('admin.services.edit', $service->id) }}" class="text-primary d-inline-block">
                                                     <i class="ri-pencil-fill fs-16"></i>

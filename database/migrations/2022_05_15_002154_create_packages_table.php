@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Package;
 use App\Models\Service;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -21,7 +22,7 @@ return new class extends Migration {
             $table->integer('min_quantity')->default(0);
             $table->integer('max_quantity')->default(0);
             $table->text('note')->nullable();
-            $table->string('status')->default('active');
+            $table->string('status')->default(Package::ACTIVE);
             $table->timestamps();
         });
     }

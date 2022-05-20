@@ -26,7 +26,7 @@ class ServiceController extends Controller
     {
         $service = Service::query()->active()->where('slug', $service)->firstOrFail();
         $user = $request->user();
-        $package = $service->packages()->find($request->package_id);
+        $package = $service->packages()->active()->find($request->package_id);
         $total = $package->price * $request->quantity;
 
         if ($user->balance < $total) {

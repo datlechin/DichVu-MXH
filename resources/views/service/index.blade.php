@@ -20,31 +20,29 @@
                                 <input type="text" class="form-control" id="{{ Str::slug($service->label) }}" name="input" placeholder="{{ $service->placeholder }}" value="{{ old('input') }}">
                             </div>
                         </div>
-                        @if($service->packages()->count() > 0)
-                            <div class="row mb-3">
-                                <div class="col-lg-3">
-                                    <label class="form-label">{{ __('Service Packages') }}</label>
-                                </div>
-                                <div class="col-lg-9">
-                                    @foreach($service->packages as $package)
-                                        <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="package_id" id="package_id_{{ $package->id }}" value="{{ $package->id }}" @checked(old('package_id') == $package->id)>
-                                            <label class="form-check-label" for="package_id_{{ $package->id }}">
-                                                {{ $package->name }}
-                                                <span class="badge badge-label bg-secondary">
-                                                    @if($package->price > 0)
-                                                        <i class="bx bx-dollar"></i>
-                                                        {{ number_format($package->price) }}đ
-                                                    @else
-                                                        Miễn phí
-                                                    @endif
-                                                </span>
-                                            </label>
-                                        </div>
-                                    @endforeach
-                                </div>
+                        <div class="row mb-3">
+                            <div class="col-lg-3">
+                                <label class="form-label">{{ __('Service Packages') }}</label>
                             </div>
-                        @endif
+                            <div class="col-lg-9">
+                                @foreach($service->packages()->active()->get() as $package)
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="radio" name="package_id" id="package_id_{{ $package->id }}" value="{{ $package->id }}" @checked(old('package_id') == $package->id)>
+                                        <label class="form-check-label" for="package_id_{{ $package->id }}">
+                                            {{ $package->name }}
+                                            <span class="badge badge-label bg-secondary">
+                                                    @if($package->price > 0)
+                                                    <i class="bx bx-dollar"></i>
+                                                    {{ number_format($package->price) }}đ
+                                                @else
+                                                    Miễn phí
+                                                @endif
+                                                </span>
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col-lg-3">
                                 <label for="quantity" class="form-label">{{ __('Quantity') }}</label>

@@ -11,14 +11,18 @@ class Package extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['service_id', 'name', 'price', 'min_quantity', 'max_quantity', 'note', 'status'];
+    const ACTIVE = '1';
+    const INACTIVE = '0';
 
-    protected $casts = [
-        'status' => PackageStatus::class
-    ];
+    protected $fillable = ['service_id', 'name', 'price', 'min_quantity', 'max_quantity', 'note', 'status'];
 
     public function service(): BelongsTo
     {
         return $this->belongsTo(Service::class);
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', Package::ACTIVE);
     }
 }

@@ -39,23 +39,16 @@
                                     <td>{{ number_format($package->price) }}đ</td>
                                     <td><span class="fw-bold">{{ $package->min_quantity }}</span>/<span class="fw-bold">{{ $package->max_quantity }}</span></td>
                                     <td>
-                                        @if($package->status === \App\Enums\PackageStatus::Active)
-                                            <span class="badge badge-soft-success text-uppercase">{{ __('Active') }}</span>
-                                        @elseif($package->status === \App\Enums\PackageStatus::Inactive)
-                                            <span class="badge badge-soft-danger text-uppercase">{{ __('Inactive') }}</span>
-                                        @elseif($package->status === \App\Enums\PackageStatus::Suspended)
-                                            <span class="badge badge-soft-warning text-uppercase">{{ __('Suspended') }}</span>
+                                        @if($package->status == \App\Models\Package::ACTIVE)
+                                            <span class="badge badge-soft-success text-uppercase">Đang hoạt động</span>
+                                        @elseif($package->status == \App\Models\Package::INACTIVE)
+                                            <span class="badge badge-soft-danger text-uppercase">Đã tắt</span>
                                         @endif
                                     </td>
                                     <td>
                                         <ul class="list-inline hstack gap-2 mb-0">
-                                            <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="" data-bs-original-title="{{ __('View') }}">
-                                                <a href="apps-ecommerce-order-details.html" class="text-primary d-inline-block">
-                                                    <i class="ri-eye-fill fs-16"></i>
-                                                </a>
-                                            </li>
-                                            <li class="list-inline-item edit" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="" data-bs-original-title="{{ __('Edit') }}">
-                                                <a href="#showModal" data-bs-toggle="modal" class="text-primary d-inline-block edit-item-btn">
+                                            <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="" data-bs-original-title="Chỉnh sửa">
+                                                <a href="{{ route('admin.packages.edit', $package->id) }}" class="text-primary d-inline-block">
                                                     <i class="ri-pencil-fill fs-16"></i>
                                                 </a>
                                             </li>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Package;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PackageRequest extends FormRequest
 {
@@ -30,6 +32,10 @@ class PackageRequest extends FormRequest
             'min_quantity' => 'required|numeric|min:1|max:100000000',
             'max_quantity' => 'required|numeric|gt:min_quantity|max:100000000',
             'note' => 'nullable|string|max:1000',
+            'status' => [
+                'nullable',
+                Rule::in([Package::ACTIVE, Package::INACTIVE]),
+            ]
         ];
     }
 }
