@@ -20,7 +20,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone')->unique()->nullable();
             $table->string('password');
-            $table->decimal('balance', 8, 2)->default(0);
+            $table->integer('balance')->default(0);
             $table->string('role')->default('member');
             $table->string('avatar')->nullable();
             $table->rememberToken();

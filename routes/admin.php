@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\{
     CategoryController,
     DepositController,
+    MoneyController,
     OrderController,
     PackageController,
     ServiceController,
@@ -17,4 +18,6 @@ Route::group(['middleware' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/packages', PackageController::class)->except('create', 'show');
     Route::resource('/deposits', DepositController::class)->only('index', 'edit', 'update', 'destroy');
     Route::resource('/orders', OrderController::class)->only('index', 'edit', 'update', 'destroy');
+    Route::get('/money', [MoneyController::class, 'index'])->name('money');
+    Route::post('/money', [MoneyController::class, 'handle']);
 });

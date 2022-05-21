@@ -75,6 +75,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.money') ? 'active' : '' }}" href="{{ route('admin.money') }}">
+                            <i class="mdi mdi-cash"></i> <span>Cộng trừ tiền</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.deposits.*') ? 'active' : '' }}" href="{{ route('admin.deposits.index') }}">
                             <i class="mdi mdi-cash-plus"></i> <span>Tiền đã nạp</span>
                         </a>
