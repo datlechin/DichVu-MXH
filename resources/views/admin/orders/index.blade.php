@@ -17,6 +17,7 @@
                             <thead class="table-light text-muted">
                             <tr>
                                 <th>ID</th>
+                                <th>Thời gian</th>
                                 <th>Người đặt</th>
                                 <th>Dịch vụ</th>
                                 <th>Thành tiền</th>
@@ -29,6 +30,7 @@
                             @foreach($orders as $order)
                                 <tr>
                                     <td>{{ $order->id }}</td>
+                                    <td>{{ $order->created_at }}</td>
                                     <td>{{ $order->user->email }}</td>
                                     <td>{{ $order->package->service->name }} - {{ $order->package->name }}</td>
                                     <td>{{ number_format($order->total) }}đ</td>

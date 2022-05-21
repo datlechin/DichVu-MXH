@@ -10,7 +10,7 @@
                 <tr>
                     <th>Thời gian</th>
                     <th>IP</th>
-                    <th>User Agent</th>
+                    <th>Trình duyệt</th>
                 </tr>
                 </thead>
                 <tbody>
