@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->foreignIdFor(Package::class)->constrained();
             $table->string('input');
             $table->integer('quantity');
-            $table->integer('balance');
+            $table->integer('total');
             $table->text('note')->nullable();
             $table->string('status')->default(Order::PENDING);
             $table->timestamps();
