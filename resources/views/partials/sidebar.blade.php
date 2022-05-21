@@ -36,6 +36,18 @@
                         <i class="mdi mdi-cash"></i> <span>{{ __('Deposit') }}</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="#tools" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tools">
+                        <i class="mdi mdi-toolbox-outline"></i> <span>Công cụ</span>
+                    </a>
+                    <div class="collapse menu-dropdown" id="tools">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('tool.get-facebook-id') }}" class="nav-link">Lấy ID Facebook</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
                 @if($categories_sidebar->count() > 0)
                     <li class="menu-title"><span>{{ __('Services') }}</span></li>
                     @foreach($categories_sidebar as $category)
@@ -88,18 +100,6 @@
                         </a>
                     </li>
                 @endif
-                <li class="nav-item">
-                    <a class="nav-link menu-link" href="#tools" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tools">
-                        <i class="mdi mdi-toolbox-outline"></i> <span>Công cụ</span>
-                    </a>
-                    <div class="collapse menu-dropdown" id="tools">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('tool.get-facebook-id') }}" class="nav-link">Lấy ID Facebook</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
             </ul>
         </div>
     </div>
