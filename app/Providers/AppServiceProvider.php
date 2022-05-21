@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Category;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -26,8 +27,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $categories = Category::query()->active()->get();
-        View::share('categories_sidebar', $categories);
+        if (Schema::hasTable('categories')) {
+            $categories = Category::query()->active()->get();
+            View::share('categories_sidebar', $categories);
+        } else {
+            View::share('categories_sidebar', []);
+        }
         Paginator::useBootstrapFive();
     }
 }
