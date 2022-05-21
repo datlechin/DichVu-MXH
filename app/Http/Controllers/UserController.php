@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required|min:3|max:50',
-            'phone' => 'required|numeric|digits_between:10,11',
+            'phone' => 'required|numeric|starts_with:0|digits:10',
         ]);
 
         Auth::user()->update([
