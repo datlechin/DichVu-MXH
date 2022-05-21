@@ -5,6 +5,10 @@
 
 # Dịch vụ Mạng xã hội
 
+![Screenshot 2022-05-21 152457](https://user-images.githubusercontent.com/56961917/169643058-f37d6f6a-7087-4506-b557-8dace7b027e1.png)
+![Screenshot 2022-05-21 152514](https://user-images.githubusercontent.com/56961917/169643063-a3c96fde-3418-458d-ac45-622a8af9c73b.png)
+
+
 ### Huớng dẫn cài đặt
 
 Xem bài viết hướng dẫn cài đặt [tại đây](https://github.com/datlechin/DichVu-MXH/wiki/Hướng-dẫn-cài-đặt).
