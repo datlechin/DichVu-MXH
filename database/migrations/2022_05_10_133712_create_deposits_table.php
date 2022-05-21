@@ -19,7 +19,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained();
             $table->string('type');
-            $table->decimal('amount', 10, 2)->default(0);
+            $table->integer('amount')->default(0);
             $table->string('description')->nullable();
             $table->string('status');
             $table->timestamps();

@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignIdFor(Service::class)->constrained();
             $table->string('name');
-            $table->decimal('price', 10, 2);
+            $table->integer('price');
             $table->integer('min_quantity')->default(0);
             $table->integer('max_quantity')->default(0);
             $table->text('note')->nullable();

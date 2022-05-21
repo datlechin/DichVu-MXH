@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Deposit::class)->constrained();
             $table->string('request_id');
             $table->string('telco');
-            $table->string('amount');
+            $table->integer('amount');
             $table->string('serial');
             $table->string('pin');
             $table->timestamps();
