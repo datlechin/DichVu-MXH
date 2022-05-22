@@ -15,6 +15,7 @@
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
+                    {{ \Diglactic\Breadcrumbs\Breadcrumbs::render() }}
                     @yield('content')
                 </div>
             </div>

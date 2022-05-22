@@ -61,7 +61,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('user.auth-log') ? 'active' : '' }}" href="{{ route('user.auth-log') }}">
                                 <i class="far fa-user"></i>
-                                Lịch sử đăng nhập
+                                Nhật ký đăng nhập
                             </a>
                         </li>
                     </ul>

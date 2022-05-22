@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/auth-log', [UserController::class, 'authLog'])->name('auth-log');
     });
 
-    Route::group(['prefix' => 'tool', 'as' => 'tool.'], function () {
+    Route::group(['prefix' => 'tools', 'as' => 'tools.'], function () {
         Route::get('/get-facebook-id', [ToolController::class, 'getFacebookId'])->name('get-facebook-id');
         Route::post('/get-facebook-id', [ToolController::class, 'postFacebookId']);
     });

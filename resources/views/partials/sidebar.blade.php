@@ -43,7 +43,7 @@
                     <div class="collapse menu-dropdown" id="tools">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('tool.get-facebook-id') }}" class="nav-link">Lấy ID Facebook</a>
+                                <a href="{{ route('tools.get-facebook-id') }}" class="nav-link">Lấy ID Facebook</a>
                             </li>
                         </ul>
                     </div>
