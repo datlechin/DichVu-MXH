@@ -37,7 +37,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td>{{ $order->total == 0 ? 'Miễn phí' : number_format($order->quantity /  $order->total) }}</td>
+                                <td>{{ $order->total == 0 ? 'Miễn phí' : number_format($order->total / $order->quantity) }}</td>
                                 <td>{{ number_format($order->quantity) }}</td>
                                 <td class="fw-medium">{{ number_format($order->total) }}đ</td>
                             </tr>
