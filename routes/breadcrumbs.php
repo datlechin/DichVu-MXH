@@ -3,9 +3,12 @@
 use App\Models\Category;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbsTrait;
+use Illuminate\Support\Facades\Route;
 
 Breadcrumbs::for('home', function (BreadcrumbsTrait $trail) {
-    $trail->push('Trang chủ', route('home'));
+    if (! Route::is('home')) {
+        $trail->push('Trang chủ', route('home'));
+    }
 });
 
 Breadcrumbs::for('deposit', function (BreadcrumbsTrait $trail) {
