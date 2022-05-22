@@ -96,6 +96,21 @@ Breadcrumbs::for('admin.orders.edit', function (BreadcrumbsTrait $trail, $id) {
     $trail->push('Sửa đơn dịch vụ', route('admin.orders.edit', $id));
 });
 
+Breadcrumbs::for('admin.settings', function (BreadcrumbsTrait $trail) {
+    $trail->parent('home');
+    $trail->push('Cài đặt');
+});
+
+Breadcrumbs::for('admin.settings.general', function (BreadcrumbsTrait $trail) {
+    $trail->parent('admin.settings');
+    $trail->push('Cấu hình chung');
+});
+
+Breadcrumbs::for('admin.settings.email', function (BreadcrumbsTrait $trail) {
+    $trail->parent('admin.settings');
+    $trail->push('Cấu hình email');
+});
+
 Breadcrumbs::for('user.profile', function (BreadcrumbsTrait $trail) {
     $trail->parent('home');
     $trail->push('Thông tin cá nhân', route('user.profile'));

@@ -104,6 +104,21 @@
                             <i class="mdi mdi-cart-outline"></i> <span>Đơn dịch vụ</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarSettings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSettings">
+                            <i class="mdi mdi-cog-outline"></i> <span>Cài đặt</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarSettings">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.settings.general') }}" class="nav-link">Cấu hình chung</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.settings.email') }}" class="nav-link">Thiết lập email</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
                 @endif
             </ul>
         </div>
