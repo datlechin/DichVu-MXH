@@ -21,8 +21,7 @@ Route::group(['middleware' => 'admin', 'as' => 'admin.'], function () {
     Route::post('/money', [MoneyController::class, 'handle']);
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::get('/general', [SettingController::class, 'general'])->name('general');
-        Route::post('/general', [SettingController::class, 'updateGeneral']);
-        Route::get('/email', [SettingController::class, 'email'])->name('email');
-        Route::post('/email', [SettingController::class, 'updateEmail']);
+        Route::get('/notifications', [SettingController::class, 'notifications'])->name('notifications');
+        Route::post('/store', [SettingController::class, 'store'])->name('store');
     });
 });

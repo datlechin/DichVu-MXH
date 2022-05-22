@@ -106,9 +106,14 @@ Breadcrumbs::for('admin.settings.general', function (BreadcrumbsTrait $trail) {
     $trail->push('Cấu hình chung');
 });
 
-Breadcrumbs::for('admin.settings.email', function (BreadcrumbsTrait $trail) {
+Breadcrumbs::for('admin.settings.site', function (BreadcrumbsTrait $trail) {
     $trail->parent('admin.settings');
-    $trail->push('Cấu hình email');
+    $trail->push('Cấu hình trang web');
+});
+
+Breadcrumbs::for('admin.settings.notifications', function (BreadcrumbsTrait $trail) {
+    $trail->parent('admin.settings');
+    $trail->push('Cấu hình thông báo');
 });
 
 Breadcrumbs::for('user.profile', function (BreadcrumbsTrait $trail) {

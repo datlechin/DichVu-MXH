@@ -17,13 +17,20 @@ class SettingController extends Controller
         return to_route('admin.settings.general')->with('success', 'Cập nhật cấu hình chung thành công');
     }
 
-    public function email()
+    public function notifications()
     {
-        return view('admin.settings.email');
+        return view('admin.settings.notifications');
     }
 
     public function updateEmail(Request $request)
     {
         return to_route('admin.settings.email')->with('success', 'Cập nhật cấu hình email thành công');
+    }
+
+    public function store(Request $request)
+    {
+        setting($request->except('_token'))->save();
+
+        return back()->with('success', 'Cập nhật cài đặt thành công');
     }
 }

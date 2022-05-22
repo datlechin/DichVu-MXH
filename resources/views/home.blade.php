@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', __('Home'))
+@section('title', setting('site_title'))
 
 @section('content')
     <div class="row">

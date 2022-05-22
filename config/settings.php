@@ -12,7 +12,7 @@ return [
 	| Supported: "json", "database"
 	|
 	*/
-	'store' => 'json',
+	'store' => 'database',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
 	'forgetCacheByWrite' => true,
 	// TTL in seconds.
 	'cacheTtl' => 15,
-    
+
     /*
     |--------------------------------------------------------------------------
     | Default Settings

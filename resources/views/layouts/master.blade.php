@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') | {{ setting('site_name') }}</title>
+    <meta name="description" content="{{ setting('site_description') }}">
+    <meta name="keywords" content="{{ setting('site_keywords') }}">
+    <meta name="author" content="{{ setting('site_author', 'Ngô Quốc Đạt') }}">
     @include('layouts.css')
 </head>
 <body>

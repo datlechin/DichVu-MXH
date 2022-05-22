@@ -46,7 +46,7 @@ class OrderPaid extends Notification
     public function toTelegram(mixed $notifiable): TelegramMessage
     {
         return TelegramMessage::create()
-            ->to($notifiable->telegram_user_id)
+            ->to(setting('telegram_chat_id'))
             ->content('Có một đơn dịch vụ vừa được đặt thành công')
             ->button('Xem chi tiết', route('admin.orders.edit', $this->order->id));
     }

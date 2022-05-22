@@ -114,7 +114,7 @@
                                     <a href="{{ route('admin.settings.general') }}" class="nav-link">Cấu hình chung</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.settings.email') }}" class="nav-link">Thiết lập email</a>
+                                    <a href="{{ route('admin.settings.notifications') }}" class="nav-link">Thông báo</a>
                                 </li>
                             </ul>
                         </div>
