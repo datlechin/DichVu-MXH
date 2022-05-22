@@ -83,7 +83,9 @@
                 <div class="card-header">
                     <h5 class="card-title mb-0">{{ __('Note') }}</h5>
                 </div>
-                <div class="card-body"></div>
+                <div class="card-body">
+                    {!! $service->description !!}
+                </div>
             </div>
         </div>
         @include('service.history')
