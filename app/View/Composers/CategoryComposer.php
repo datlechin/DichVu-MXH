@@ -10,25 +10,29 @@ class CategoryComposer
     /**
      * The category model implementation.
      *
-     * @var \App\Models\Category
+     * @var Category
      */
     protected $categories;
 
     /**
      * Create a new category composer.
      *
-     * @param  \App\Models\Category  $category
+     * @param Category $category
      * @return void
      */
     public function __construct(Category $category)
     {
-        $this->categories = $category->active()->get();
+        $this->categories = $category->query()->with('services', function ($query) {
+            $query->active();
+        })
+            ->active()
+            ->get();
     }
 
     /**
      * Bind data to the view.
      *
-     * @param  \Illuminate\View\View  $view
+     * @param View $view
      * @return void
      */
     public function compose(View $view)
