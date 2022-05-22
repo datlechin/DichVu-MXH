@@ -10,7 +10,8 @@
                 <tr>
                     <th>Thời gian</th>
                     <th>IP</th>
-                    <th>Trình duyệt</th>
+                    <th>Thiết bị</th>
+                    <th>Vị trí</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -18,7 +19,8 @@
                     <tr>
                         <td>{{ $log->login_at }}</td>
                         <td>{{ $log->ip_address }}</td>
-                        <td>{{ $log->user_agent }}</td>
+                        <td>{{ get_browser_name($log->user_agent) }} - {{ get_device_name($log->user_agent) }}</td>
+                        <td>{{ $log->location['city'] }}, {{ $log->location['country'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>
