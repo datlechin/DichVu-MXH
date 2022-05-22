@@ -35,7 +35,6 @@
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
                                 <h5 class="text-primary">{{ __('Create New Account') }}</h5>
-                                <p class="text-muted">Get your free velzon account now</p>
                             </div>
                             <div class="p-2 mt-4">
                                 <form novalidate method="POST" action="{{ route('register') }}">
@@ -75,10 +74,6 @@
                                             <i data-feather="lock"></i>
                                         </div>
                                     </div>
-                                    <div class="mb-4">
-                                        <p class="mb-0 fs-12 text-muted fst-italic">By registering you agree to the Velzon <a href="#" class="text-primary text-decoration-underline fst-normal fw-medium">{{ __('Terms of Use') }}</a></p>
-                                    </div>
-
                                     <div class="mt-4">
                                         <button class="btn btn-success w-100" type="submit">{{ __('Register') }}</button>
                                     </div>
@@ -91,8 +86,6 @@
                                         <div>
                                             <button type="button" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-facebook-fill fs-16"></i></button>
                                             <button type="button" class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-google-fill fs-16"></i></button>
-                                            <button type="button" class="btn btn-dark btn-icon waves-effect waves-light"><i class="ri-github-fill fs-16"></i></button>
-                                            <button type="button" class="btn btn-info btn-icon waves-effect waves-light"><i class="ri-twitter-fill fs-16"></i></button>
                                         </div>
                                     </div>
                                 </form>
