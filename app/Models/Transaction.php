@@ -11,6 +11,9 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    const DEPOSIT = '1';
+    const ORDER = '2';
+
     protected $fillable = ['user_id', 'amount', 'type', 'balance', 'description'];
 
     public function user(): BelongsTo
@@ -22,8 +25,8 @@ class Transaction extends Model
     {
         return Attribute::make(
             get: fn($value) => match ($value) {
-                'deposit' => 'Nạp tiền',
-                'order' => 'Đơn dịch vụ',
+                Transaction::DEPOSIT => 'Nạp tiền',
+                Transaction::ORDER => 'Đơn dịch vụ',
                 default => $value,
             },
         );

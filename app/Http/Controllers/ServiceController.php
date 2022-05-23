@@ -44,7 +44,7 @@ class ServiceController extends Controller
 
             Transaction::create([
                 'user_id' => $user->id,
-                'type' => 'order',
+                'type' => Transaction::ORDER,
                 'amount' => $total,
                 'balance' => $user->balance,
                 'description' => 'Đặt đơn dịch vụ #' . $order->id,

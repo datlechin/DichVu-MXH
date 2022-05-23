@@ -116,6 +116,11 @@ Breadcrumbs::for('admin.settings.notifications', function (BreadcrumbsTrait $tra
     $trail->push('Cấu hình thông báo');
 });
 
+Breadcrumbs::for('admin.transactions', function (BreadcrumbsTrait $trail) {
+    $trail->parent('home');
+    $trail->push('Nhật ký giao dịch');
+});
+
 Breadcrumbs::for('user.profile', function (BreadcrumbsTrait $trail) {
     $trail->parent('home');
     $trail->push('Thông tin cá nhân', route('user.profile'));

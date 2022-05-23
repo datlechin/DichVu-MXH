@@ -22,7 +22,13 @@
                         <td>{{ $transaction->created_at }}</td>
                         <td>#{{ $transaction->id }}</td>
                         <td>{{ $transaction->type }}</td>
-                        <td>{{ number_format($transaction->amount) }}đ</td>
+                        <td>
+                            @if($transaction->type == \App\Models\Transaction::DEPOSIT)
+                                <span class="text-success">+{{ number_format($transaction->amount) }}đ</span>
+                            @else
+                                <span class="text-danger">-{{ number_format($transaction->amount) }}đ</span>
+                            @endif
+                        </td>
                         <td>{{ number_format($transaction->balance) }}đ</td>
                         <td>{{ $transaction->description }}</td>
                     </tr>
