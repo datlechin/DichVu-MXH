@@ -130,3 +130,8 @@ Breadcrumbs::for('user.auth-log', function (BreadcrumbsTrait $trail) {
     $trail->parent('home');
     $trail->push('Nhật ký đăng nhập', route('user.auth-log'));
 });
+
+Breadcrumbs::for('user.tran-log', function (BreadcrumbsTrait $trail) {
+    $trail->parent('home');
+    $trail->push('Lịch sử giao dịch', route('user.tran-log'));
+});

@@ -64,6 +64,12 @@
                                 Nhật ký đăng nhập
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('user.tran-log') ? 'active' : '' }}" href="{{ route('user.tran-log') }}">
+                                <i class="far fa-user"></i>
+                                Lịch sử giao dịch
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="card-body p-4">

@@ -83,4 +83,11 @@ class UserController extends Controller
 
         return view('user.auth-log', compact('logs'));
     }
+
+    public function tranLog()
+    {
+        $transactions = Auth::user()->transactions()->latest()->paginate();
+
+        return view('user.tran-log', compact('transactions'));
+    }
 }

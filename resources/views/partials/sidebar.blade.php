@@ -37,6 +37,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link {{ Request::routeIs('user.tran-log') ? 'active' : '' }}" href="{{ route('user.tran-log') }}">
+                        <i class="mdi mdi-cash"></i> <span>Lịch sử giao dịch</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#tools" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tools">
                         <i class="mdi mdi-toolbox-outline"></i> <span>Công cụ</span>
                     </a>
