@@ -12,7 +12,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::query()->paginate();
+        $orders = Order::query()->latest()->paginate();
 
         return view('admin.orders.index', compact('orders'));
     }

@@ -1,11 +1,11 @@
 <?php
- 
+
 namespace App\Providers;
- 
+
 use App\View\Composers\CategoryComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
- 
+
 class ViewServiceProvider extends ServiceProvider
 {
     /**
@@ -17,7 +17,7 @@ class ViewServiceProvider extends ServiceProvider
     {
         //
     }
- 
+
     /**
      * Bootstrap any application services.
      *
@@ -25,6 +25,6 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('*', CategoryComposer::class);
+        View::composer('partials.sidebar', CategoryComposer::class);
     }
 }

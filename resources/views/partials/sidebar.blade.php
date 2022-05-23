@@ -37,13 +37,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link {{ Request::routeIs('user.tran-log') ? 'active' : '' }}" href="{{ route('user.tran-log') }}">
+                        <i class="mdi mdi-cash"></i> <span>Lịch sử giao dịch</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#tools" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tools">
                         <i class="mdi mdi-toolbox-outline"></i> <span>Công cụ</span>
                     </a>
                     <div class="collapse menu-dropdown" id="tools">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('tool.get-facebook-id') }}" class="nav-link">Lấy ID Facebook</a>
+                                <a href="{{ route('tools.get-facebook-id') }}" class="nav-link">Lấy ID Facebook</a>
                             </li>
                         </ul>
                     </div>
@@ -57,7 +62,7 @@
                             </a>
                             <div class="collapse menu-dropdown" id="{{ $category->slug }}">
                                 <ul class="nav nav-sm flex-column">
-                                    @foreach($category->services()->active()->get() as $service)
+                                    @foreach($category->services as $service)
                                         <li class="nav-item">
                                             <a href="{{ route('service', [$service->category->slug, $service->slug]) }}" class="nav-link" data-key="t-{{ $service->slug }}">{{ $service->name }}</a>
                                         </li>
@@ -77,6 +82,11 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.money') ? 'active' : '' }}" href="{{ route('admin.money') }}">
                             <i class="mdi mdi-cash"></i> <span>Cộng trừ tiền</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.transactions') ? 'active' : '' }}" href="{{ route('admin.transactions') }}">
+                            <i class="mdi mdi-cash"></i> <span>Nhật ký giao dịch</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -103,6 +113,21 @@
                         <a class="nav-link menu-link {{ Request::routeIs('admin.orders.*') ? 'active' : '' }}" href="{{ route('admin.orders.index') }}">
                             <i class="mdi mdi-cart-outline"></i> <span>Đơn dịch vụ</span>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarSettings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSettings">
+                            <i class="mdi mdi-cog-outline"></i> <span>Cài đặt</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarSettings">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.settings.general') }}" class="nav-link">Cấu hình chung</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.settings.notifications') }}" class="nav-link">Thông báo</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                 @endif
             </ul>

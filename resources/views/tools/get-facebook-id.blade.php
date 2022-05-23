@@ -10,7 +10,7 @@
                     <h5 class="card-title mb-0">Lấy ID Facebook</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('tool.get-facebook-id') }}" method="post">
+                    <form action="{{ route('tools.get-facebook-id') }}" method="post">
                         @csrf
                         <div class="mb-3">
                             <label for="url_facebook" class="form-label">URL Facebook</label>

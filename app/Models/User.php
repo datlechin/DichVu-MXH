@@ -106,4 +106,9 @@ class User extends Authenticatable
     {
         return $this->orders()->where('status', Order::COMPLETED)->sum('total');
     }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
+    }
 }
