@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="card" id="tasksList">
+            <div class="card">
                 <div class="card-header border-0">
                     <div class="d-flex align-items-center">
                         <h5 class="card-title mb-0 flex-grow-1">Danh sách Nhật ký giao dịch</h5>
@@ -32,13 +32,7 @@
                                     <td>{{ $transaction->created_at }}</td>
                                     <td>{{ $transaction->user->email }}</td>
                                     <td>{{ $transaction->type }}</td>
-                                    <td>
-                                        @if($transaction->type == \App\Models\Transaction::DEPOSIT)
-                                            <span class="text-success">+{{ number_format($transaction->amount) }}đ</span>
-                                        @else
-                                            <span class="text-danger">-{{ number_format($transaction->amount) }}đ</span>
-                                        @endif
-                                    </td>
+                                    <td>{!! $transaction->amount_with_color !!}</td>
                                     <td>{{ number_format($transaction->balance) }}đ</td>
                                     <td>{{ $transaction->description }}</td>
                                 </tr>

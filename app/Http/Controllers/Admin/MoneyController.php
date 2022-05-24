@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 class MoneyController extends Controller
@@ -32,8 +34,17 @@ class MoneyController extends Controller
         }
 
         $user = $user->first();
-        $user->balance = $request->type == 1 ? $user->balance + $request->money : $user->balance - $request->money;
-        $user->save();
+        DB::transaction(function () use ($user, $request) {
+            $user->balance = $request->type == 1 ? $user->balance + $request->money : $user->balance - $request->money;
+            $user->save();
+
+            $user->transactions()->create([
+                'type' => $request->type == 1 ? Transaction::ADD_MONEY : Transaction::SUB_MONEY,
+                'amount' => $request->money,
+                'balance' => $user->balance,
+                'description' => $request->reason,
+            ]);
+        });
 
         return to_route('admin.money')->with('success', 'Thực hiện thao tác cộng trừ tiền thành công');
     }
