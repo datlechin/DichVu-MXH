@@ -39,7 +39,7 @@
                                     @csrf
                                     <div class="mb-3">
                                         <label for="username" class="form-label">{{ __('Username') }}</label>
-                                        <input type="text" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="username" name="email" placeholder="{{ __('Enter username') }}">
+                                        <input type="text" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', 'user@demo.com') }}" id="username" name="email" placeholder="{{ __('Enter username') }}">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -53,7 +53,7 @@
                                         </div>
                                         <label class="form-label" for="password-input">{{ __('Password') }}</label>
                                         <div class="position-relative auth-pass-inputgroup mb-3">
-                                            <input type="password" class="form-control pe-5 @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Enter password') }}" id="password-input">
+                                            <input type="password" class="form-control pe-5 @error('password') is-invalid @enderror" name="password" placeholder="{{ __('Enter password') }}" id="password-input" value="123456">
                                             <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
