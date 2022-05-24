@@ -13,7 +13,17 @@ Breadcrumbs::for('home', function (BreadcrumbsTrait $trail) {
 
 Breadcrumbs::for('deposit', function (BreadcrumbsTrait $trail) {
     $trail->parent('home');
-    $trail->push('Nạp tiền', route('deposit'));
+    $trail->push('Nạp tiền');
+});
+
+Breadcrumbs::for('deposit.charge', function (BreadcrumbsTrait $trail) {
+    $trail->parent('deposit');
+    $trail->push('Nạp thẻ cào');
+});
+
+Breadcrumbs::for('deposit.thesieure', function (BreadcrumbsTrait $trail) {
+    $trail->parent('deposit');
+    $trail->push('Nạp thesieure.com');
 });
 
 Breadcrumbs::for('tools', function (BreadcrumbsTrait $trail) {

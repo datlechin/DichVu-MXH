@@ -24,11 +24,10 @@ class Deposit extends Model
     /**
      * Deposit types
      */
-    const BANK = 'bank';
-    const WALLET = 'wallet';
-    const CHARGE = 'charge';
+    const CHARGE = '1';
+    const THESIEURE = '2';
 
-    protected $fillable = ['user_id', 'type', 'status', 'description'];
+    protected $fillable = ['user_id', 'type', 'amount', 'status', 'description'];
 
     public function user(): BelongsTo
     {
@@ -64,9 +63,8 @@ class Deposit extends Model
         return Attribute::make(
             get: function ($value) {
                 return match ($value) {
-                    Deposit::BANK => 'Ngân hàng',
-                    Deposit::WALLET => 'Ví điện tử',
                     Deposit::CHARGE => 'Thẻ cào',
+                    Deposit::THESIEURE => 'Thesieure.com',
                 };
             },
         );

@@ -32,9 +32,19 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ Request::routeIs('deposit') ? 'active' : '' }}" href="{{ route('deposit') }}">
-                        <i class="mdi mdi-cash"></i> <span>{{ __('Deposit') }}</span>
+                    <a class="nav-link menu-link {{ Request::routeIs('deposit.*') ? 'active' : '' }}" href="#sidebarDeposit" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDeposit">
+                        <i class="mdi mdi-cash-plus"></i> <span>Nạp tiền</span>
                     </a>
+                    <div class="collapse menu-dropdown" id="sidebarDeposit">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('deposit.thesieure') }}" class="nav-link">Nạp Thesieure.com</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('deposit.charge') }}" class="nav-link">Nạp thẻ cào</a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link menu-link {{ Request::routeIs('user.tran-log') ? 'active' : '' }}" href="{{ route('user.tran-log') }}">
@@ -91,7 +101,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.deposits.*') ? 'active' : '' }}" href="{{ route('admin.deposits.index') }}">
-                            <i class="mdi mdi-cash-plus"></i> <span>Tiền đã nạp</span>
+                            <i class="mdi mdi-cash-check"></i> <span>Tiền đã nạp</span>
                         </a>
                     </li>
                     <li class="nav-item">

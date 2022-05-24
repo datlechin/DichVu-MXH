@@ -6,6 +6,7 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\UserController;
+use App\Thesieure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -26,8 +27,12 @@ Route::get('language/{lang}', [LanguageController::class, 'changeLanguage'])->na
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/deposit', [DepositController::class, 'index'])->name('deposit');
-    Route::post('/deposit', [DepositController::class, 'store']);
+    Route::group(['prefix' => 'deposit', 'as' => 'deposit.'], function () {
+        Route::get('/charge', [DepositController::class, 'charge'])->name('charge');
+        Route::post('/charge', [DepositController::class, 'handleCharge']);
+        Route::get('/thesieure', [DepositController::class, 'thesieure'])->name('thesieure');
+        Route::post('/thesieure', [DepositController::class, 'handleThesieure']);
+    });
     Route::get('/service/{category:slug}/{service:slug}', [ServiceController::class, 'index'])->name('service');
     Route::post('/service/{category:slug}/{service:slug}', [ServiceController::class, 'store']);
     Route::get('/service/get-package-price', [ServiceController::class, 'getPackagePrice'])->name('service.get-package-price');
