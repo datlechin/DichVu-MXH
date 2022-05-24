@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Chỉnh sửa đơn dịch vụ')
+@section('title', 'Chi tiết đơn dịch vụ #' . $order->id)
 
 @section('content')
     <div class="row">
@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header border-0">
                     <div class="d-flex align-items-center">
-                        <h5 class="card-title mb-0 flex-grow-1">Đơn dịch vụ #{{ $order->id }}</h5>
+                        <h5 class="card-title mb-0 flex-grow-1">Thông tin chi tiết đơn #{{ $order->id }}</h5>
                     </div>
                 </div>
                 <div class="card-body">
@@ -59,16 +59,6 @@
                             <label class="form-label">Ghi chú</label>
                             <textarea class="form-control" disabled>{{ $order->note }}</textarea>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Trạng thái</label>
-                            <p class="py-0 text-muted">Người dùng sẽ được hoàn lại số tiền nếu trạng thái đơn hàng là huỷ đơn</p>
-                            <select name="status" class="form-select" data-choices data-choices-search-false>
-                                <option value="{{ \App\Models\Order::PENDING }}" @selected(old('status', $order) == \App\Models\Order::PENDING)>Chờ xử lý</option>
-                                <option value="{{ \App\Models\Order::PROCESSING }}" @selected(old('status', $order) == \App\Models\Order::PROCESSING)>Đang tiến hành</option>
-                                <option value="{{ \App\Models\Order::COMPLETED }}" @selected(old('status', $order) == \App\Models\Order::COMPLETED)>Hoàn thành</option>
-                                <option value="{{ \App\Models\Order::CANCELLED }}" @selected(old('status', $order) == \App\Models\Order::CANCELLED)>Huỷ đơn</option>
-                            </select>
-                        </div>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -82,10 +72,6 @@
                                     <input type="text" class="form-control" value="{{ $order->updated_at }}" disabled />
                                 </div>
                             </div>
-                        </div>
-                        <div class="hstack gap-2 justify-content-end">
-                            <a href="{{ route('admin.orders.index') }}" class="btn btn-light">Quay lại</a>
-                            <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                         </div>
                     </form>
                 </div>

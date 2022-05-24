@@ -1,12 +1,13 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Order;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbsTrait;
 use Illuminate\Support\Facades\Route;
 
 Breadcrumbs::for('home', function (BreadcrumbsTrait $trail) {
-    if (! Route::is('home')) {
+    if (!Route::is('home')) {
         $trail->push('Trang chủ', route('home'));
     }
 });
@@ -36,9 +37,24 @@ Breadcrumbs::for('tools.get-facebook-id', function (BreadcrumbsTrait $trail) {
     $trail->push('Lấy ID Facebook', route('tools.get-facebook-id'));
 });
 
-Breadcrumbs::for('service', function (BreadcrumbsTrait $trail, Category $category) {
+Breadcrumbs::for('service', function (BreadcrumbsTrait $trail) {
     $trail->parent('home');
+    $trail->push('Dịch vụ');
+});
+
+Breadcrumbs::for('service.index', function (BreadcrumbsTrait $trail, Category $category) {
+    $trail->parent('service');
     $trail->push($category->name);
+});
+
+Breadcrumbs::for('order.history', function (BreadcrumbsTrait $trail) {
+    $trail->parent('service');
+    $trail->push('Đơn dịch vụ đã đặt');
+});
+
+Breadcrumbs::for('order.detail', function (BreadcrumbsTrait $trail) {
+    $trail->parent('order.history');
+    $trail->push('Chi tiết đơn hàng');
 });
 
 Breadcrumbs::for('admin.users.index', function (BreadcrumbsTrait $trail) {

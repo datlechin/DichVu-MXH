@@ -49,8 +49,13 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link {{ Request::routeIs('order.history') ? 'active' : '' }}" href="{{ route('order.history') }}">
+                        <i class="mdi mdi-cash-fast"></i> <span>Đơn đã đặt</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link {{ Request::routeIs('user.tran-log') ? 'active' : '' }}" href="{{ route('user.tran-log') }}">
-                        <i class="mdi mdi-cash"></i> <span>Lịch sử giao dịch</span>
+                        <i class="mdi mdi-history"></i> <span>Lịch sử giao dịch</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -76,7 +81,7 @@
                                 <ul class="nav nav-sm flex-column">
                                     @foreach($category->services as $service)
                                         <li class="nav-item">
-                                            <a href="{{ route('service', [$service->category->slug, $service->slug]) }}" class="nav-link" data-key="t-{{ $service->slug }}">{{ $service->name }}</a>
+                                            <a href="{{ route('service.index', [$service->category->slug, $service->slug]) }}" class="nav-link" data-key="t-{{ $service->slug }}">{{ $service->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>

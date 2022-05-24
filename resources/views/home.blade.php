@@ -123,7 +123,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                    <div class="table-responsive table-card">
+                                    <div class="table-responsive table-card mb-2">
                                         <table class="table table-borderless table-hover table-nowrap align-middle mb-0">
                                             <thead class="table-light">
                                             <tr class="text-muted">
@@ -144,7 +144,7 @@
                                                     <td>{{ $order->created_at }}</td>
                                                     <td>
                                                         <img src="{{ $order->user->avatar }}" alt="" class="avatar-xs rounded-circle me-2 shadow" />
-                                                        <a href="javascript:()" class="text-body fw-medium">{{ $order->user->name }}</a>
+                                                        <a href="{{ route('admin.users.edit', $order->user->id) }}" class="text-body fw-medium">{{ $order->user->name }}</a>
                                                     </td>
                                                     <td>
                                                         @if($order->status == \App\Models\Order::PENDING)
@@ -161,6 +161,14 @@
                                             @endforeach
                                             </tbody>
                                         </table>
+                                        @if($last_orders->count() < 1)
+                                            <div class="noresult mt-3">
+                                                <div class="text-center">
+                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
+                                                    <h5 class="mt-2">Không tìm thấy dữ liệu để hiển thị</h5>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

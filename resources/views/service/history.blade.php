@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="card-body border border-dashed border-end-0 border-start-0">
-            <form action="{{ route('service', [$service->category->slug, $service->slug]) }}" method="get">
+            <form action="{{ route('service.index', [$service->category->slug, $service->slug]) }}" method="get">
                 <div class="row g-3">
                     <div class="col-xxl-5 col-sm-6">
                         <div class="search-box">
@@ -34,7 +34,7 @@
                             <i class="ri-search-2-fill me-1 align-bottom"></i>
                             {{ __('Search') }}
                         </button>
-                        <a href="{{ route('service', [$service->category->slug, $service->slug]) }}" class="btn btn-danger">
+                        <a href="{{ route('service.index', [$service->category->slug, $service->slug]) }}" class="btn btn-danger">
                             <i class="ri-refresh-line me-1 align-bottom"></i>
                             {{ __('Reset') }}
                         </a>
