@@ -23,7 +23,7 @@ class Transaction extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function getTypeAttribute()
+    public function getTypeNameAttribute()
     {
         return match ($this->attributes['type']) {
             Transaction::DEPOSIT => 'Nạp tiền',
@@ -37,10 +37,8 @@ class Transaction extends Model
     public function getAmountWithColorAttribute()
     {
         return match ($this->type) {
-            Transaction::DEPOSIT, Transaction::ADD_MONEY =>
-                '<span class="text-success">+' . number_format($this->amount) . 'đ</span>',
-            Transaction::ORDER, Transaction::SUB_MONEY =>
-                '<span class="text-danger">-' . number_format($this->amount) . 'đ</span>',
+            Transaction::DEPOSIT, Transaction::ADD_MONEY => '<span class="text-success">+' . number_format($this->amount) . 'đ</span>',
+            Transaction::ORDER, Transaction::SUB_MONEY => '<span class="text-danger">-' . number_format($this->amount) . 'đ</span>',
             default => $this->amount,
         };
     }

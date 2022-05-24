@@ -21,7 +21,7 @@
                     <tr>
                         <td>{{ $transaction->created_at }}</td>
                         <td>#{{ $transaction->id }}</td>
-                        <td>{{ $transaction->type }}</td>
+                        <td>{{ $transaction->type_name }}</td>
                         <td>{!! $transaction->amount_with_color !!}</td>
                         <td>{{ number_format($transaction->balance) }}đ</td>
                         <td>{{ $transaction->description }}</td>
