@@ -11,11 +11,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <ul class="nav nav-tabs mb-3">
-                                    <li class="nav-item">
-                                        <a href="{{ route('deposit.thesieure') }}" class="nav-link @if(request()->routeIs('deposit.thesieure')) active @endif">
-                                            Thesieure.com
-                                        </a>
-                                    </li>
+                                    @can('charge-deposit')
+                                        <li class="nav-item">
+                                            <a href="{{ route('deposit.thesieure') }}" class="nav-link @if(request()->routeIs('deposit.thesieure')) active @endif">
+                                                Thesieure.com
+                                            </a>
+                                        </li>
+                                    @endcan
                                     <li class="nav-item">
                                         <a href="{{ route('deposit.charge') }}" class="nav-link @if(request()->routeIs('deposit.charge')) active @endif">
                                             Nạp thẻ cào

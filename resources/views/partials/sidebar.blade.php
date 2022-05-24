@@ -37,9 +37,11 @@
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarDeposit">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a href="{{ route('deposit.thesieure') }}" class="nav-link">Nạp Thesieure.com</a>
-                            </li>
+                            @can('charge-deposit')
+                                <li class="nav-item">
+                                    <a href="{{ route('deposit.thesieure') }}" class="nav-link">Nạp Thesieure.com</a>
+                                </li>
+                            @endcan
                             <li class="nav-item">
                                 <a href="{{ route('deposit.charge') }}" class="nav-link">Nạp thẻ cào</a>
                             </li>

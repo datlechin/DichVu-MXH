@@ -29,10 +29,10 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
-        if ($request->has('tsr_enable')) {
-            $request->merge(['tsr_enable' => 1]);
+        if ($request->has('tsr_enabled')) {
+            $request->merge(['tsr_enabled' => 1]);
         } else {
-            $request->merge(['tsr_enable' => 0]);
+            $request->merge(['tsr_enabled' => 0]);
         }
 
         setting($request->except('_token'))->save();

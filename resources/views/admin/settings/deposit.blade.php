@@ -31,8 +31,8 @@
                         </div>
                         <div class="mb-3">
                             <div class="form-check form-switch mb-3">
-                                <input class="form-check-input" type="checkbox" role="switch" id="tsr_enable" name="tsr_enable" @checked(setting('tsr_enable'))>
-                                <label class="form-check-label" for="tsr_enable">Kích hoạt</label>
+                                <input class="form-check-input" type="checkbox" role="switch" id="tsr_enabled" name="tsr_enabled" @checked(setting('tsr_enabled'))>
+                                <label class="form-check-label" for="tsr_enabled">Kích hoạt</label>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>

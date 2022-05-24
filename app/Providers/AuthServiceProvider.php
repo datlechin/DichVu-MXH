@@ -25,6 +25,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('charge-deposit', function () {
+            return (bool) setting('tsr_enabled');
+        });
     }
 }

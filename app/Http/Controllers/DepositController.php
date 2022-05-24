@@ -9,6 +9,7 @@ use App\Thesieure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class DepositController extends Controller
@@ -51,6 +52,8 @@ class DepositController extends Controller
 
     public function thesieure()
     {
+        Gate::authorize('charge-deposit');
+
         $deposits = Deposit::query()
             ->where('user_id', Auth::id())
             ->search(\request('search'))
@@ -64,6 +67,8 @@ class DepositController extends Controller
 
     public function handleThesieure(Request $request)
     {
+        Gate::authorize('charge-deposit');
+
         $user = $request->user();
 
         $request->validate([
