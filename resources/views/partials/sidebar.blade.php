@@ -126,6 +126,9 @@
                                 <li class="nav-item">
                                     <a href="{{ route('admin.settings.notifications') }}" class="nav-link">Thông báo</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.settings.deposit') }}" class="nav-link">Cấu hình nạp tiền</a>
+                                </li>
                             </ul>
                         </div>
                     </li>

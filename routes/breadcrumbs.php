@@ -116,6 +116,11 @@ Breadcrumbs::for('admin.settings.notifications', function (BreadcrumbsTrait $tra
     $trail->push('Cấu hình thông báo');
 });
 
+Breadcrumbs::for('admin.settings.deposit', function (BreadcrumbsTrait $trail) {
+    $trail->parent('admin.settings');
+    $trail->push('Cấu hình nạp tiền');
+});
+
 Breadcrumbs::for('admin.transactions', function (BreadcrumbsTrait $trail) {
     $trail->parent('home');
     $trail->push('Nhật ký giao dịch');

@@ -22,9 +22,9 @@ class SettingController extends Controller
         return view('admin.settings.notifications');
     }
 
-    public function updateEmail(Request $request)
+    public function deposit()
     {
-        return to_route('admin.settings.email')->with('success', 'Cập nhật cấu hình email thành công');
+        return view('admin.settings.deposit');
     }
 
     public function store(Request $request)

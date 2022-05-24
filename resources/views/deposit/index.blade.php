@@ -54,9 +54,10 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header align-items-center d-flex">
-                                <h4 class="card-title mb-0 flex-grow-1">Nạp tiền bằng ví / ngân hàng</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">Ghi chú</h4>
                             </div>
                             <div class="card-body">
+                                {!! setting('charge_note') !!}
                             </div>
                         </div>
                     </div>

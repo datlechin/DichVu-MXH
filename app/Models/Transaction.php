@@ -36,10 +36,10 @@ class Transaction extends Model
 
     public function getAmountWithColorAttribute()
     {
-        return match ($this->type) {
+        return match ($this->attributes['type']) {
             Transaction::DEPOSIT, Transaction::ADD_MONEY => '<span class="text-success">+' . number_format($this->amount) . 'đ</span>',
             Transaction::ORDER, Transaction::SUB_MONEY => '<span class="text-danger">-' . number_format($this->amount) . 'đ</span>',
-            default => $this->amount,
+            default => $this->attributes['amount'],
         };
     }
 }

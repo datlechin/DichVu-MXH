@@ -114,6 +114,59 @@
                         </div>
                     </div>
                 </div>
+                @if(Auth::user()->isAdmin())
+                    <div class="row">
+                        <div class="col-xl-7">
+                            <div class="card">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Đơn dịch vụ gần đây</h4>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="table-responsive table-card">
+                                        <table class="table table-borderless table-hover table-nowrap align-middle mb-0">
+                                            <thead class="table-light">
+                                            <tr class="text-muted">
+                                                <th scope="col">Dịch vụ</th>
+                                                <th scope="col">Số tiền</th>
+                                                <th scope="col">Thời gian</th>
+                                                <th scope="col">Người đặt</th>
+                                                <th scope="col" style="width: 16%;">Trạng thái</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($last_orders as $order)
+                                                <tr>
+                                                    <td>{{ $order->package->service->name }}</td>
+                                                    <td>
+                                                        <div class="text-success">{{ number_format($order->total) }}đ</div>
+                                                    </td>
+                                                    <td>{{ $order->created_at }}</td>
+                                                    <td>
+                                                        <img src="{{ $order->user->avatar }}" alt="" class="avatar-xs rounded-circle me-2 shadow" />
+                                                        <a href="javascript:()" class="text-body fw-medium">{{ $order->user->name }}</a>
+                                                    </td>
+                                                    <td>
+                                                        @if($order->status == \App\Models\Order::PENDING)
+                                                            <span class="badge badge-soft-warning text-uppercase">Đang xử lý</span>
+                                                        @elseif($order->status == \App\Models\Order::PROCESSING)
+                                                            <span class="badge badge-soft-success text-uppercase">Đang thực hiện</span>
+                                                        @elseif($order->status == \App\Models\Order::COMPLETED)
+                                                            <span class="badge badge-soft-success text-uppercase">Hoàn thành</span>
+                                                        @elseif($order->status == \App\Models\Order::CANCELLED)
+                                                            <span class="badge badge-soft-danger text-uppercase">Đã hủy</span>
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

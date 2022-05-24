@@ -24,6 +24,7 @@ Route::group(['middleware' => 'admin', 'as' => 'admin.'], function () {
     Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
         Route::get('/general', [SettingController::class, 'general'])->name('general');
         Route::get('/notifications', [SettingController::class, 'notifications'])->name('notifications');
+        Route::get('/deposit', [SettingController::class, 'deposit'])->name('deposit');
         Route::post('/store', [SettingController::class, 'store'])->name('store');
     });
 });
