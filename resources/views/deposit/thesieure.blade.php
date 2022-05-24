@@ -23,8 +23,19 @@
                 <input type="text" class="form-control" id="code" name="code" placeholder="Nhập mã giao dịch trên web thesieure.com" value="{{ old('code') }}">
             </div>
             <div class="text-end">
-                <button type="submit" class="btn btn-success">Kiểm tra</button>
+                <button type="submit" class="btn btn-success tsr">Kiểm tra</button>
             </div>
         </form>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $('.tsr').click(function () {
+                $(this).addClass('disabled');
+                $(this).html('<i class="mdi mdi-loading mdi-spin me-1"></i> Đang kiểm tra');
+            });
+        });
+    </script>
+@endpush
