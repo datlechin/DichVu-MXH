@@ -3,8 +3,8 @@
 @section('title', 'Nạp tự động bằng Thesieure.com')
 
 @section('content-deposit')
-    <div class="tab-pane">
-        <form action="{{ route('deposit.index') }}" method="POST">
+    <div class="tab-pane active">
+        <form action="{{ route('deposit.charge') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="telco" class="form-label">Nhà mạng</label>

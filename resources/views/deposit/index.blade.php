@@ -17,7 +17,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="{{ route('deposit.charge') }}" class="nav-link">
+                                        <a href="{{ route('deposit.charge') }}" class="nav-link @if(request()->routeIs('deposit.charge')) active @endif">
                                             Nạp thẻ cào
                                         </a>
                                     </li>

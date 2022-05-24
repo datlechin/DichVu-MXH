@@ -13,20 +13,20 @@ use Illuminate\Support\Str;
 
 class DepositController extends Controller
 {
-    public function index(Request $request)
+    public function charge()
     {
         $deposits = Deposit::query()
             ->where('user_id', Auth::id())
-            ->search($request->search)
-            ->date($request->date)
-            ->status($request->status)
+            ->search(\request('search'))
+            ->date(\request('date'))
+            ->status(\request('status'))
             ->latest()
             ->paginate();
 
-        return view('deposit.index', compact('deposits'));
+        return view('deposit.charge', compact('deposits'));
     }
 
-    public function store(DepositRequest $request)
+    public function handleCharge(DepositRequest $request)
     {
         $deposit = Deposit::create([
             'user_id' => Auth::id(),
