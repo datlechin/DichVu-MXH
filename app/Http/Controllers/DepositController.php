@@ -46,7 +46,7 @@ class DepositController extends Controller
             'pin' => $request->pin,
         ]);
 
-        return to_route('deposit')->with('success', 'Gửi thẻ lên thành công, vui lòng chờ duyệt');
+        return to_route('deposit.charge')->with('success', 'Gửi thẻ lên thành công, vui lòng chờ duyệt');
     }
 
     public function thesieure()
