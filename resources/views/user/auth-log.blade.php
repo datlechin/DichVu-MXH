@@ -20,7 +20,7 @@
                         <td>{{ $log->login_at }}</td>
                         <td>{{ $log->ip_address }}</td>
                         <td>{{ get_browser_name($log->user_agent) }} - {{ get_device_name($log->user_agent) }}</td>
-                        <td>{{ $log->location['city'] }}, {{ $log->location['country'] }}</td>
+                        <td>{{ $log->location ? $log->location['city'] . ', ' . $log->location['country'] : 'Không xác định' }}</td>
                     </tr>
                 @endforeach
                 </tbody>
