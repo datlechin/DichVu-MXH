@@ -13,7 +13,10 @@ class Category extends Model
     const ACTIVE = '1';
     const INACTIVE = '0';
 
-    protected $fillable = ['icon', 'name', 'slug', 'status'];
+    const SERVICE_TYPE = 'service';
+    const TICKET_TYPE = 'ticket';
+
+    protected $fillable = ['type', 'icon', 'name', 'slug', 'status'];
 
     public function scopeActive($query)
     {
@@ -23,5 +26,18 @@ class Category extends Model
     public function services(): HasMany
     {
         return $this->hasMany(Service::class);
+    }
+
+    public function tickets(): HasMany
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function getTypeNameAttribute(): string
+    {
+        return match ($this->attributes['type']) {
+            Category::SERVICE_TYPE => 'Dịch vụ',
+            Category::TICKET_TYPE => 'Ticket',
+        };
     }
 }

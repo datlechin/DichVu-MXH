@@ -26,16 +26,6 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
@@ -46,17 +36,6 @@ class CategoryController extends Controller
         Category::create($request->validated() + ['slug' => Str::slug($request->name)]);
 
         return to_route('admin.categories.index')->with('success', 'Thêm mới danh mục thành công');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -80,7 +59,7 @@ class CategoryController extends Controller
     public function update(CategoryRequest $request, Category $category)
     {
         $category->update($request->validated() + ['slug' => Str::slug($request->name)]);
-        
+
         return to_route('admin.categories.index')->with('success', 'Cập nhật danh mục thành công');
     }
 

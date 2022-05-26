@@ -22,6 +22,7 @@
                             <thead class="table-light text-muted">
                             <tr>
                                 <th>ID</th>
+                                <th>Loại danh mục</th>
                                 <th>{{ __('Name') }}</th>
                                 <th>{{ __('Status') }}</th>
                                 <th>{{ __('Action') }}</th>
@@ -31,6 +32,7 @@
                             @foreach($categories as $category)
                                 <tr>
                                     <td>{{ $category->id }}</td>
+                                    <td>{{ $category->type_name }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td>
                                         @if($category->status == \App\Models\Category::ACTIVE)
@@ -75,6 +77,13 @@
                 <div class="modal-body">
                     <form action="{{ route('admin.categories.store') }}" method="post">
                         @csrf
+                        <div class="mb-3">
+                            <label for="type" class="form-label">Loại danh mục</label>
+                            <select class="form-control" data-choices data-choices-search-false name="type" id="type">
+                                <option value="{{ \App\Models\Category::SERVICE_TYPE }}">Dịch vụ</option>
+                                <option value="{{ \App\Models\Category::TICKET_TYPE }}">Ticket</option>
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label for="icon" class="form-label">{{ __('Category Icon') }}</label>
                             <input type="text" id="icon" name="icon" class="form-control" placeholder="Ví dụ: mdi mdi-facebook">

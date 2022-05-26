@@ -1,6 +1,6 @@
 @extends('deposit.index')
 
-@section('title', 'Nạp tự động bằng Thesieure.com')
+@section('title', 'Nạp thẻ cào')
 
 @section('content-deposit')
     <div class="tab-pane active">

@@ -26,6 +26,10 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
+            'type' => [
+                'required',
+                Rule::in([Category::SERVICE_TYPE, Category::TICKET_TYPE])
+            ],
             'icon' => 'nullable|string|min:4|max:50',
             'name' => 'required|string|min:3|max:50|unique:categories,name,' . optional($this->category)->id,
             'status' => [

@@ -20,8 +20,10 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $categories = Category::query()->active()->get();
-
+        $categories = Category::query()
+            ->where('type', Category::SERVICE_TYPE)
+            ->active()
+            ->get();
         $packages = Package::query()->paginate();
 
         return view('admin.packages.index', compact('packages', 'categories'));

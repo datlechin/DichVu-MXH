@@ -22,9 +22,12 @@ class CategoryComposer
      */
     public function __construct(Category $category)
     {
-        $this->categories = $category->query()->with('services', function ($query) {
+        $this->categories = $category
+            ->query()
+            ->where('type', Category::SERVICE_TYPE)
+            ->with('services', function ($query) {
             $query->active();
-        })
+            })
             ->active()
             ->get();
     }

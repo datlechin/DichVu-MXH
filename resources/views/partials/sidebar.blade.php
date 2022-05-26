@@ -32,18 +32,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link {{ Request::routeIs('deposit.*') ? 'active' : '' }}" href="#sidebarDeposit" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDeposit">
+                    <a class="nav-link menu-link" href="#sidebarDeposit" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDeposit">
                         <i class="mdi mdi-cash-plus"></i> <span>Nạp tiền</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="sidebarDeposit">
+                    <div class="collapse menu-dropdown {{ Request::routeIs('deposit.*') ? 'show' : '' }}" id="sidebarDeposit">
                         <ul class="nav nav-sm flex-column">
                             @can('charge-deposit')
                                 <li class="nav-item">
-                                    <a href="{{ route('deposit.thesieure') }}" class="nav-link">Nạp Thesieure.com</a>
+                                    <a href="{{ route('deposit.thesieure') }}" class="nav-link {{ Request::routeIs('deposit.thesieure') ? 'active' : '' }}">Nạp Thesieure.com</a>
                                 </li>
                             @endcan
                             <li class="nav-item">
-                                <a href="{{ route('deposit.charge') }}" class="nav-link">Nạp thẻ cào</a>
+                                <a href="{{ route('deposit.charge') }}" class="nav-link {{ Request::routeIs('deposit.charge') ? 'active' : '' }}">Nạp thẻ cào</a>
                             </li>
                         </ul>
                     </div>
@@ -59,13 +59,28 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link menu-link" href="#sidebarTicket" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarTicket">
+                        <i class="mdi mdi-ticket-percent-outline"></i> <span>Hỗ trợ</span>
+                    </a>
+                    <div class="collapse menu-dropdown {{ Request::routeIs('ticket.*') ? 'show' : '' }}" id="sidebarTicket">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a href="{{ route('ticket.index') }}" class="nav-link {{ Request::routeIs('ticket.index') ? 'active' : '' }}">Danh sách hỗ trợ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('ticket.create') }}" class="nav-link {{ Request::routeIs('ticket.create') ? 'active' : '' }}">Gửi yêu cầu hỗ trợ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link menu-link" href="#tools" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="tools">
                         <i class="mdi mdi-toolbox-outline"></i> <span>Công cụ</span>
                     </a>
-                    <div class="collapse menu-dropdown" id="tools">
+                    <div class="collapse menu-dropdown {{ Request::routeIs('tools.*') ? 'show' : '' }}" id="tools">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('tools.get-facebook-id') }}" class="nav-link">Lấy ID Facebook</a>
+                                <a href="{{ route('tools.get-facebook-id') }}" class="nav-link {{ Request::routeIs('tools.get-facebook-id') ? 'active' : '' }}">Lấy ID Facebook</a>
                             </li>
                         </ul>
                     </div>
@@ -77,11 +92,11 @@
                             <a class="nav-link menu-link" href="#{{ $category->slug }}" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="{{ $category->slug }}">
                                 <i class="{{ $category->icon }}"></i> <span>{{ $category->name }}</span>
                             </a>
-                            <div class="collapse menu-dropdown" id="{{ $category->slug }}">
+                            <div class="collapse menu-dropdown {{ Request::routeIs('service.index') ? 'show' : '' }}" id="{{ $category->slug }}">
                                 <ul class="nav nav-sm flex-column">
                                     @foreach($category->services as $service)
                                         <li class="nav-item">
-                                            <a href="{{ route('service.index', [$service->category->slug, $service->slug]) }}" class="nav-link" data-key="t-{{ $service->slug }}">{{ $service->name }}</a>
+                                            <a href="{{ route('service.index', [$service->category->slug, $service->slug]) }}" class="nav-link">{{ $service->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -109,6 +124,11 @@
                     <li class="nav-item">
                         <a class="nav-link menu-link {{ Request::routeIs('admin.deposits.*') ? 'active' : '' }}" href="{{ route('admin.deposits.index') }}">
                             <i class="mdi mdi-cash-check"></i> <span>Tiền đã nạp</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu-link {{ Request::routeIs('admin.tickets.*') ? 'active' : '' }}" href="{{ route('admin.tickets.index') }}">
+                            <i class="mdi mdi-ticket-percent"></i> <span>Ticket</span>
                         </a>
                     </li>
                     <li class="nav-item">

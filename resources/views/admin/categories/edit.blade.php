@@ -16,6 +16,13 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
+                            <label for="type" class="form-label">Loại danh mục</label>
+                            <select class="form-control" data-choices data-choices-search-false name="type" id="type">
+                                <option value="{{ \App\Models\Category::SERVICE_TYPE }}" @selected(\App\Models\Category::SERVICE_TYPE == $category->type)>Dịch vụ</option>
+                                <option value="{{ \App\Models\Category::TICKET_TYPE }}" @selected(\App\Models\Category::TICKET_TYPE == $category->type)>Ticket</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
                             <label for="icon" class="form-label">Icon</label>
                             <input type="text" id="icon" name="icon" class="form-control" placeholder="Ví dụ: mdi mdi-facebook" value="{{ old('icon', $category) }}">
                             <p class="text-muted my-2">Xem các icon tại đây <a href="https://materialdesignicons.com/" target="_blank">materialdesignicons.com</a></p>

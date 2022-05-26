@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Category;
-use App\Models\Order;
+use App\Models\Ticket;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbsTrait;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +35,26 @@ Breadcrumbs::for('tools', function (BreadcrumbsTrait $trail) {
 Breadcrumbs::for('tools.get-facebook-id', function (BreadcrumbsTrait $trail) {
     $trail->parent('tools');
     $trail->push('Lấy ID Facebook', route('tools.get-facebook-id'));
+});
+
+Breadcrumbs::for('ticket', function (BreadcrumbsTrait $trail) {
+    $trail->parent('home');
+    $trail->push('Hỗ trợ');
+});
+
+Breadcrumbs::for('ticket.index', function (BreadcrumbsTrait $trail) {
+    $trail->parent('ticket');
+    $trail->push('Danh sách hỗ trợ', route('ticket.index'));
+});
+
+Breadcrumbs::for('ticket.create', function (BreadcrumbsTrait $trail) {
+    $trail->parent('ticket');
+    $trail->push('Gửi yêu cầu hỗ trợ', route('ticket.create'));
+});
+
+Breadcrumbs::for('ticket.show', function (BreadcrumbsTrait $trail, Ticket $ticket) {
+    $trail->parent('ticket.index');
+    $trail->push($ticket->title, route('ticket.show', $ticket->id));
 });
 
 Breadcrumbs::for('service', function (BreadcrumbsTrait $trail) {
@@ -75,6 +95,11 @@ Breadcrumbs::for('admin.money', function (BreadcrumbsTrait $trail) {
 Breadcrumbs::for('admin.deposits.index', function (BreadcrumbsTrait $trail) {
     $trail->parent('home');
     $trail->push('Quản lý nạp tiền', route('admin.deposits.index'));
+});
+
+Breadcrumbs::for('admin.tickets.index', function (BreadcrumbsTrait $trail) {
+    $trail->parent('home');
+    $trail->push('Quản lý ticket', route('admin.tickets.index'));
 });
 
 Breadcrumbs::for('admin.deposits.edit', function (BreadcrumbsTrait $trail, $id) {

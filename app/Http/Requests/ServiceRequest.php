@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Category;
 use App\Models\Service;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
@@ -26,7 +27,12 @@ class ServiceRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => [
+                'required',
+                Rule::exists('categories', 'id')->where(function ($query) {
+                    $query->where('type', Category::SERVICE_TYPE);
+                }),
+            ],
             'name' => [
                 'required', 'string', 'min:3', 'max:50',
                 Rule::unique('services')->where(function ($query) {

@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ToolController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -54,5 +55,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'tools', 'as' => 'tools.'], function () {
         Route::get('/get-facebook-id', [ToolController::class, 'getFacebookId'])->name('get-facebook-id');
         Route::post('/get-facebook-id', [ToolController::class, 'postFacebookId']);
+    });
+
+    // ticket
+    Route::group(['prefix' => 'ticket', 'as' => 'ticket.'], function () {
+        Route::get('/', [TicketController::class, 'index'])->name('index');
+        Route::get('/create', [TicketController::class, 'create'])->name('create');
+        Route::post('/create', [TicketController::class, 'store'])->name('store');
+        Route::get('/{ticket:id}', [TicketController::class, 'show'])->name('show');
     });
 });
