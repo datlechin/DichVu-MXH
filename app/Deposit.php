@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Support\Facades\Http;
 use voku\helper\HtmlDomParser;
 
-class Thesieure
+class Deposit
 {
     private $cookie;
     private $dom;

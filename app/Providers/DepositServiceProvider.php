@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Thesieure;
+use App\Deposit;
 use Illuminate\Support\ServiceProvider;
 
-class TsrServiceProvider extends ServiceProvider
+class DepositServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,8 +14,8 @@ class TsrServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('thesieure', function ($app) {
-            return New Thesieure();
+        $this->app->bind('deposit', function ($app) {
+            return New Deposit();
         });
     }
 

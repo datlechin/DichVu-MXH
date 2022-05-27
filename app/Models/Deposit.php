@@ -64,7 +64,7 @@ class Deposit extends Model
             get: function ($value) {
                 return match ($value) {
                     Deposit::CHARGE => 'Thẻ cào',
-                    Deposit::THESIEURE => 'Thesieure.com',
+                    Deposit::THESIEURE => 'Deposit.com',
                 };
             },
         );

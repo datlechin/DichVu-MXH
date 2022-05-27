@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\DepositRequest;
 use App\Models\Deposit;
+use App\Models\Thesieure;
 use App\Models\Transaction;
-use App\Thesieure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -81,17 +81,17 @@ class DepositController extends Controller
 
         $description = setting('tsr_deposit_description') . ' ' . $user->id;
 
-        $tsr = new Thesieure();
+        $tsr = new \App\Deposit();
         $transaction = $tsr->findTransaction($request->code, $request->amount, '8059054');
 
         if (is_null($transaction)) return back()->withErrors(['code' => 'Mã giao dịch không tồn tại']);
 
-        $thesieure = \App\Models\Thesieure::query()->where('code', $transaction->id);
+        $thesieure = Thesieure::query()->where('code', $transaction->id);
 
         if ($thesieure->exists()) return back()->withErrors(['code' => 'Mã giao dịch này đã được nạp trước đó']);
 
         DB::transaction(function () use ($transaction, $user) {
-            $description = 'Nạp ' . number_format($transaction->amount) . 'đ mã giao dịch #' . $transaction->id . ' từ Thesieure.com';
+            $description = 'Nạp ' . number_format($transaction->amount) . 'đ mã giao dịch #' . $transaction->id . ' từ Deposit.com';
 
             $deposit = Deposit::create([
                 'user_id' => $user->id,
@@ -101,7 +101,7 @@ class DepositController extends Controller
                 'description' => $description
             ]);
 
-            \App\Models\Thesieure::create([
+            Thesieure::create([
                 'deposit_id' => $deposit->id,
                 'code' => $transaction->id,
                 'amount' => $transaction->amount,
@@ -119,6 +119,6 @@ class DepositController extends Controller
             ]);
         });
 
-        return to_route('deposit.thesieure')->with('success', 'Nạp thành công ' . number_format($request->amount) . 'đ từ Thesieure.com');
+        return to_route('deposit.thesieure')->with('success', 'Nạp thành công ' . number_format($request->amount) . 'đ từ Deposit.com');
     }
 }
