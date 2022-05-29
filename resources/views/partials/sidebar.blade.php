@@ -155,16 +155,16 @@
                         <a class="nav-link menu-link" href="#sidebarSettings" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarSettings">
                             <i class="mdi mdi-cog-outline"></i> <span>Cài đặt</span>
                         </a>
-                        <div class="collapse menu-dropdown" id="sidebarSettings">
+                        <div class="collapse menu-dropdown {{ Request::routeIs('admin.settings.*') ? 'show' : '' }}" id="sidebarSettings">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.settings.general') }}" class="nav-link">Cấu hình chung</a>
+                                    <a href="{{ route('admin.settings.general') }}" class="nav-link {{ Request::routeIs('admin.settings.general') ? 'active' : '' }}">Cấu hình chung</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.settings.notifications') }}" class="nav-link">Thông báo</a>
+                                    <a href="{{ route('admin.settings.notifications') }}" class="nav-link {{ Request::routeIs('admin.settings.notifications') ? 'active' : '' }}">Thông báo</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('admin.settings.deposit') }}" class="nav-link">Cấu hình nạp tiền</a>
+                                    <a href="{{ route('admin.settings.deposit') }}" class="nav-link {{ Request::routeIs('admin.settings.deposit') ? 'active' : '' }}">Cấu hình nạp tiền</a>
                                 </li>
                             </ul>
                         </div>
