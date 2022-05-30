@@ -12,6 +12,7 @@
                 <div class="card-body">
                     <form action="{{ route('admin.settings.store') }}" method="post">
                         @csrf
+                        <p class="fw-bold fs-15">Xem hướng dẫn cấu hình <a href="https://github.com/datlechin/DichVu-MXH/wiki/Cấu-hình-nạp-tự-động-qua-thesieure.com" target="_blank">tại đây</a></p>
                         <div class="mb-3">
                             <label for="tsr_cookie" class="form-label">Cookie</label>
                             <input type="text" id="tsr_cookie" name="tsr_cookie" class="form-control" value="{{ setting('tsr_cookie') }}">
