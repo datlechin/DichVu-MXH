@@ -29,23 +29,25 @@ class DepositController extends Controller
 
     public function handleCharge(DepositRequest $request)
     {
-        $deposit = Deposit::create([
-            'user_id' => Auth::id(),
-            'type' => Deposit::CHARGE,
-            'amount' => $request->amount,
-            'status' => Deposit::PENDING,
-            'description' => 'Thẻ ' . Str::ucfirst($request->telco) . ' ' . number_format($request->amount) . 'đ'
-        ]);
+        DB::transaction(function () use ($request) {
+            $deposit = Deposit::create([
+                'user_id' => Auth::id(),
+                'type' => Deposit::CHARGE,
+                'amount' => $request->amount,
+                'status' => Deposit::PENDING,
+                'description' => 'Thẻ ' . Str::ucfirst($request->telco) . ' ' . number_format($request->amount) . 'đ'
+            ]);
 
-        $request_id = Str::random(10);
+            $request_id = Str::random(10);
 
-        $deposit->charge()->create([
-            'request_id' => $request_id,
-            'telco' => $request->telco,
-            'amount' => $request->amount,
-            'serial' => $request->serial,
-            'pin' => $request->pin,
-        ]);
+            $deposit->charge()->create([
+                'request_id' => $request_id,
+                'telco' => $request->telco,
+                'amount' => $request->amount,
+                'serial' => $request->serial,
+                'pin' => $request->pin,
+            ]);
+        });
 
         return to_route('deposit.charge')->with('success', 'Gửi thẻ lên thành công, vui lòng chờ duyệt');
     }

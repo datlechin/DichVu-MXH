@@ -34,6 +34,7 @@ class MoneyController extends Controller
         }
 
         $user = $user->first();
+
         DB::transaction(function () use ($user, $request) {
             $user->balance = $request->type == 1 ? $user->balance + $request->money : $user->balance - $request->money;
             $user->save();
