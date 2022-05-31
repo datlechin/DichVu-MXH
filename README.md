@@ -1,8 +1,6 @@
 # Dịch vụ Mạng xã hội
 
-![Ảnh 1](https://user-images.githubusercontent.com/56961917/169643058-f37d6f6a-7087-4506-b557-8dace7b027e1.png)
-![Ảnh 2](https://user-images.githubusercontent.com/56961917/169643063-a3c96fde-3418-458d-ac45-622a8af9c73b.png)
-
+![](https://user-images.githubusercontent.com/56961917/171131686-fcd04e30-e23a-4132-b3cf-e8c2b655e6a1.png)
 
 ### Huớng dẫn cài đặt
 
