@@ -25,7 +25,7 @@ class MoneyController extends Controller
             'type' => 'required|numeric|in:0,1',
         ]);
 
-        $user = User::query()->where('email', $request->user)->orWhere('phone', $request->phone);
+        $user = User::query()->where('email', $request->get('user'))->orWhere('phone', $request->get('user'));
 
         if (! $user->exists()) {
             return back()
