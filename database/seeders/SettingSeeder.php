@@ -44,7 +44,7 @@ class SettingSeeder extends Seeder
             ['key' => 'charge_provider', 'value' => 'TSR'],
             ['key' => 'charge_api_id', 'value' => '99999999'],
             ['key' => 'charge_api_key', 'value' => '...'],
-            ['charge_note' => 'Ghi chú nạp thẻ cào']
+            ['key' => 'charge_note', 'value' => 'Ghi chú nạp thẻ cào']
         ]);
     }
 }
