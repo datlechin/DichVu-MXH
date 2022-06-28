@@ -31,7 +31,14 @@ class SettingController extends Controller
     {
         $request->merge(['tsr_enabled' => $request->has('tsr_enabled') ? 1 : 0]);
 
-        setting($request->except('_token'))->save();
+        foreach ($request->file() as $key => $file) {
+            if ($file) {
+                $file->storeAs('public/images', $file->hashName());
+                setting([$key => $file->hashName()])->save();
+            }
+        }
+
+        setting($request->except('_token', 'site_logo', 'site_favicon'))->save();
 
         return back()->with('success', 'Cập nhật cài đặt thành công');
     }

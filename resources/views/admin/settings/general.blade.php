@@ -54,13 +54,13 @@
                         @csrf
                         <div class="mb-3">
                             <label for="site_logo">Logo</label>
-                            <input class="form-control" type="file" id="site_logo" name="site_logo">
-                            <img src="{{ asset(setting('site_logo')) }}" class="img-fluid d-block">
+                            <input class="form-control" type="file" id="site_logo" name="site_logo" accept="image/*">
+                            <img src="{{ asset('storage/images/' . setting('site_logo')) }}" width="200px" class="mt-2 img-fluid d-block">
                         </div>
                         <div class="mb-3">
                             <label for="site_favicon">Favicon</label>
-                            <input class="form-control" type="file" id="site_favicon" name="site_favicon">
-                            <img src="{{ asset(setting('site_favicon')) }}" class="img-fluid d-block">
+                            <input class="form-control" type="file" id="site_favicon" name="site_favicon" accept="image/*">
+                            <img src="{{ asset('storage/images/' . setting('site_favicon')) }}" width="50px" class="mt-2 img-fluid d-block">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>

@@ -9,6 +9,7 @@
     <meta name="keywords" content="{{ setting('site_keywords') }}">
     <meta name="author" content="{{ setting('site_author') }}">
     <meta name="robots" content="index, follow">
+    <link rel="shortcut icon" href="{{ asset('storage/images/' . setting('site_favicon')) }}" type="image/x-icon">
     @include('layouts.css')
 </head>
 <body>

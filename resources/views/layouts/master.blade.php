@@ -8,6 +8,7 @@
     <meta name="description" content="{{ setting('site_description') }}">
     <meta name="keywords" content="{{ setting('site_keywords') }}">
     <meta name="author" content="{{ setting('site_author', 'Ngô Quốc Đạt') }}">
+    <link rel="shortcut icon" href="{{ asset('storage/images/' . setting('site_favicon')) }}" type="image/x-icon">
     @include('layouts.css')
 </head>
 <body>
