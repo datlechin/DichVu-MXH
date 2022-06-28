@@ -35,7 +35,7 @@ class PackageRequest extends FormRequest
             'status' => [
                 'nullable',
                 Rule::in([Package::ACTIVE, Package::INACTIVE]),
-            ]
+            ],
         ];
     }
 }

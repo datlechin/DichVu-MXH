@@ -38,7 +38,7 @@ class CreateTicketRequest extends FormRequest
                 Rule::in([Ticket::PRIORITY_LOW, Ticket::PRIORITY_MEDIUM, Ticket::PRIORITY_HIGH]),
             ],
             'title' => 'required|string|min:5,max:255',
-            'content' => 'required|string|min:10'
+            'content' => 'required|string|min:10',
         ];
     }
 }

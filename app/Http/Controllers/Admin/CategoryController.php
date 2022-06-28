@@ -28,7 +28,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return RedirectResponse
      */
     public function store(CategoryRequest $request)
@@ -41,7 +41,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Category $category
+     * @param  Category  $category
      * @return Renderable
      */
     public function edit(Category $category)
@@ -52,8 +52,8 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param CategoryRequest $request
-     * @param Category $category
+     * @param  CategoryRequest  $request
+     * @param  Category  $category
      * @return RedirectResponse
      */
     public function update(CategoryRequest $request, Category $category)
@@ -66,7 +66,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return Response
      */
     public function destroy($id)

@@ -34,7 +34,7 @@ class ServiceController extends Controller
             return back()->withErrors('Số dư của bạn không đủ để thực hiện giao dịch');
         }
 
-        DB::transaction(function () use ($request, $service, $user, $total) {
+        DB::transaction(function () use ($request , $user, $total) {
             $order = Order::create([
                 'user_id' => $user->id,
                 'total' => $total,
@@ -47,11 +47,11 @@ class ServiceController extends Controller
                 'type' => Transaction::ORDER,
                 'amount' => $total,
                 'balance' => $user->balance,
-                'description' => 'Đặt đơn dịch vụ #' . $order->id,
+                'description' => 'Đặt đơn dịch vụ #'.$order->id,
             ]);
         });
 
-        return back()->with('success', 'Tạo đơn ' . $service->name . ' với số lượng ' . number_format($request->quantity) . ' thành công');
+        return back()->with('success', 'Tạo đơn '.$service->name.' với số lượng '.number_format($request->quantity).' thành công');
     }
 
     public function getPackagePrice(Request $request)

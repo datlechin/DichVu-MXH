@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -44,7 +43,7 @@ class SettingSeeder extends Seeder
             ['key' => 'charge_provider', 'value' => 'TSR'],
             ['key' => 'charge_api_id', 'value' => '99999999'],
             ['key' => 'charge_api_key', 'value' => '...'],
-            ['key' => 'charge_note', 'value' => 'Ghi chú nạp thẻ cào']
+            ['key' => 'charge_note', 'value' => 'Ghi chú nạp thẻ cào'],
         ]);
     }
 }

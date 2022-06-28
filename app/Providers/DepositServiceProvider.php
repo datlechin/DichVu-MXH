@@ -15,7 +15,7 @@ class DepositServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind('deposit', function ($app) {
-            return New Deposit();
+            return new Deposit();
         });
     }
 

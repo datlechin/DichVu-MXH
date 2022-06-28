@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,8 +11,11 @@ class Transaction extends Model
     use HasFactory;
 
     const DEPOSIT = '1';
+
     const ORDER = '2';
+
     const ADD_MONEY = '3';
+
     const SUB_MONEY = '4';
 
     protected $fillable = ['user_id', 'amount', 'type', 'balance', 'description'];
@@ -37,8 +39,8 @@ class Transaction extends Model
     public function getAmountWithColorAttribute()
     {
         return match ($this->attributes['type']) {
-            Transaction::DEPOSIT, Transaction::ADD_MONEY => '<span class="text-success">+' . number_format($this->amount) . 'đ</span>',
-            Transaction::ORDER, Transaction::SUB_MONEY => '<span class="text-danger">-' . number_format($this->amount) . 'đ</span>',
+            Transaction::DEPOSIT, Transaction::ADD_MONEY => '<span class="text-success">+'.number_format($this->amount).'đ</span>',
+            Transaction::ORDER, Transaction::SUB_MONEY => '<span class="text-danger">-'.number_format($this->amount).'đ</span>',
             default => $this->attributes['amount'],
         };
     }

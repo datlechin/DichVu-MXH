@@ -28,7 +28,7 @@ class DepositController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Deposit $deposit
+     * @param  Deposit  $deposit
      * @return Renderable
      */
     public function edit(Deposit $deposit)
@@ -39,8 +39,8 @@ class DepositController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param Deposit $deposit
+     * @param  Request  $request
+     * @param  Deposit  $deposit
      * @return RedirectResponse
      */
     public function update(Request $request, Deposit $deposit)
@@ -51,7 +51,7 @@ class DepositController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Deposit $deposit
+     * @param  Deposit  $deposit
      * @return Response
      */
     public function destroy(Deposit $deposit)

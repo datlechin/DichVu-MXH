@@ -12,10 +12,13 @@ class Ticket extends Model
     use HasFactory, SoftDeletes;
 
     const PRIORITY_LOW = 1;
+
     const PRIORITY_MEDIUM = 2;
+
     const PRIORITY_HIGH = 3;
 
     const STATUS_OPEN = 1;
+
     const STATUS_CLOSED = 2;
 
     protected $fillable = ['user_id', 'category_id', 'title', 'content', 'priority', 'status'];
@@ -40,4 +43,3 @@ class Ticket extends Model
         return $this->belongsTo(User::class);
     }
 }
-

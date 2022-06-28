@@ -27,12 +27,12 @@ class UpdateUserRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3|max:100',
-            'email' => 'required|email|unique:users,email,' . $this->user->id,
-            'phone' => 'required|numeric|starts_with:0|digits:10,unique:users,phone,' . $this->user->id,
+            'email' => 'required|email|unique:users,email,'.$this->user->id,
+            'phone' => 'required|numeric|starts_with:0|digits:10,unique:users,phone,'.$this->user->id,
             'role' => [
                 'required',
                 Rule::in([User::MEMBER, User::ADMIN]),
-            ]
+            ],
         ];
     }
 }

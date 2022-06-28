@@ -11,6 +11,7 @@ class Package extends Model
     use HasFactory;
 
     const ACTIVE = '1';
+
     const INACTIVE = '0';
 
     protected $fillable = ['service_id', 'name', 'price', 'min_quantity', 'max_quantity', 'note', 'status'];

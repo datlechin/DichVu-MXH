@@ -35,7 +35,7 @@ class DepositController extends Controller
                 'type' => Deposit::CHARGE,
                 'amount' => $request->amount,
                 'status' => Deposit::PENDING,
-                'description' => 'Thẻ ' . Str::ucfirst($request->telco) . ' ' . number_format($request->amount) . 'đ'
+                'description' => 'Thẻ '.Str::ucfirst($request->telco).' '.number_format($request->amount).'đ',
             ]);
 
             $request_id = Str::random(10);
@@ -74,33 +74,37 @@ class DepositController extends Controller
         $user = $request->user();
 
         $request->validate([
-            'amount' => 'required|numeric|min:' . setting('tsr_deposit_limit'),
-            'code' => 'required|string'
+            'amount' => 'required|numeric|min:'.setting('tsr_deposit_limit'),
+            'code' => 'required|string',
         ], [], [
             'amount' => 'số tiền',
-            'code' => 'mã giao dịch'
+            'code' => 'mã giao dịch',
         ]);
 
-        $description = setting('tsr_deposit_description') . ' ' . $user->id;
+        $description = setting('tsr_deposit_description').' '.$user->id;
 
         $tsr = new \App\Deposit();
         $transaction = $tsr->findTransaction($request->code, $request->amount, '8059054');
 
-        if (is_null($transaction)) return back()->withErrors(['code' => 'Mã giao dịch không tồn tại']);
+        if (is_null($transaction)) {
+            return back()->withErrors(['code' => 'Mã giao dịch không tồn tại']);
+        }
 
         $thesieure = Thesieure::query()->where('code', $transaction->id);
 
-        if ($thesieure->exists()) return back()->withErrors(['code' => 'Mã giao dịch này đã được nạp trước đó']);
+        if ($thesieure->exists()) {
+            return back()->withErrors(['code' => 'Mã giao dịch này đã được nạp trước đó']);
+        }
 
         DB::transaction(function () use ($transaction, $user) {
-            $description = 'Nạp ' . number_format($transaction->amount) . 'đ mã giao dịch #' . $transaction->id . ' từ Deposit.com';
+            $description = 'Nạp '.number_format($transaction->amount).'đ mã giao dịch #'.$transaction->id.' từ Deposit.com';
 
             $deposit = Deposit::create([
                 'user_id' => $user->id,
                 'type' => Deposit::THESIEURE,
                 'amount' => $transaction->amount,
                 'status' => Deposit::SUCCESS,
-                'description' => $description
+                'description' => $description,
             ]);
 
             Thesieure::create([
@@ -108,7 +112,7 @@ class DepositController extends Controller
                 'code' => $transaction->id,
                 'amount' => $transaction->amount,
                 'description' => $transaction->description,
-                'date' => $transaction->date
+                'date' => $transaction->date,
             ]);
 
             $user->update(['balance' => $user->balance + $transaction->amount]);
@@ -117,10 +121,10 @@ class DepositController extends Controller
                 'type' => Transaction::DEPOSIT,
                 'amount' => $transaction->amount,
                 'balance' => $user->balance,
-                'description' => $description
+                'description' => $description,
             ]);
         });
 
-        return to_route('deposit.thesieure')->with('success', 'Nạp thành công ' . number_format($request->amount) . 'đ từ Deposit.com');
+        return to_route('deposit.thesieure')->with('success', 'Nạp thành công '.number_format($request->amount).'đ từ Deposit.com');
     }
 }

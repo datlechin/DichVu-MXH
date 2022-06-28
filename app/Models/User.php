@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -17,6 +16,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable, AuthenticationLoggable;
 
     const MEMBER = 'member';
+
     const ADMIN = 'admin';
 
     /**
@@ -30,7 +30,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'avatar',
-        'balance'
+        'balance',
     ];
 
     /**
@@ -50,7 +50,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-//        'role' => UserRole::class,
+        //        'role' => UserRole::class,
     ];
 
     protected function roleName(): Attribute
@@ -67,7 +67,7 @@ class User extends Authenticatable
     protected function avatar(): Attribute
     {
         return Attribute::make(
-            get: fn($avatar) => asset($avatar ? 'storage/avatars/' . $avatar : 'assets/images/users/user-dummy-img.jpg')
+            get: fn ($avatar) => asset($avatar ? 'storage/avatars/'.$avatar : 'assets/images/users/user-dummy-img.jpg')
         );
     }
 

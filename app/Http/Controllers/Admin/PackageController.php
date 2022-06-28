@@ -8,7 +8,6 @@ use App\Models\Category;
 use App\Models\Package;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class PackageController extends Controller
@@ -32,7 +31,7 @@ class PackageController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param PackageRequest $request
+     * @param  PackageRequest  $request
      * @return RedirectResponse
      */
     public function store(PackageRequest $request)
@@ -45,7 +44,7 @@ class PackageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Package $package
+     * @param  Package  $package
      * @return Renderable
      */
     public function edit(Package $package)
@@ -58,8 +57,8 @@ class PackageController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param PackageRequest $request
-     * @param Package $package
+     * @param  PackageRequest  $request
+     * @param  Package  $package
      * @return RedirectResponse
      */
     public function update(PackageRequest $request, Package $package)
@@ -72,7 +71,7 @@ class PackageController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Package $package
+     * @param  Package  $package
      * @return Response
      */
     public function destroy(Package $package)

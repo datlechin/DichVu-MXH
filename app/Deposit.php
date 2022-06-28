@@ -8,7 +8,9 @@ use voku\helper\HtmlDomParser;
 class Deposit
 {
     private $cookie;
+
     private $dom;
+
     public array $transactions;
 
     public function __construct()

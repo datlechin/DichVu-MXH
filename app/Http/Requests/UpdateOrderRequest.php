@@ -29,7 +29,7 @@ class UpdateOrderRequest extends FormRequest
             'status' => [
                 'required',
                 Rule::in([Order::PENDING, Order::PROCESSING, Order::COMPLETED, Order::CANCELLED]),
-            ]
+            ],
         ];
     }
 }

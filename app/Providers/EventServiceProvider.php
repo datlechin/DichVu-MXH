@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Models\Order;
-use App\Models\User;
 use App\Observers\OrderObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;

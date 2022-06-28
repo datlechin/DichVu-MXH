@@ -18,7 +18,9 @@ class Localization
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!Session::has('lang')) Session::put('lang', 'vi');
+        if (! Session::has('lang')) {
+            Session::put('lang', 'vi');
+        }
         App::setLocale(Session::get('lang'));
 
         return $next($request);

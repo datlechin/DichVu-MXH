@@ -17,7 +17,7 @@ class CategoryComposer
     /**
      * Create a new category composer.
      *
-     * @param Category $category
+     * @param  Category  $category
      * @return void
      */
     public function __construct(Category $category)
@@ -26,7 +26,7 @@ class CategoryComposer
             ->query()
             ->where('type', Category::SERVICE_TYPE)
             ->with('services', function ($query) {
-            $query->active();
+                $query->active();
             })
             ->active()
             ->get();
@@ -35,7 +35,7 @@ class CategoryComposer
     /**
      * Bind data to the view.
      *
-     * @param View $view
+     * @param  View  $view
      * @return void
      */
     public function compose(View $view)

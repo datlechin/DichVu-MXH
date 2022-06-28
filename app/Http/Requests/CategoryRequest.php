@@ -28,14 +28,14 @@ class CategoryRequest extends FormRequest
         return [
             'type' => [
                 'required',
-                Rule::in([Category::SERVICE_TYPE, Category::TICKET_TYPE])
+                Rule::in([Category::SERVICE_TYPE, Category::TICKET_TYPE]),
             ],
             'icon' => 'nullable|string|min:4|max:50',
-            'name' => 'required|string|min:3|max:50|unique:categories,name,' . optional($this->category)->id,
+            'name' => 'required|string|min:3|max:50|unique:categories,name,'.optional($this->category)->id,
             'status' => [
                 'nullable',
                 Rule::in([Category::ACTIVE, Category::INACTIVE]),
-            ]
+            ],
         ];
     }
 }

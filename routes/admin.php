@@ -1,17 +1,15 @@
 <?php
 
-use App\Http\Controllers\Admin\{
-    CategoryController,
-    DepositController,
-    MoneyController,
-    OrderController,
-    PackageController,
-    ServiceController,
-    SettingController,
-    TicketController,
-    TransactionController,
-    UserController
-};
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DepositController;
+use App\Http\Controllers\Admin\MoneyController;
+use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TicketController;
+use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => 'admin', 'as' => 'admin.'], function () {

@@ -31,7 +31,7 @@ class StoreOrderRequest extends FormRequest
         return [
             'input' => 'required|string|max:200',
             'package_id' => 'required|exists:packages,id',
-            'quantity' => 'required|integer|min:' . $min_quantity . '|max:' . $max_quantity,
+            'quantity' => 'required|integer|min:'.$min_quantity.'|max:'.$max_quantity,
             'note' => 'nullable|string|max:500',
         ];
     }

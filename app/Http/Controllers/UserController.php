@@ -40,14 +40,14 @@ class UserController extends Controller
         $user = $request->user();
 
         $avatar = $request->file('avatar');
-        $filename = 'user_' . $user->id . '.' . $avatar->getClientOriginalExtension();
+        $filename = 'user_'.$user->id.'.'.$avatar->getClientOriginalExtension();
         $image = Image::make($avatar)->resize(200, 200);
 
-        if (!file_exists(public_path('/storage/avatars'))) {
+        if (! file_exists(public_path('/storage/avatars'))) {
             mkdir(public_path('/storage/avatars'), 0777, true);
         }
 
-        $image->save(public_path('storage/avatars/' . $filename));
+        $image->save(public_path('storage/avatars/'.$filename));
 
         $user->update(['avatar' => $filename]);
 
@@ -68,7 +68,7 @@ class UserController extends Controller
             'password' => 'required|string|min:6|confirmed|different:old_password',
         ]);
 
-        if (!Hash::check($request->old_password, $user->password)) {
+        if (! Hash::check($request->old_password, $user->password)) {
             return back()->withErrors(['old_password' => 'Mật khẩu cũ không đúng.']);
         }
 

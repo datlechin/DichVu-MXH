@@ -12,6 +12,7 @@ class Service extends Model
     use HasFactory;
 
     const ACTIVE = '1';
+
     const INACTIVE = '0';
 
     protected $fillable = ['category_id', 'name', 'slug', 'label', 'placeholder', 'description', 'status'];

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateOrderRequest;
 use App\Models\Order;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
@@ -32,6 +31,7 @@ class OrderController extends Controller
                 $user->update(['balance' => $user->balance + $order->total]);
             }
         });
+
         return to_route('admin.orders.index')->with('success', 'Cập nhật đơn hàng thành công');
     }
 }

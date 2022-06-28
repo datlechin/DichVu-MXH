@@ -7,7 +7,7 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbsTrait;
 use Illuminate\Support\Facades\Route;
 
 Breadcrumbs::for('home', function (BreadcrumbsTrait $trail) {
-    if (!Route::is('home')) {
+    if (! Route::is('home')) {
         $trail->push('Trang chủ', route('home'));
     }
 });

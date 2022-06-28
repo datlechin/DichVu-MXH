@@ -43,7 +43,7 @@ return [
     |
     */
 
-    'debug' => (bool)env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -216,7 +216,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         'Image' => Image::class,
-        'Setting' => \anlutro\LaravelSettings\Facade::class
+        'Setting' => \anlutro\LaravelSettings\Facade::class,
     ])->toArray(),
 
 ];

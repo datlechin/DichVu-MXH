@@ -8,7 +8,6 @@ use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
@@ -27,7 +26,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param User $user
+     * @param  User  $user
      * @return Renderable
      */
     public function edit(User $user)
@@ -38,14 +37,14 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
-     * @param User $user
+     * @param  Request  $request
+     * @param  User  $user
      * @return RedirectResponse
      */
     public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->validated());
-        
+
         return to_route('admin.users.index')->with('success', 'Cập nhật thông tin người dùng thành công');
     }
 }

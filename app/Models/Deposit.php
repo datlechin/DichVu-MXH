@@ -17,14 +17,18 @@ class Deposit extends Model
      * Deposit statuses.
      */
     const PENDING = 0;
+
     const SUCCESS = 1;
+
     const FAILED = 2;
+
     const WRONG_AMOUNT = 3;
 
     /**
      * Deposit types
      */
     const CHARGE = '1';
+
     const THESIEURE = '2';
 
     protected $fillable = ['user_id', 'type', 'amount', 'status', 'description'];
@@ -46,14 +50,18 @@ class Deposit extends Model
 
     public function scopeDate(Builder $query, ?string $date): Builder
     {
-        if ($date) return $query->whereDate('created_at', $date);
+        if ($date) {
+            return $query->whereDate('created_at', $date);
+        }
 
         return $query;
     }
 
     public function scopeStatus(Builder $query, ?int $status): Builder
     {
-        if ($status) return $query->where('status', $status);
+        if ($status) {
+            return $query->where('status', $status);
+        }
 
         return $query;
     }

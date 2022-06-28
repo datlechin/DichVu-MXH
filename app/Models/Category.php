@@ -11,9 +11,11 @@ class Category extends Model
     use HasFactory;
 
     const ACTIVE = '1';
+
     const INACTIVE = '0';
 
     const SERVICE_TYPE = 'service';
+
     const TICKET_TYPE = 'ticket';
 
     protected $fillable = ['type', 'icon', 'name', 'slug', 'status'];

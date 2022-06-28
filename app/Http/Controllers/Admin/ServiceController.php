@@ -32,7 +32,7 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param ServiceRequest $request
+     * @param  ServiceRequest  $request
      * @return RedirectResponse
      */
     public function store(ServiceRequest $request)
@@ -45,7 +45,7 @@ class ServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Service $service
+     * @param  Service  $service
      * @return Renderable
      */
     public function edit(Service $service)
@@ -58,8 +58,8 @@ class ServiceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param ServiceRequest $request
-     * @param Service $service
+     * @param  ServiceRequest  $request
+     * @param  Service  $service
      * @return RedirectResponse
      */
     public function update(ServiceRequest $request, Service $service)
@@ -72,7 +72,7 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
+     * @param  int  $id
      * @return Response
      */
     public function destroy($id)

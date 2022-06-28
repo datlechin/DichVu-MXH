@@ -12,8 +12,11 @@ class Order extends Model
     use HasFactory, Notifiable;
 
     const PENDING = '0';
+
     const PROCESSING = '1';
+
     const COMPLETED = '2';
+
     const CANCELLED = '3';
 
     protected $fillable = ['user_id', 'package_id', 'input', 'quantity', 'total', 'note', 'status'];

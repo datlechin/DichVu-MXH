@@ -45,7 +45,7 @@ class ServiceRequest extends FormRequest
             'status' => [
                 'nullable',
                 Rule::in([Service::ACTIVE, Service::INACTIVE]),
-            ]
+            ],
         ];
     }
 }
