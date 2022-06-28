@@ -33,8 +33,9 @@ class SettingController extends Controller
 
         foreach ($request->file() as $key => $file) {
             if ($file) {
-                $file->storeAs('public/images', $file->hashName());
-                setting([$key => $file->hashName()])->save();
+                $fileName = $key.'.'.$file->getClientOriginalExtension();
+                $file->storeAs('public/images', $fileName);
+                setting([$key => $fileName])->save();
             }
         }
 
