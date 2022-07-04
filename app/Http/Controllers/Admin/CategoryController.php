@@ -69,8 +69,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return to_route('admin.categories.index')->with('success', 'Xóa danh mục thành công');
     }
 }

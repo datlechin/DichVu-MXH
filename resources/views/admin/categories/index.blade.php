@@ -48,10 +48,14 @@
                                                     <i class="ri-pencil-fill fs-16"></i>
                                                 </a>
                                             </li>
-                                            <li class="list-inline-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="" data-bs-original-title="Xoá">
-                                                <a class="text-danger d-inline-block remove-item-btn" data-bs-toggle="modal" href="#deleteOrder">
-                                                    <i class="ri-delete-bin-5-fill fs-16"></i>
-                                                </a>
+                                            <li class="list-inline-item">
+                                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="post" onsubmit="return confirm('Bạn có chắc chắn muốn xoá?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-danger btn d-inline-block">
+                                                        <i class="ri-delete-bin-5-fill fs-16"></i>
+                                                    </button>
+                                                </form>
                                             </li>
                                         </ul>
                                     </td>
