@@ -1,49 +1,45 @@
-let navbarMenuHTML = document.querySelector('.navbar-menu').innerHTML;
-document.getElementById("topnav-hamburger-icon").addEventListener('click', toggleHamburgerMenu);
-const backToTopButton = document.getElementById("back-to-top");
+const navbarMenuHTML = document.querySelector(".navbar-menu").innerHTML;
+const hamburgerIcon = document.querySelector("#topnav-hamburger-icon");
+const backToTopButton = document.querySelector("#back-to-top");
+const ckClassicEditor = document.querySelectorAll(".ckeditor-classic")
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function () {
-    scrollFunction();
-};
+// Toggle the menu
+function toggleMenu() {
+    const windowSize = document.documentElement.clientWidth;
 
-function scrollFunction() {
-    if (
-        document.body.scrollTop > 100 ||
-        document.documentElement.scrollTop > 100
-    ) {
-        backToTopButton.style.display = "block";
-    } else {
-        backToTopButton.style.display = "none";
+    if (windowSize > 767) {
+        document.querySelector(".hamburger-icon").classList.toggle('open');
+    }
+
+    if (windowSize < 1025 && windowSize > 767) {
+        document.body.classList.remove('vertical-sidebar-enable');
+        (document.documentElement.getAttribute('data-sidebar-size') === 'sm') ? document.documentElement.setAttribute('data-sidebar-size', ''): document.documentElement.setAttribute('data-sidebar-size', 'sm');
+    } else if (windowSize > 1025) {
+        document.body.classList.remove('vertical-sidebar-enable');
+        (document.documentElement.getAttribute('data-sidebar-size') === 'lg') ? document.documentElement.setAttribute('data-sidebar-size', 'sm'): document.documentElement.setAttribute('data-sidebar-size', 'lg');
+    } else if (windowSize <= 767) {
+        document.body.classList.add('vertical-sidebar-enable');
+        document.documentElement.setAttribute('data-sidebar-size', 'lg');
     }
 }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
+// Toggle the scroll to top button
+function toggleScrollToTopButton() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+}
+
+// Scroll to top
+function goToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
-function toggleHamburgerMenu() {
-    let windowSize = document.documentElement.clientWidth;
-
-    if(windowSize > 767) document.querySelector(".hamburger-icon").classList.toggle('open');
-
-    if (document.documentElement.getAttribute('data-layout') === "vertical") {
-        if (windowSize < 1025 && windowSize > 767) {
-            document.body.classList.remove('vertical-sidebar-enable');
-            (document.documentElement.getAttribute('data-sidebar-size') == 'sm') ? document.documentElement.setAttribute('data-sidebar-size', ''): document.documentElement.setAttribute('data-sidebar-size', 'sm');
-        } else if (windowSize > 1025) {
-            document.body.classList.remove('vertical-sidebar-enable');
-            (document.documentElement.getAttribute('data-sidebar-size') == 'lg') ? document.documentElement.setAttribute('data-sidebar-size', 'sm'): document.documentElement.setAttribute('data-sidebar-size', 'lg');
-        } else if (windowSize <= 767) {
-            document.body.classList.add('vertical-sidebar-enable');
-            document.documentElement.setAttribute('data-sidebar-size', 'lg');
-        }
-    }
-}
-
-function isLoadBodyElement() {
+// Check if the overlay is open and close it
+function closeOverlay() {
     let verticalOverlay = document.getElementsByClassName("vertical-overlay");
     if (verticalOverlay) {
         Array.from(verticalOverlay).forEach(function (element) {
@@ -55,31 +51,40 @@ function isLoadBodyElement() {
     }
 }
 
+// Init left menu collapse
 function initLeftMenuCollapse() {
-    /**
-     * Vertical layout menu scroll add
-     */
-    if (document.documentElement.getAttribute("data-layout") == 'vertical') {
-        document.getElementById('two-column-menu').innerHTML = '';
-        document.querySelector('.navbar-menu').innerHTML = navbarMenuHTML;
-
-        document.getElementById('scrollbar').setAttribute("data-simplebar", "");
-        document.getElementById('navbar-nav').setAttribute("data-simplebar", "");
-        document.getElementById('scrollbar').classList.add("h-100");
-    }
+    document.querySelector("#two-column-menu").innerHTML = '';
+    document.querySelector(".navbar-menu").innerHTML = navbarMenuHTML;
+    document.querySelector("#scrollbar").setAttribute("data-simplebar", '');
+    document.querySelector("#navbar-nav").setAttribute("data-simplebar", '');
+    document.querySelector("#scrollbar").classList.add("h-100");
 }
 
+// Init ckEditor
+function initCkEditor() {
+    ckClassicEditor.forEach(function () {
+        ClassicEditor
+            .create(document.querySelector('.ckeditor-classic'))
+            .then(function (editor) {
+                editor.ui.view.editable.element.style.height = '200px';
+            })
+            .catch(function (error) {
+                console.error(error);
+            });
+    });
+}
+
+// Counter up
 function counter() {
-    let counter = document.querySelectorAll('.counter-value');
-    let speed = 250; // The lower the slower
+    const counter = document.querySelectorAll('.counter-value');
+    const speed = 250; // The lower the slower
     counter && counter.forEach(function (counter_value) {
         function updateCount() {
-            let target = +counter_value.getAttribute('data-target');
-            let count = +counter_value.innerText;
+            const target = +counter_value.getAttribute('data-target');
+            const count = +counter_value.innerText;
             let inc = target / speed;
-            if (inc < 1) {
-                inc = 1;
-            }
+            if (inc < 1) inc = 1
+
             // Check if target is reached
             if (count < target) {
                 // Add inc to count and output in counter_value
@@ -90,7 +95,7 @@ function counter() {
                 counter_value.innerText = numberWithCommas(target);
             }
             numberWithCommas(counter_value.innerText);
-        };
+        }
         updateCount();
     });
 
@@ -99,22 +104,23 @@ function counter() {
     }
 }
 
+// Initialize the functions
 function init() {
-    isLoadBodyElement()
+    hamburgerIcon.addEventListener('click', toggleMenu);
+    backToTopButton.addEventListener('click', goToTop)
+
+    // Listen to scroll event
+    window.onscroll = function () {
+        toggleScrollToTopButton()
+    }
+
+    closeOverlay()
     initLeftMenuCollapse()
     counter()
+    initCkEditor()
 }
 
+// Initialize the app
 init();
 
-let ckClassicEditor = document.querySelectorAll(".ckeditor-classic")
-ckClassicEditor.forEach(function () {
-    ClassicEditor
-        .create(document.querySelector('.ckeditor-classic'))
-        .then(function (editor) {
-            editor.ui.view.editable.element.style.height = '200px';
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-});
+
