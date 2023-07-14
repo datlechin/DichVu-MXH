@@ -15,7 +15,7 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.25",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.51.0",
+        "sass": "^1.63.6",
         "sass-loader": "^12.1.0"
     },
     "dependencies": {
