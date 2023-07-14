@@ -27,7 +27,7 @@
         "flatpickr": "^4.6.13",
         "jquery": "^3.6.0",
         "node-waves": "^0.7.6",
-        "simplebar": "^5.3.6",
+        "simplebar": "^5.3.9",
         "sweetalert2": "^11.4.13",
         "toastify-js": "^1.11.2"
     }
