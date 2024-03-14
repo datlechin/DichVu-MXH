@@ -75,10 +75,10 @@ lodash(app_pages_assets).forEach(function(assets, type) {
 
 mix.copyDirectory("resources/fonts", "public/assets/fonts");
 mix.copyDirectory("resources/images", "public/assets/images");
-mix.sass("resources/sass/bootstrap.scss", "public/assets/css").minify("public/assets/css/bootstrap.css");
-mix.sass("resources/sass/icons.scss", "public/assets/css").options({ processCssUrls: false }).minify("public/assets/css/icons.css");
-mix.sass("resources/sass/app.scss", "public/assets/css").options({ processCssUrls: false }).minify("public/assets/css/app.css");
-mix.sass("resources/sass/custom.scss", "public/assets/css").options({ processCssUrls: false }).minify("public/assets/css/custom.css");
+mix.sass("resources/sass/bootstrap.scss", "public/assets/css");
+mix.sass("resources/sass/icons.scss", "public/assets/css").options({ processCssUrls: false });
+mix.sass("resources/sass/app.scss", "public/assets/css").options({ processCssUrls: false });
+mix.sass("resources/sass/custom.scss", "public/assets/css").options({ processCssUrls: false });
 
 mix.combine("resources/js/plugins.js", "public/assets/js/plugins.min.js");
 mix.combine("resources/js/layout.js", "public/assets/js/layout.js");

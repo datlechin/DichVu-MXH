@@ -61,7 +61,7 @@ $vertical-menu-title-color-dark:                var(--#{$variable-prefix}vertica
 //
 $horizontal-menu-box-shadow:                       0 2px 4px rgba(15,34,58,0.12);
 $horizontal-menu-dropdown-box-shadow:              0 0px 5px rgba(15,34,58,0.15);
-$horizontal-menu-dropdown-min-width:               12rem; 
+$horizontal-menu-dropdown-min-width:               12rem;
 $horizontal-menu-item-padding-x:                   1.5rem;
 $horizontal-menu-item-padding-y:                   0.75rem;
 
@@ -90,7 +90,7 @@ $header-item-color:                              var(--#{$variable-prefix}header
 
 // Topbar - Dark
 $header-bg-dark:                                 var(--#{$variable-prefix}header-bg-dark);
-$header-item-color-dark:                         var(--#{$variable-prefix}header-item-color-dark); 
+$header-item-color-dark:                         var(--#{$variable-prefix}header-item-color-dark);
 
 // Topbar Search
 $topbar-search-bg:                                var(--#{$variable-prefix}topbar-search-bg);
@@ -111,7 +111,7 @@ $topnav-bg:   var(--#{$variable-prefix}topnav-bg);
 $topnav-item-color:   var(--#{$variable-prefix}topnav-item-color);
 $topnav-item-color-active:   var(--#{$variable-prefix}topnav-item-color-active);
 
-// Brand 
+// Brand
 $navbar-brand-box-width: 240px;
 
 // Boxed layout width
@@ -133,7 +133,7 @@ $chat-secondary-color:  var(--#{$variable-prefix}white);
 
 
 // Timeline
-$timeline-color:   var(--#{$variable-prefix}card-bg);     
+$timeline-color:   var(--#{$variable-prefix}card-bg);
 
 // Variables
 //
@@ -544,7 +544,7 @@ $body-text-align:           null;
 // scss-docs-start utilities-colors
 $utilities-colors: $theme-colors-rgb;
 // scss-docs-end utilities-colors
-  
+
 // scss-docs-start utilities-text-colors
 $utilities-text: map-merge(
   $utilities-colors,
@@ -573,10 +573,10 @@ $utilities-bg-colors: map-loop($utilities-bg, rgba-css-var, "$key", "bg");
 //
 // Style anchor elements.
 
-$link-color:                              var(--#{$variable-prefix}link-color);
+//$link-color:                              var(--#{$variable-prefix}link-color);
 $link-decoration:                         underline;
 $link-shade-percentage:                   20%;
-$link-hover-color:                        var(--#{$variable-prefix}link-hover-color);
+//$link-hover-color:                        var(--#{$variable-prefix}link-hover-color);
 $link-hover-decoration:                   null;
 
 $stretched-link-pseudo-element:           after;

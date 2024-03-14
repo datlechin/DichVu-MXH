@@ -10,25 +10,25 @@
         "production": "mix --production"
     },
     "devDependencies": {
-        "axios": "^0.25",
-        "laravel-mix": "^6.0.6",
-        "lodash": "^4.17.19",
-        "postcss": "^8.4.31",
+        "axios": "^1.6.7",
+        "laravel-mix": "^6.0.49",
+        "lodash": "^4.17.21",
+        "postcss": "^8.4.35",
         "resolve-url-loader": "^5.0.0",
-        "sass": "^1.63.6",
-        "sass-loader": "^12.1.0"
+        "sass": "^1.72.0",
+        "sass-loader": "^12.6.0"
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^36.0.1",
         "autoprefixer": "10.4.5",
-        "bootstrap": "^5.3.0",
+        "bootstrap": "^5.3.3",
         "choices.js": "^10.2.0",
-        "feather-icons": "^4.29.0",
+        "feather-icons": "^4.29.1",
         "flatpickr": "^4.6.13",
-        "jquery": "^3.7.0",
+        "jquery": "^3.7.1",
         "node-waves": "^0.7.6",
         "simplebar": "^5.3.9",
-        "sweetalert2": "^11.7.16",
-        "toastify-js": "^1.11.2"
+        "sweetalert2": "^11.6.13",
+        "toastify-js": "^1.12.0"
     }
 }
